@@ -1,0 +1,78 @@
+baseURL: https://xybio.github.io
+title: 生信义博
+languageCode: zh-cn
+defaultContentLanguage: zh-cn
+
+# 基本参数
+params:
+  description: 专注生物信息学技术分享与交流的个人博客
+  author: xybio
+  
+  # 头部和导航
+  header:
+    logo:
+      title: 生信义博
+      text: 生信义博
+    nav:
+      primary: true
+    sticky: true
+    
+  # 页脚
+  footer:
+    legal: true
+    
+  # 社交媒体
+  social:
+    github: https://github.com/xybio
+    email: xybio@users.noreply.github.com
+
+# 语言配置
+languages:
+  zh-cn:
+    languageName: 中文
+    weight: 1
+
+# 菜单配置
+menu:
+  main:
+    - identifier: home
+      name: 首页
+      url: /
+      weight: 1
+    - identifier: posts
+      name: 文章
+      url: /posts/
+      weight: 2
+    - identifier: about
+      name: 关于
+      url: /about/
+      weight: 3
+
+# Markup配置
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    style: github
+    lineNos: true
+
+# 分类设置
+taxonomies:
+  category: categories
+  tag: tags
+
+# 构建设置
+build:
+  writeStats: true
+
+# 输出格式
+outputs:
+  home:
+    - HTML
+    - RSS
+  page:
+    - HTML
+  section:
+    - HTML
+    - RSS

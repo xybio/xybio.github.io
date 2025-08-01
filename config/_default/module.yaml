@@ -1,0 +1,10 @@
+imports:
+  # Theme 3
+  - path: github.com/hugolify/hugolify-theme-3
+  
+  # Core theme required
+  - path: github.com/hugolify/hugolify-theme
+  
+  # Content modules for blog functionality
+  - path: github.com/hugolify/hugolify-theme-posts-categories
+  - path: github.com/hugolify/hugolify-theme-posts
