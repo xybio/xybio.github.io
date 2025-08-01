@@ -1,11 +1,50 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>生信义博</title>
-    <link>http://localhost:1313/projects/</link>
-    <description>Recent content on 生信义博</description>
-    <generator>Hugo</generator>
-    <language>zh-cn</language>
-    <atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>项目展示 on 生信义博</title><link>https://xybio.github.io/projects/</link><description>Recent content in 项目展示 on 生信义博</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sun, 01 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xybio.github.io/projects/index.xml" rel="self" type="application/rss+xml"/><item><title>基因组变异检测流水线</title><link>https://xybio.github.io/projects/genome-variant-detection/</link><pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate><guid>https://xybio.github.io/projects/genome-variant-detection/</guid><description>&lt;h2 id="项目概述">项目概述&lt;/h2>
+&lt;p>开发了一套基于深度学习的基因组变异检测流水线，能够高精度识别SNP、InDel、CNV等多种类型的基因组变异。&lt;/p>
+&lt;h2 id="主要特点">主要特点&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>高精度检测&lt;/strong>：使用CNN+RNN混合模型，变异检测准确率达到99.5%&lt;/li>
+&lt;li>&lt;strong>多类型支持&lt;/strong>：支持SNP、InDel、CNV、SV等多种变异类型&lt;/li>
+&lt;li>&lt;strong>自动化流程&lt;/strong>：从原始测序数据到变异注释的全自动化处理&lt;/li>
+&lt;li>&lt;strong>高性能计算&lt;/strong>：支持GPU加速，大幅提升计算效率&lt;/li>
+&lt;/ul>
+&lt;h2 id="技术栈">技术栈&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>语言&lt;/strong>：Python, R, Bash&lt;/li>
+&lt;li>&lt;strong>框架&lt;/strong>：TensorFlow, Keras, Scikit-learn&lt;/li>
+&lt;li>&lt;strong>工具&lt;/strong>：BWA, GATK, VEP, SnpEff&lt;/li>
+&lt;li>&lt;strong>平台&lt;/strong>：Docker, Nextflow, SLURM&lt;/li>
+&lt;/ul>
+&lt;h2 id="应用场景">应用场景&lt;/h2>
+&lt;ul>
+&lt;li>临床基因检测&lt;/li>
+&lt;li>群体遗传学研究&lt;/li>
+&lt;li>癌症基因组分析&lt;/li>
+&lt;li>药物基因组学&lt;/li>
+&lt;/ul>
+&lt;h2 id="代码仓库">代码仓库&lt;/h2>
+&lt;p>&lt;a href="https://github.com/xybio/genome-variant-pipeline">GitHub Repository&lt;/a>&lt;/p></description></item><item><title>单细胞RNA测序分析平台</title><link>https://xybio.github.io/projects/scrna-analysis-platform/</link><pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate><guid>https://xybio.github.io/projects/scrna-analysis-platform/</guid><description>&lt;h2 id="项目概述">项目概述&lt;/h2>
+&lt;p>构建了一个集成化的单细胞RNA测序数据分析平台，提供从质量控制到高级分析的全套解决方案。&lt;/p>
+&lt;h2 id="核心功能">核心功能&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>数据预处理&lt;/strong>：自动化质量控制和标准化&lt;/li>
+&lt;li>&lt;strong>细胞聚类&lt;/strong>：基于图聚类的细胞类型识别&lt;/li>
+&lt;li>&lt;strong>差异表达&lt;/strong>：多组间差异基因分析&lt;/li>
+&lt;li>&lt;strong>轨迹分析&lt;/strong>：细胞发育轨迹推断&lt;/li>
+&lt;li>&lt;strong>功能富集&lt;/strong>：GO/KEGG通路富集分析&lt;/li>
+&lt;/ul>
+&lt;h2 id="技术亮点">技术亮点&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>交互式界面&lt;/strong>：基于Shiny的Web界面&lt;/li>
+&lt;li>&lt;strong>高性能计算&lt;/strong>：支持大规模数据并行处理&lt;/li>
+&lt;li>&lt;strong>多种算法&lt;/strong>：集成Seurat、Scanpy、Monocle等&lt;/li>
+&lt;li>&lt;strong>可视化丰富&lt;/strong>：多种图表类型和交互功能&lt;/li>
+&lt;/ul>
+&lt;h2 id="适用数据">适用数据&lt;/h2>
+&lt;ul>
+&lt;li>10X Genomics&lt;/li>
+&lt;li>Smart-seq2&lt;/li>
+&lt;li>Drop-seq&lt;/li>
+&lt;li>其他单细胞平台&lt;/li>
+&lt;/ul>
+&lt;h2 id="在线演示">在线演示&lt;/h2>
+&lt;p>&lt;a href="https://scrna.xybio.io">Demo Platform&lt;/a>&lt;/p></description></item></channel></rss>

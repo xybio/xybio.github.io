@@ -2,7 +2,6 @@
 title: "李晓明"
 description: "转录组学专家，专注单细胞测序和表观遗传学研究"
 expertises: ["转录组学", "单细胞分析", "表观遗传学"]
-image: uploads/photos/avatars/person2.jpg
 weight: 2
 featured: true
 ---

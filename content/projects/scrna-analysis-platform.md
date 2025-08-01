@@ -2,7 +2,6 @@
 title: "单细胞RNA测序分析平台"
 date: 2024-11-15
 description: "集成化的单细胞转录组数据分析平台，支持细胞类型注释、轨迹分析等功能"
-image: uploads/photos/lego.jpg
 types: ["平台开发"]
 tags: ["单细胞", "转录组", "数据分析", "可视化"]
 weight: 2

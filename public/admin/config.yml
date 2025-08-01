@@ -2,7 +2,7 @@ backend:
   branch: main
   name: git-gateway
 
-display_url: "http://localhost:1313/"
+display_url: "https://xybio.github.io/"
 
 local_backend: true
 locale: zh-cn

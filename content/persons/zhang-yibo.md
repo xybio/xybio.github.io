@@ -2,7 +2,6 @@
 title: "张义博"
 description: "资深生物信息学专家，专注基因组学和计算生物学研究"
 expertises: ["基因组学", "计算生物学", "机器学习"]
-image: uploads/photos/avatars/person1.jpg
 weight: 1
 featured: true
 ---

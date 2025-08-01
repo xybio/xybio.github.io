@@ -1,7 +1,6 @@
 ---
 title: "转录组数据分析"
 description: "RNA-seq、单细胞测序等转录组数据的专业分析服务"
-image: uploads/photos/07.jpg
 weight: 2
 featured: true
 ---

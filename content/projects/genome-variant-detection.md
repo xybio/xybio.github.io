@@ -2,7 +2,6 @@
 title: "基因组变异检测流水线"
 date: 2024-12-01
 description: "基于深度学习的高精度基因组变异检测算法和自动化分析流水线"
-image: uploads/photos/bricks.jpg
 types: ["算法开发"]
 tags: ["基因组学", "变异检测", "深度学习", "流水线"]
 weight: 1

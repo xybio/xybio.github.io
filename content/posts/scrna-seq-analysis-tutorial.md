@@ -5,7 +5,6 @@ categories: ["数据分析"]
 tags: ["单细胞", "转录组", "R", "Seurat"]
 author: "张义博"
 description: "从原始数据到细胞类型注释的完整单细胞RNA测序分析教程"
-image: uploads/photos/bricks2.jpg
 featured: true
 ---
 

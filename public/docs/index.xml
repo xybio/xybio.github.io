@@ -1,11 +1,375 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Docs on 生信义博</title>
-    <link>http://localhost:1313/docs/</link>
-    <description>Recent content in Docs on 生信义博</description>
-    <generator>Hugo</generator>
-    <language>zh-cn</language>
-    <atom:link href="http://localhost:1313/docs/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>文档教程 on 生信义博</title><link>https://xybio.github.io/docs/</link><description>Recent content in 文档教程 on 生信义博</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sun, 01 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xybio.github.io/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Python生物信息学入门教程</title><link>https://xybio.github.io/docs/python-bioinformatics-tutorial/</link><pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate><guid>https://xybio.github.io/docs/python-bioinformatics-tutorial/</guid><description>&lt;h1 id="python生物信息学入门教程">Python生物信息学入门教程&lt;/h1>
+&lt;h2 id="第一章python基础">第一章：Python基础&lt;/h2>
+&lt;h3 id="11-环境配置">1.1 环境配置&lt;/h3>
+&lt;div class="highlight">&lt;div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#57606a"># 安装Anaconda&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>wget https://repo.anaconda.com/archive/Anaconda3-latest-Linux-x86_64.sh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bash Anaconda3-latest-Linux-x86_64.sh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#57606a"># 创建生物信息学环境&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>conda create -n bioinfo &lt;span style="color:#953800">python&lt;/span>&lt;span style="color:#0550ae">=&lt;/span>3.9
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>conda activate bioinfo
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="12-必要库安装">1.2 必要库安装&lt;/h3>
+&lt;div class="highlight">&lt;div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#57606a"># 核心科学计算库&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>conda install numpy pandas matplotlib seaborn scipy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#57606a"># 生物信息学专用库&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>conda install -c bioconda biopython pysam bcftools samtools
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#57606a"># 机器学习库&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>conda install scikit-learn
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="第二章生物序列处理">第二章：生物序列处理&lt;/h2>
+&lt;h3 id="21-使用biopython处理fasta文件">2.1 使用Biopython处理FASTA文件&lt;/h3>
+&lt;div class="highlight">&lt;div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#cf222e">from&lt;/span> &lt;span style="color:#24292e">Bio&lt;/span> &lt;span style="color:#cf222e">import&lt;/span> SeqIO
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#cf222e">import&lt;/span> &lt;span style="color:#24292e">pandas&lt;/span> &lt;span style="color:#cf222e">as&lt;/span> &lt;span style="color:#24292e">pd&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#57606a"># 读取FASTA文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sequences &lt;span style="color:#0550ae">=&lt;/span> &lt;span style="color:#1f2328">[]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#cf222e">for&lt;/span> record &lt;span style="color:#0550ae">in&lt;/span> SeqIO&lt;span style="color:#0550ae">.&lt;/span>parse&lt;span style="color:#1f2328">(&lt;/span>&lt;span style="color:#0a3069">&amp;#34;genome.fasta&amp;#34;&lt;/span>&lt;span style="color:#1f2328">,&lt;/span> &lt;span style="color:#0a3069">&amp;#34;fasta&amp;#34;&lt;/span>&lt;span style="color:#1f2328">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sequences&lt;span style="color:#0550ae">.&lt;/span>append&lt;span style="color:#1f2328">({&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0a3069">&amp;#39;id&amp;#39;&lt;/span>&lt;span style="color:#1f2328">:&lt;/span> record&lt;span style="color:#0550ae">.&lt;/span>id&lt;span style="color:#1f2328">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0a3069">&amp;#39;length&amp;#39;&lt;/span>&lt;span style="color:#1f2328">:&lt;/span> &lt;span style="color:#6639ba">len&lt;/span>&lt;span style="color:#1f2328">(&lt;/span>record&lt;span style="color:#0550ae">.&lt;/span>seq&lt;span style="color:#1f2328">),&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0a3069">&amp;#39;gc_content&amp;#39;&lt;/span>&lt;span style="color:#1f2328">:&lt;/span> &lt;span style="color:#1f2328">(&lt;/span>record&lt;span style="color:#0550ae">.&lt;/span>seq&lt;span style="color:#0550ae">.&lt;/span>count&lt;span style="color:#1f2328">(&lt;/span>&lt;span style="color:#0a3069">&amp;#39;G&amp;#39;&lt;/span>&lt;span style="color:#1f2328">)&lt;/span> &lt;span style="color:#0550ae">+&lt;/span> record&lt;span style="color:#0550ae">.&lt;/span>seq&lt;span style="color:#0550ae">.&lt;/span>count&lt;span style="color:#1f2328">(&lt;/span>&lt;span style="color:#0a3069">&amp;#39;C&amp;#39;&lt;/span>&lt;span style="color:#1f2328">))&lt;/span> &lt;span style="color:#0550ae">/&lt;/span> &lt;span style="color:#6639ba">len&lt;/span>&lt;span style="color:#1f2328">(&lt;/span>record&lt;span style="color:#0550ae">.&lt;/span>seq&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#1f2328">})&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#57606a"># 创建DataFrame&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>df &lt;span style="color:#0550ae">=&lt;/span> pd&lt;span style="color:#0550ae">.&lt;/span>DataFrame&lt;span style="color:#1f2328">(&lt;/span>sequences&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#6639ba">print&lt;/span>&lt;span style="color:#1f2328">(&lt;/span>df&lt;span style="color:#0550ae">.&lt;/span>head&lt;span style="color:#1f2328">())&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="22-序列质量分析">2.2 序列质量分析&lt;/h3>
+&lt;div class="highlight">&lt;div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#cf222e">def&lt;/span> &lt;span style="color:#6639ba">analyze_sequence_quality&lt;/span>&lt;span style="color:#1f2328">(&lt;/span>fastq_file&lt;span style="color:#1f2328">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0a3069">&amp;#34;&amp;#34;&amp;#34;分析FASTQ文件的序列质量&amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#cf222e">from&lt;/span> &lt;span style="color:#24292e">Bio&lt;/span> &lt;span style="color:#cf222e">import&lt;/span> SeqIO
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#cf222e">import&lt;/span> &lt;span style="color:#24292e">numpy&lt;/span> &lt;span style="color:#cf222e">as&lt;/span> &lt;span style="color:#24292e">np&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> qualities &lt;span style="color:#0550ae">=&lt;/span> &lt;span style="color:#1f2328">[]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> lengths &lt;span style="color:#0550ae">=&lt;/span> &lt;span style="color:#1f2328">[]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#cf222e">for&lt;/span> record &lt;span style="color:#0550ae">in&lt;/span> SeqIO&lt;span style="color:#0550ae">.&lt;/span>parse&lt;span style="color:#1f2328">(&lt;/span>fastq_file&lt;span style="color:#1f2328">,&lt;/span> &lt;span style="color:#0a3069">&amp;#34;fastq&amp;#34;&lt;/span>&lt;span style="color:#1f2328">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> qualities&lt;span style="color:#0550ae">.&lt;/span>extend&lt;span style="color:#1f2328">(&lt;/span>record&lt;span style="color:#0550ae">.&lt;/span>letter_annotations&lt;span style="color:#1f2328">[&lt;/span>&lt;span style="color:#0a3069">&amp;#34;phred_quality&amp;#34;&lt;/span>&lt;span style="color:#1f2328">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> lengths&lt;span style="color:#0550ae">.&lt;/span>append&lt;span style="color:#1f2328">(&lt;/span>&lt;span style="color:#6639ba">len&lt;/span>&lt;span style="color:#1f2328">(&lt;/span>record&lt;span style="color:#0550ae">.&lt;/span>seq&lt;span style="color:#1f2328">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#cf222e">return&lt;/span> &lt;span style="color:#1f2328">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0a3069">&amp;#39;mean_quality&amp;#39;&lt;/span>&lt;span style="color:#1f2328">:&lt;/span> np&lt;span style="color:#0550ae">.&lt;/span>mean&lt;span style="color:#1f2328">(&lt;/span>qualities&lt;span style="color:#1f2328">),&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0a3069">&amp;#39;mean_length&amp;#39;&lt;/span>&lt;span style="color:#1f2328">:&lt;/span> np&lt;span style="color:#0550ae">.&lt;/span>mean&lt;span style="color:#1f2328">(&lt;/span>lengths&lt;span style="color:#1f2328">),&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0a3069">&amp;#39;total_reads&amp;#39;&lt;/span>&lt;span style="color:#1f2328">:&lt;/span> &lt;span style="color:#6639ba">len&lt;/span>&lt;span style="color:#1f2328">(&lt;/span>lengths&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#1f2328">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="第三章基因组变异分析">第三章：基因组变异分析&lt;/h2>
+&lt;h3 id="31-使用pysam处理bam文件">3.1 使用pysam处理BAM文件&lt;/h3>
+&lt;div class="highlight">&lt;div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#cf222e">import&lt;/span> &lt;span style="color:#24292e">pysam&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#57606a"># 打开BAM文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bamfile &lt;span style="color:#0550ae">=&lt;/span> pysam&lt;span style="color:#0550ae">.&lt;/span>AlignmentFile&lt;span style="color:#1f2328">(&lt;/span>&lt;span style="color:#0a3069">&amp;#34;sample.bam&amp;#34;&lt;/span>&lt;span style="color:#1f2328">,&lt;/span> &lt;span style="color:#0a3069">&amp;#34;rb&amp;#34;&lt;/span>&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#57606a"># 统计比对情况&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mapped &lt;span style="color:#0550ae">=&lt;/span> &lt;span style="color:#0550ae">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unmapped &lt;span style="color:#0550ae">=&lt;/span> &lt;span style="color:#0550ae">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#cf222e">for&lt;/span> read &lt;span style="color:#0550ae">in&lt;/span> bamfile&lt;span style="color:#0550ae">.&lt;/span>fetch&lt;span style="color:#1f2328">():&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#cf222e">if&lt;/span> read&lt;span style="color:#0550ae">.&lt;/span>is_unmapped&lt;span style="color:#1f2328">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> unmapped &lt;span style="color:#0550ae">+=&lt;/span> &lt;span style="color:#0550ae">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#cf222e">else&lt;/span>&lt;span style="color:#1f2328">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> mapped &lt;span style="color:#0550ae">+=&lt;/span> &lt;span style="color:#0550ae">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#6639ba">print&lt;/span>&lt;span style="color:#1f2328">(&lt;/span>&lt;span style="color:#0a3069">f&lt;/span>&lt;span style="color:#0a3069">&amp;#34;Mapped reads: &lt;/span>&lt;span style="color:#0a3069">{&lt;/span>mapped&lt;span style="color:#0a3069">}&lt;/span>&lt;span style="color:#0a3069">&amp;#34;&lt;/span>&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#6639ba">print&lt;/span>&lt;span style="color:#1f2328">(&lt;/span>&lt;span style="color:#0a3069">f&lt;/span>&lt;span style="color:#0a3069">&amp;#34;Unmapped reads: &lt;/span>&lt;span style="color:#0a3069">{&lt;/span>unmapped&lt;span style="color:#0a3069">}&lt;/span>&lt;span style="color:#0a3069">&amp;#34;&lt;/span>&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#6639ba">print&lt;/span>&lt;span style="color:#1f2328">(&lt;/span>&lt;span style="color:#0a3069">f&lt;/span>&lt;span style="color:#0a3069">&amp;#34;Mapping rate: &lt;/span>&lt;span style="color:#0a3069">{&lt;/span>mapped&lt;span style="color:#0550ae">/&lt;/span>&lt;span style="color:#1f2328">(&lt;/span>mapped&lt;span style="color:#0550ae">+&lt;/span>unmapped&lt;span style="color:#1f2328">)&lt;/span>&lt;span style="color:#0550ae">*&lt;/span>&lt;span style="color:#0550ae">100&lt;/span>&lt;span style="color:#0a3069">:&lt;/span>&lt;span style="color:#0a3069">.2f&lt;/span>&lt;span style="color:#0a3069">}&lt;/span>&lt;span style="color:#0a3069">%&amp;#34;&lt;/span>&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="32-变异频率统计">3.2 变异频率统计&lt;/h3>
+&lt;div class="highlight">&lt;div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#cf222e">def&lt;/span> &lt;span style="color:#6639ba">count_variants&lt;/span>&lt;span style="color:#1f2328">(&lt;/span>vcf_file&lt;span style="color:#1f2328">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0a3069">&amp;#34;&amp;#34;&amp;#34;统计VCF文件中的变异类型&amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#cf222e">import&lt;/span> &lt;span style="color:#24292e">pysam&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> variants &lt;span style="color:#0550ae">=&lt;/span> &lt;span style="color:#1f2328">{&lt;/span>&lt;span style="color:#0a3069">&amp;#39;SNP&amp;#39;&lt;/span>&lt;span style="color:#1f2328">:&lt;/span> &lt;span style="color:#0550ae">0&lt;/span>&lt;span style="color:#1f2328">,&lt;/span> &lt;span style="color:#0a3069">&amp;#39;InDel&amp;#39;&lt;/span>&lt;span style="color:#1f2328">:&lt;/span> &lt;span style="color:#0550ae">0&lt;/span>&lt;span style="color:#1f2328">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> vcf &lt;span style="color:#0550ae">=&lt;/span> pysam&lt;span style="color:#0550ae">.&lt;/span>VariantFile&lt;span style="color:#1f2328">(&lt;/span>vcf_file&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#cf222e">for&lt;/span> record &lt;span style="color:#0550ae">in&lt;/span> vcf&lt;span style="color:#0550ae">.&lt;/span>fetch&lt;span style="color:#1f2328">():&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#cf222e">if&lt;/span> &lt;span style="color:#6639ba">len&lt;/span>&lt;span style="color:#1f2328">(&lt;/span>record&lt;span style="color:#0550ae">.&lt;/span>ref&lt;span style="color:#1f2328">)&lt;/span> &lt;span style="color:#0550ae">==&lt;/span> &lt;span style="color:#0550ae">1&lt;/span> &lt;span style="color:#0550ae">and&lt;/span> &lt;span style="color:#6639ba">len&lt;/span>&lt;span style="color:#1f2328">(&lt;/span>record&lt;span style="color:#0550ae">.&lt;/span>alts&lt;span style="color:#1f2328">[&lt;/span>&lt;span style="color:#0550ae">0&lt;/span>&lt;span style="color:#1f2328">])&lt;/span> &lt;span style="color:#0550ae">==&lt;/span> &lt;span style="color:#0550ae">1&lt;/span>&lt;span style="color:#1f2328">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> variants&lt;span style="color:#1f2328">[&lt;/span>&lt;span style="color:#0a3069">&amp;#39;SNP&amp;#39;&lt;/span>&lt;span style="color:#1f2328">]&lt;/span> &lt;span style="color:#0550ae">+=&lt;/span> &lt;span style="color:#0550ae">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#cf222e">else&lt;/span>&lt;span style="color:#1f2328">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> variants&lt;span style="color:#1f2328">[&lt;/span>&lt;span style="color:#0a3069">&amp;#39;InDel&amp;#39;&lt;/span>&lt;span style="color:#1f2328">]&lt;/span> &lt;span style="color:#0550ae">+=&lt;/span> &lt;span style="color:#0550ae">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#cf222e">return&lt;/span> variants
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="第四章转录组数据分析">第四章：转录组数据分析&lt;/h2>
+&lt;h3 id="41-表达矩阵处理">4.1 表达矩阵处理&lt;/h3>
+&lt;div class="highlight">&lt;div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#cf222e">import&lt;/span> &lt;span style="color:#24292e">pandas&lt;/span> &lt;span style="color:#cf222e">as&lt;/span> &lt;span style="color:#24292e">pd&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#cf222e">import&lt;/span> &lt;span style="color:#24292e">numpy&lt;/span> &lt;span style="color:#cf222e">as&lt;/span> &lt;span style="color:#24292e">np&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#cf222e">from&lt;/span> &lt;span style="color:#24292e">scipy&lt;/span> &lt;span style="color:#cf222e">import&lt;/span> stats
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#57606a"># 读取表达矩阵&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>expression &lt;span style="color:#0550ae">=&lt;/span> pd&lt;span style="color:#0550ae">.&lt;/span>read_csv&lt;span style="color:#1f2328">(&lt;/span>&lt;span style="color:#0a3069">&amp;#34;expression_matrix.csv&amp;#34;&lt;/span>&lt;span style="color:#1f2328">,&lt;/span> index_col&lt;span style="color:#0550ae">=&lt;/span>&lt;span style="color:#0550ae">0&lt;/span>&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#57606a"># 数据标准化&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>expression_norm &lt;span style="color:#0550ae">=&lt;/span> np&lt;span style="color:#0550ae">.&lt;/span>log2&lt;span style="color:#1f2328">(&lt;/span>expression &lt;span style="color:#0550ae">+&lt;/span> &lt;span style="color:#0550ae">1&lt;/span>&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#57606a"># 差异表达分析&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#cf222e">def&lt;/span> &lt;span style="color:#6639ba">differential_expression&lt;/span>&lt;span style="color:#1f2328">(&lt;/span>control_samples&lt;span style="color:#1f2328">,&lt;/span> treatment_samples&lt;span style="color:#1f2328">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0a3069">&amp;#34;&amp;#34;&amp;#34;简单的差异表达分析&amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> results &lt;span style="color:#0550ae">=&lt;/span> &lt;span style="color:#1f2328">[]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#cf222e">for&lt;/span> gene &lt;span style="color:#0550ae">in&lt;/span> expression_norm&lt;span style="color:#0550ae">.&lt;/span>index&lt;span style="color:#1f2328">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> control_expr &lt;span style="color:#0550ae">=&lt;/span> expression_norm&lt;span style="color:#0550ae">.&lt;/span>loc&lt;span style="color:#1f2328">[&lt;/span>gene&lt;span style="color:#1f2328">,&lt;/span> control_samples&lt;span style="color:#1f2328">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> treatment_expr &lt;span style="color:#0550ae">=&lt;/span> expression_norm&lt;span style="color:#0550ae">.&lt;/span>loc&lt;span style="color:#1f2328">[&lt;/span>gene&lt;span style="color:#1f2328">,&lt;/span> treatment_samples&lt;span style="color:#1f2328">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#57606a"># t检验&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> t_stat&lt;span style="color:#1f2328">,&lt;/span> p_value &lt;span style="color:#0550ae">=&lt;/span> stats&lt;span style="color:#0550ae">.&lt;/span>ttest_ind&lt;span style="color:#1f2328">(&lt;/span>control_expr&lt;span style="color:#1f2328">,&lt;/span> treatment_expr&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#57606a"># 计算fold change&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fc &lt;span style="color:#0550ae">=&lt;/span> np&lt;span style="color:#0550ae">.&lt;/span>mean&lt;span style="color:#1f2328">(&lt;/span>treatment_expr&lt;span style="color:#1f2328">)&lt;/span> &lt;span style="color:#0550ae">-&lt;/span> np&lt;span style="color:#0550ae">.&lt;/span>mean&lt;span style="color:#1f2328">(&lt;/span>control_expr&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> results&lt;span style="color:#0550ae">.&lt;/span>append&lt;span style="color:#1f2328">({&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0a3069">&amp;#39;gene&amp;#39;&lt;/span>&lt;span style="color:#1f2328">:&lt;/span> gene&lt;span style="color:#1f2328">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0a3069">&amp;#39;log2_fc&amp;#39;&lt;/span>&lt;span style="color:#1f2328">:&lt;/span> fc&lt;span style="color:#1f2328">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0a3069">&amp;#39;p_value&amp;#39;&lt;/span>&lt;span style="color:#1f2328">:&lt;/span> p_value&lt;span style="color:#1f2328">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0a3069">&amp;#39;t_statistic&amp;#39;&lt;/span>&lt;span style="color:#1f2328">:&lt;/span> t_stat
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#1f2328">})&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#cf222e">return&lt;/span> pd&lt;span style="color:#0550ae">.&lt;/span>DataFrame&lt;span style="color:#1f2328">(&lt;/span>results&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="第五章数据可视化">第五章：数据可视化&lt;/h2>
+&lt;h3 id="51-基因组数据可视化">5.1 基因组数据可视化&lt;/h3>
+&lt;div class="highlight">&lt;div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#cf222e">import&lt;/span> &lt;span style="color:#24292e">matplotlib.pyplot&lt;/span> &lt;span style="color:#cf222e">as&lt;/span> &lt;span style="color:#24292e">plt&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#cf222e">import&lt;/span> &lt;span style="color:#24292e">seaborn&lt;/span> &lt;span style="color:#cf222e">as&lt;/span> &lt;span style="color:#24292e">sns&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#57606a"># 设置图形样式&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>plt&lt;span style="color:#0550ae">.&lt;/span>style&lt;span style="color:#0550ae">.&lt;/span>use&lt;span style="color:#1f2328">(&lt;/span>&lt;span style="color:#0a3069">&amp;#39;seaborn-v0_8&amp;#39;&lt;/span>&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sns&lt;span style="color:#0550ae">.&lt;/span>set_palette&lt;span style="color:#1f2328">(&lt;/span>&lt;span style="color:#0a3069">&amp;#34;husl&amp;#34;&lt;/span>&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#57606a"># 绘制质量分布图&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#cf222e">def&lt;/span> &lt;span style="color:#6639ba">plot_quality_distribution&lt;/span>&lt;span style="color:#1f2328">(&lt;/span>qualities&lt;span style="color:#1f2328">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0a3069">&amp;#34;&amp;#34;&amp;#34;绘制测序质量分布图&amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#0550ae">.&lt;/span>figure&lt;span style="color:#1f2328">(&lt;/span>figsize&lt;span style="color:#0550ae">=&lt;/span>&lt;span style="color:#1f2328">(&lt;/span>&lt;span style="color:#0550ae">10&lt;/span>&lt;span style="color:#1f2328">,&lt;/span> &lt;span style="color:#0550ae">6&lt;/span>&lt;span style="color:#1f2328">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#0550ae">.&lt;/span>hist&lt;span style="color:#1f2328">(&lt;/span>qualities&lt;span style="color:#1f2328">,&lt;/span> bins&lt;span style="color:#0550ae">=&lt;/span>&lt;span style="color:#0550ae">50&lt;/span>&lt;span style="color:#1f2328">,&lt;/span> alpha&lt;span style="color:#0550ae">=&lt;/span>&lt;span style="color:#0550ae">0.7&lt;/span>&lt;span style="color:#1f2328">,&lt;/span> edgecolor&lt;span style="color:#0550ae">=&lt;/span>&lt;span style="color:#0a3069">&amp;#39;black&amp;#39;&lt;/span>&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#0550ae">.&lt;/span>xlabel&lt;span style="color:#1f2328">(&lt;/span>&lt;span style="color:#0a3069">&amp;#39;Quality Score&amp;#39;&lt;/span>&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#0550ae">.&lt;/span>ylabel&lt;span style="color:#1f2328">(&lt;/span>&lt;span style="color:#0a3069">&amp;#39;Frequency&amp;#39;&lt;/span>&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#0550ae">.&lt;/span>title&lt;span style="color:#1f2328">(&lt;/span>&lt;span style="color:#0a3069">&amp;#39;Sequencing Quality Distribution&amp;#39;&lt;/span>&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#0550ae">.&lt;/span>grid&lt;span style="color:#1f2328">(&lt;/span>&lt;span style="color:#cf222e">True&lt;/span>&lt;span style="color:#1f2328">,&lt;/span> alpha&lt;span style="color:#0550ae">=&lt;/span>&lt;span style="color:#0550ae">0.3&lt;/span>&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#0550ae">.&lt;/span>show&lt;span style="color:#1f2328">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#57606a"># 绘制火山图&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#cf222e">def&lt;/span> &lt;span style="color:#6639ba">plot_volcano&lt;/span>&lt;span style="color:#1f2328">(&lt;/span>de_results&lt;span style="color:#1f2328">,&lt;/span> fc_threshold&lt;span style="color:#0550ae">=&lt;/span>&lt;span style="color:#0550ae">1&lt;/span>&lt;span style="color:#1f2328">,&lt;/span> p_threshold&lt;span style="color:#0550ae">=&lt;/span>&lt;span style="color:#0550ae">0.05&lt;/span>&lt;span style="color:#1f2328">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#0a3069">&amp;#34;&amp;#34;&amp;#34;绘制差异表达火山图&amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#0550ae">.&lt;/span>figure&lt;span style="color:#1f2328">(&lt;/span>figsize&lt;span style="color:#0550ae">=&lt;/span>&lt;span style="color:#1f2328">(&lt;/span>&lt;span style="color:#0550ae">10&lt;/span>&lt;span style="color:#1f2328">,&lt;/span> &lt;span style="color:#0550ae">8&lt;/span>&lt;span style="color:#1f2328">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#57606a"># 筛选显著差异基因&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> significant &lt;span style="color:#0550ae">=&lt;/span> &lt;span style="color:#1f2328">(&lt;/span>np&lt;span style="color:#0550ae">.&lt;/span>abs&lt;span style="color:#1f2328">(&lt;/span>de_results&lt;span style="color:#1f2328">[&lt;/span>&lt;span style="color:#0a3069">&amp;#39;log2_fc&amp;#39;&lt;/span>&lt;span style="color:#1f2328">])&lt;/span> &lt;span style="color:#0550ae">&amp;gt;&lt;/span> fc_threshold&lt;span style="color:#1f2328">)&lt;/span> &lt;span style="color:#0550ae">&amp;amp;&lt;/span> \
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#1f2328">(&lt;/span>de_results&lt;span style="color:#1f2328">[&lt;/span>&lt;span style="color:#0a3069">&amp;#39;p_value&amp;#39;&lt;/span>&lt;span style="color:#1f2328">]&lt;/span> &lt;span style="color:#0550ae">&amp;lt;&lt;/span> p_threshold&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#57606a"># 绘制散点图&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#0550ae">.&lt;/span>scatter&lt;span style="color:#1f2328">(&lt;/span>de_results&lt;span style="color:#1f2328">[&lt;/span>&lt;span style="color:#0a3069">&amp;#39;log2_fc&amp;#39;&lt;/span>&lt;span style="color:#1f2328">],&lt;/span> &lt;span style="color:#0550ae">-&lt;/span>np&lt;span style="color:#0550ae">.&lt;/span>log10&lt;span style="color:#1f2328">(&lt;/span>de_results&lt;span style="color:#1f2328">[&lt;/span>&lt;span style="color:#0a3069">&amp;#39;p_value&amp;#39;&lt;/span>&lt;span style="color:#1f2328">]),&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> c&lt;span style="color:#0550ae">=&lt;/span>significant&lt;span style="color:#1f2328">,&lt;/span> cmap&lt;span style="color:#0550ae">=&lt;/span>&lt;span style="color:#0a3069">&amp;#39;RdYlBu&amp;#39;&lt;/span>&lt;span style="color:#1f2328">,&lt;/span> alpha&lt;span style="color:#0550ae">=&lt;/span>&lt;span style="color:#0550ae">0.6&lt;/span>&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#0550ae">.&lt;/span>xlabel&lt;span style="color:#1f2328">(&lt;/span>&lt;span style="color:#0a3069">&amp;#39;Log2 Fold Change&amp;#39;&lt;/span>&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#0550ae">.&lt;/span>ylabel&lt;span style="color:#1f2328">(&lt;/span>&lt;span style="color:#0a3069">&amp;#39;-Log10 P-value&amp;#39;&lt;/span>&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#0550ae">.&lt;/span>title&lt;span style="color:#1f2328">(&lt;/span>&lt;span style="color:#0a3069">&amp;#39;Volcano Plot&amp;#39;&lt;/span>&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#0550ae">.&lt;/span>axhline&lt;span style="color:#1f2328">(&lt;/span>y&lt;span style="color:#0550ae">=-&lt;/span>np&lt;span style="color:#0550ae">.&lt;/span>log10&lt;span style="color:#1f2328">(&lt;/span>p_threshold&lt;span style="color:#1f2328">),&lt;/span> color&lt;span style="color:#0550ae">=&lt;/span>&lt;span style="color:#0a3069">&amp;#39;red&amp;#39;&lt;/span>&lt;span style="color:#1f2328">,&lt;/span> linestyle&lt;span style="color:#0550ae">=&lt;/span>&lt;span style="color:#0a3069">&amp;#39;--&amp;#39;&lt;/span>&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#0550ae">.&lt;/span>axvline&lt;span style="color:#1f2328">(&lt;/span>x&lt;span style="color:#0550ae">=&lt;/span>fc_threshold&lt;span style="color:#1f2328">,&lt;/span> color&lt;span style="color:#0550ae">=&lt;/span>&lt;span style="color:#0a3069">&amp;#39;red&amp;#39;&lt;/span>&lt;span style="color:#1f2328">,&lt;/span> linestyle&lt;span style="color:#0550ae">=&lt;/span>&lt;span style="color:#0a3069">&amp;#39;--&amp;#39;&lt;/span>&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#0550ae">.&lt;/span>axvline&lt;span style="color:#1f2328">(&lt;/span>x&lt;span style="color:#0550ae">=-&lt;/span>fc_threshold&lt;span style="color:#1f2328">,&lt;/span> color&lt;span style="color:#0550ae">=&lt;/span>&lt;span style="color:#0a3069">&amp;#39;red&amp;#39;&lt;/span>&lt;span style="color:#1f2328">,&lt;/span> linestyle&lt;span style="color:#0550ae">=&lt;/span>&lt;span style="color:#0a3069">&amp;#39;--&amp;#39;&lt;/span>&lt;span style="color:#1f2328">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> plt&lt;span style="color:#0550ae">.&lt;/span>show&lt;span style="color:#1f2328">()&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="练习题">练习题&lt;/h2>
+&lt;ol>
+&lt;li>编写函数计算DNA序列的GC含量&lt;/li>
+&lt;li>从FASTQ文件中提取质量得分最高的100条序列&lt;/li>
+&lt;li>比较两个样本的基因表达相关性&lt;/li>
+&lt;li>绘制基因在染色体上的分布图&lt;/li>
+&lt;/ol>
+&lt;h2 id="参考资料">参考资料&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://biopython.org/">Biopython官方文档&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://pandas.pydata.org/">Pandas用户指南&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/bioinformatics-python">生物信息学Python实战&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

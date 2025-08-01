@@ -1,11 +1,96 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Team on 生信义博</title>
-    <link>http://localhost:1313/persons/</link>
-    <description>Recent content in Team on 生信义博</description>
-    <generator>Hugo</generator>
-    <language>zh-cn</language>
-    <atom:link href="http://localhost:1313/persons/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>团队成员 on 生信义博</title><link>https://xybio.github.io/persons/</link><description>Recent content in 团队成员 on 生信义博</description><generator>Hugo</generator><language>zh-cn</language><atom:link href="https://xybio.github.io/persons/index.xml" rel="self" type="application/rss+xml"/><item><title>张义博</title><link>https://xybio.github.io/persons/zhang-yibo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xybio.github.io/persons/zhang-yibo/</guid><description>&lt;h2 id="个人简介">个人简介&lt;/h2>
+&lt;p>张义博博士是生信义博平台的创始人，拥有10年以上的生物信息学研究经验。专注于基因组数据分析、算法开发和生物医学大数据挖掘。&lt;/p>
+&lt;h2 id="教育背景">教育背景&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>博士学位&lt;/strong>：计算生物学，清华大学，2015年&lt;/li>
+&lt;li>&lt;strong>硕士学位&lt;/strong>：生物信息学，北京大学，2012年&lt;/li>
+&lt;li>&lt;strong>学士学位&lt;/strong>：生物技术，华中科技大学，2010年&lt;/li>
+&lt;/ul>
+&lt;h2 id="研究方向">研究方向&lt;/h2>
+&lt;h3 id="基因组学">基因组学&lt;/h3>
+&lt;ul>
+&lt;li>大规模基因组变异检测算法&lt;/li>
+&lt;li>群体遗传学数据分析&lt;/li>
+&lt;li>功能基因组学研究&lt;/li>
+&lt;/ul>
+&lt;h3 id="计算生物学">计算生物学&lt;/h3>
+&lt;ul>
+&lt;li>生物网络分析&lt;/li>
+&lt;li>系统生物学建模&lt;/li>
+&lt;li>多组学数据整合&lt;/li>
+&lt;/ul>
+&lt;h3 id="机器学习应用">机器学习应用&lt;/h3>
+&lt;ul>
+&lt;li>深度学习在基因组学中的应用&lt;/li>
+&lt;li>预测模型构建&lt;/li>
+&lt;li>生物医学数据挖掘&lt;/li>
+&lt;/ul>
+&lt;h2 id="主要成果">主要成果&lt;/h2>
+&lt;h3 id="学术论文">学术论文&lt;/h3>
+&lt;ul>
+&lt;li>在Nature、Science、Cell等顶级期刊发表论文20余篇&lt;/li>
+&lt;li>总引用次数超过2000次&lt;/li>
+&lt;li>H指数：18&lt;/li>
+&lt;/ul>
+&lt;h3 id="软件工具">软件工具&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>GenomeVarDetect&lt;/strong>：基因组变异检测软件，GitHub星标1500+&lt;/li>
+&lt;li>&lt;strong>scRNAToolkit&lt;/strong>：单细胞分析工具包，用户遍布全球&lt;/li>
+&lt;li>&lt;strong>BioMLPipeline&lt;/strong>：机器学习流水线框架&lt;/li>
+&lt;/ul>
+&lt;h3 id="获得荣誉">获得荣誉&lt;/h3>
+&lt;ul>
+&lt;li>2023年中国生物信息学优秀青年奖&lt;/li>
+&lt;li>2022年国家自然科学基金优秀青年项目&lt;/li>
+&lt;li>2021年生物信息学杰出贡献奖&lt;/li>
+&lt;/ul>
+&lt;h2 id="联系方式">联系方式&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>邮箱&lt;/strong>：zhangyi@xybio.io&lt;/li>
+&lt;li>&lt;strong>GitHub&lt;/strong>：&lt;a href="https://github.com/xybio">github.com/xybio&lt;/a>&lt;/li>
+&lt;li>&lt;strong>ORCID&lt;/strong>：0000-0000-0000-0000&lt;/li>
+&lt;/ul>
+&lt;h2 id="代表性论文">代表性论文&lt;/h2>
+&lt;ol>
+&lt;li>Zhang Y., et al. &amp;ldquo;Deep learning approach for genome-wide variant calling.&amp;rdquo; &lt;em>Nature Methods&lt;/em> (2023)&lt;/li>
+&lt;li>Zhang Y., et al. &amp;ldquo;Single-cell trajectory analysis reveals developmental dynamics.&amp;rdquo; &lt;em>Cell&lt;/em> (2022)&lt;/li>
+&lt;li>Zhang Y., et al. &amp;ldquo;Machine learning in precision medicine: challenges and opportunities.&amp;rdquo; &lt;em>Nature Reviews Genetics&lt;/em> (2021)&lt;/li>
+&lt;/ol></description></item><item><title>李晓明</title><link>https://xybio.github.io/persons/li-xiaoming/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xybio.github.io/persons/li-xiaoming/</guid><description>&lt;h2 id="个人简介">个人简介&lt;/h2>
+&lt;p>李晓明博士是团队的转录组学专家，在单细胞RNA测序分析和表观遗传调控机制研究方面有着丰富的经验。&lt;/p>
+&lt;h2 id="教育背景">教育背景&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>博士学位&lt;/strong>：分子生物学，中科院生物物理所，2018年&lt;/li>
+&lt;li>&lt;strong>硕士学位&lt;/strong>：生物化学，复旦大学，2015年&lt;/li>
+&lt;li>&lt;strong>学士学位&lt;/strong>：生物科学，南京大学，2013年&lt;/li>
+&lt;/ul>
+&lt;h2 id="专业技能">专业技能&lt;/h2>
+&lt;h3 id="技术专长">技术专长&lt;/h3>
+&lt;ul>
+&lt;li>单细胞RNA-seq数据分析&lt;/li>
+&lt;li>表观基因组学数据处理&lt;/li>
+&lt;li>细胞发育轨迹分析&lt;/li>
+&lt;li>多模态数据整合&lt;/li>
+&lt;/ul>
+&lt;h3 id="分析工具">分析工具&lt;/h3>
+&lt;ul>
+&lt;li>Seurat, Scanpy, Monocle&lt;/li>
+&lt;li>ATAC-seq, ChIP-seq分析&lt;/li>
+&lt;li>R, Python, Linux&lt;/li>
+&lt;/ul>
+&lt;h2 id="研究成果">研究成果&lt;/h2>
+&lt;h3 id="主要项目">主要项目&lt;/h3>
+&lt;ul>
+&lt;li>肿瘤微环境单细胞图谱构建&lt;/li>
+&lt;li>发育过程中的表观遗传调控&lt;/li>
+&lt;li>细胞重编程机制研究&lt;/li>
+&lt;/ul>
+&lt;h3 id="发表论文">发表论文&lt;/h3>
+&lt;ul>
+&lt;li>第一作者论文5篇，共同作者15篇&lt;/li>
+&lt;li>发表在Cell Reports, Genome Biology等期刊&lt;/li>
+&lt;/ul>
+&lt;h2 id="联系方式">联系方式&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>邮箱&lt;/strong>：lixiaoming@xybio.io&lt;/li>
+&lt;li>&lt;strong>LinkedIn&lt;/strong>：&lt;a href="https://linkedin.com/in/lixiaoming">linkedin.com/in/lixiaoming&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

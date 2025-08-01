@@ -1,7 +1,6 @@
 ---
 title: "基因组测序数据分析"
 description: "提供全基因组、外显子组和靶向基因测序数据的专业分析服务"
-image: uploads/photos/06.jpg
 weight: 1
 featured: true
 ---

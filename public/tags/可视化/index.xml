@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>可视化 on 生信义博</title><link>https://xybio.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/</link><description>Recent content in 可视化 on 生信义博</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Fri, 15 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://xybio.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/index.xml" rel="self" type="application/rss+xml"/><item><title>单细胞RNA测序分析平台</title><link>https://xybio.github.io/projects/scrna-analysis-platform/</link><pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate><guid>https://xybio.github.io/projects/scrna-analysis-platform/</guid><description>&lt;h2 id="项目概述">项目概述&lt;/h2>
+&lt;p>构建了一个集成化的单细胞RNA测序数据分析平台，提供从质量控制到高级分析的全套解决方案。&lt;/p>
+&lt;h2 id="核心功能">核心功能&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>数据预处理&lt;/strong>：自动化质量控制和标准化&lt;/li>
+&lt;li>&lt;strong>细胞聚类&lt;/strong>：基于图聚类的细胞类型识别&lt;/li>
+&lt;li>&lt;strong>差异表达&lt;/strong>：多组间差异基因分析&lt;/li>
+&lt;li>&lt;strong>轨迹分析&lt;/strong>：细胞发育轨迹推断&lt;/li>
+&lt;li>&lt;strong>功能富集&lt;/strong>：GO/KEGG通路富集分析&lt;/li>
+&lt;/ul>
+&lt;h2 id="技术亮点">技术亮点&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>交互式界面&lt;/strong>：基于Shiny的Web界面&lt;/li>
+&lt;li>&lt;strong>高性能计算&lt;/strong>：支持大规模数据并行处理&lt;/li>
+&lt;li>&lt;strong>多种算法&lt;/strong>：集成Seurat、Scanpy、Monocle等&lt;/li>
+&lt;li>&lt;strong>可视化丰富&lt;/strong>：多种图表类型和交互功能&lt;/li>
+&lt;/ul>
+&lt;h2 id="适用数据">适用数据&lt;/h2>
+&lt;ul>
+&lt;li>10X Genomics&lt;/li>
+&lt;li>Smart-seq2&lt;/li>
+&lt;li>Drop-seq&lt;/li>
+&lt;li>其他单细胞平台&lt;/li>
+&lt;/ul>
+&lt;h2 id="在线演示">在线演示&lt;/h2>
+&lt;p>&lt;a href="https://scrna.xybio.io">Demo Platform&lt;/a>&lt;/p></description></item></channel></rss>
