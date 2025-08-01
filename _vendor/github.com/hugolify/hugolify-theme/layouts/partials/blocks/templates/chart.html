@@ -1,0 +1,5 @@
+<section class="block-chart {{- with .background }} block-bg{{ end }}" {{- partial "func/SetAnim.html" (dict "element" "block") }}>
+  {{ partial "blocks/templates/chart/header.html" . }}
+  {{ partial "blocks/templates/chart/body.html" . }}
+  {{ partial "blocks/templates/chart/footer.html" . }}
+</section>

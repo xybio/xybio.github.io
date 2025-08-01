@@ -1,0 +1,32 @@
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "headline": {{ partial "func/PrepareData.html" .Title }},
+
+    {{- with .Params.image }}
+      "thumbnailUrl": {{ .src | absURL }},
+    {{ end -}}
+
+    {{- with .Date }}
+      "dateCreated": {{ . }},
+    {{ end -}}
+
+    {{- range .GetTerms "projects_types" }}
+      "articleSection": {{ partial "func/PrepareData.html" .Title }},
+    {{ end -}}
+
+    {{- with .Description }}
+      "abstract": {{ partial "func/PrepareData.html" . }},
+    {{ end -}}
+
+    {{- with .Content }}
+      "description": {{ partial "func/PrepareData.html" . }},
+    {{ end -}}
+
+    {{- with .Site.Title }}
+      "author": {{ . }}
+    {{ end -}}
+
+  }
+</script>

@@ -1,0 +1,14 @@
+{{- $media := false -}}
+{{- with .image }}
+  {{- if and (ne .background true) (ne .background_image true) }}
+    {{- $media = "image" -}}
+  {{- end }}
+{{- end }}
+{{- with .video }}
+  {{- if and (ne .background true) (ne .background_video true) }}
+    {{- $media = "video" -}}
+  {{- end }}
+{{- end }}
+{{- if $media }}
+  {{ partial (print "commons/hero/media/" $media ".html") . }}
+{{- end }}

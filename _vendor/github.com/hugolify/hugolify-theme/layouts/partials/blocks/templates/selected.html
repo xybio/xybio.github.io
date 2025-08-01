@@ -1,0 +1,9 @@
+{{- $layout := .layout | default "grid" -}}
+{{- $items := partial "blocks/templates/selected/GetItems.html" (dict "section" .section "items" .items) -}}
+{{- if $items }}
+<section class="block-selected block-selected-{{ $layout }} block-selected-{{ .section }} {{- with .background }} block-bg{{ end }}" {{- partial "func/SetAnim.html" (dict "element" "block") }}>
+  {{- $context := dict "context" . "items" $items "layout" $layout -}}
+  {{- partial "blocks/templates/selected/body.html" $context -}}
+  {{- partial "blocks/templates/selected/footer.html" . -}}
+</section>
+{{ end -}}

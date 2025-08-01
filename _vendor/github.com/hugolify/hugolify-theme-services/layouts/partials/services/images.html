@@ -1,0 +1,7 @@
+{{ if isset .Params "images" }}
+  {{ with .Params.images }}
+    {{ partial "commons/images" (dict
+      "images" .)
+    }}
+  {{ end }}
+{{ end }}

@@ -1,0 +1,5 @@
+<section class="block-paragraph {{- with .background }} block-bg{{ end }}" {{- partial "func/SetAnim.html" (dict "element" "block") }}>
+  {{ partial "blocks/templates/paragraph/header.html" . }}
+  {{ partial "blocks/templates/paragraph/body.html" . }}
+  {{ partial "blocks/templates/paragraph/footer.html" . }}
+</section>

@@ -1,0 +1,56 @@
+{{- $pages := . -}}
+{{- $large := false -}}
+{{- $abovethefold := false -}}
+{{- $groupbyyear := false -}}
+{{- $scrollsnap := false -}}
+{{- $currentyear := false -}}
+{{- $abovethefoldLimit := 2 -}}
+{{- $block := false -}}
+{{- if reflect.IsMap . -}}
+  {{- $pages = .pages -}}
+  {{- $large = .large -}}
+  {{- $abovethefold = .abovethefold -}}
+  {{- $groupbyyear = .groupbyyear -}}
+  {{- $scrollsnap = .scrollsnap | default false -}}
+  {{- $block = .block | default false -}}
+{{- end -}}
+{{- with $pages }}
+  {{- if gt . 0 }}
+    {{- $section := (index . 0).Type -}}
+    {{- if eq (index . 0).Kind "section" -}}
+      {{- $section = "pages" -}}
+    {{- end -}}
+    {{- $partial := print $section "/item.html" -}}
+    {{- $hasPartial := cond (templates.Exists (printf "partials/%s" $partial)) true false -}}
+    {{- if not $hasPartial -}}
+      {{- $section = "pages" -}}
+      {{- $partial = "pages/item.html" -}}
+    {{- end -}}
+    <div class="{{ $section }} {{- if $large}} {{ $section }}-large{{ end }}">
+      {{- range $index, $items := . }}
+        {{- .Scratch.Set "index" $index -}}
+        {{- .Scratch.Set "block" $block -}}
+        {{- if $groupbyyear -}}
+          {{- $year := .Date.Format "2006" -}}
+          {{- if ne $year $currentyear }}
+            {{- $animation := partial "func/SetAnim.html" (dict "element" "heading") -}}
+            <h2 class="year" {{- $animation }}>{{ $year }}</h2>
+            {{- $currentyear = $year -}}
+          {{- end }}
+        {{- end -}}
+        {{- if and ($abovethefold) (lt $index $abovethefoldLimit) -}}
+          {{- .Scratch.Set "lazy" false -}}
+        {{- end -}}
+        {{- if $scrollsnap -}}
+          {{- .Scratch.Set "scrollsnap" true -}}
+        {{- end }}
+        {{- if $large -}}
+          {{- .Scratch.Set "large" true -}}
+        {{- end -}}
+        <div {{- partial "func/SetParallax.html" (dict "element" "item") }}>
+          {{ partial $partial . }}
+        </div>
+      {{ end -}}
+    </div>
+  {{ end -}}
+{{ end -}}

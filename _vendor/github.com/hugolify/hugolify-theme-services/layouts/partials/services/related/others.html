@@ -1,0 +1,13 @@
+{{- $section := "services" -}}
+{{- $pages := first 3 (where (where .Site.RegularPages "Section" "in" $section) "Permalink" "ne" .Permalink) -}}
+{{ with $pages }}
+<section class="related">
+  <div class="container">
+    <header class="heading"{{ partial "func/SetAnim.html" (dict "element" "heading") }}>
+      <h2>{{ i18n "services.related" }}</h2>
+      <a href="../" class="more">{{ i18n (printf "%s.more" $section) }}</a>
+    </header>
+    {{ partial "services/items" (dict "pages" $pages) }}
+  </div>
+</section>
+{{ end }}

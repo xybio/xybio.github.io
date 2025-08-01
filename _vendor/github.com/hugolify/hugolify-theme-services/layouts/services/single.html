@@ -1,0 +1,9 @@
+{{ define "hero" }}
+  {{- partial "services/hero-single.html" . -}}
+{{ end }}
+
+{{ define "main" }}
+  {{ partial "services/schema-single.html" . }}
+  {{ partial "services/container-single.html" . }}
+  {{ partial "services/related-content" . }}
+{{ end }}

@@ -1,0 +1,9 @@
+{{ define "hero"}}
+  {{- partial "authors/hero.html" . -}}
+{{ end }}
+
+{{ define "main" }}
+  {{ partial "authors/schema.html" . }}
+  {{ partial "authors/blocks.html" . }}
+  {{ partial "authors/container.html" . }}
+{{ end }}

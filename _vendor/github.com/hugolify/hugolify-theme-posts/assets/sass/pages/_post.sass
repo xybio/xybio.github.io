@@ -1,0 +1,13 @@
+.page-posts
+    .heading
+        h1
+            min-width: 100%
+
+    @include media-breakpoint-up(md)
+        .grid
+            >
+                .content,
+                .toc
+                    grid-row: 2/4
+                .sidebar + .toc
+                    grid-row: 3/6

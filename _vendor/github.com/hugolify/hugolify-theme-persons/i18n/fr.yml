@@ -1,0 +1,9 @@
+persons:
+  all: Toutes les personnes
+  latest: Dernières personnes
+  discover: Découvrir la persone
+  more: Découvrir plus de personnes
+  team: L’équipe
+  title:
+    one: Personne
+    other: Personnes

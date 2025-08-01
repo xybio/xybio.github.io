@@ -1,0 +1,7 @@
+<div class="content"{{ partial "func/SetAnim.html" (dict "element" "content") }}>
+  {{- partial "commons/body.html" . -}}
+  {{ $persons_expertises := "persons/persons_expertises.html" }}
+  {{ if templates.Exists ( printf "partials/%s" $persons_expertises ) }}
+    {{ partial $persons_expertises . }}
+  {{ end }}
+</div>

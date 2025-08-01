@@ -1,0 +1,17 @@
+<header class="hero hero-with-second-content"{{ partial "func/SetAnim.html" (dict "element" "hero") }}>
+  <div class="container">
+    <div class="row">
+      <div class="hero-content">
+        {{ $persons_statutes := "persons/persons_statutes.html" }}
+        {{ if templates.Exists ( printf "partials/%s" $persons_statutes ) }}
+          {{ partial $persons_statutes . }}
+        {{ end }}
+        <h1>{{ partial "func/PrepareHTML.html" .Title }}</h1>
+        {{ partial "commons/description.html" . }}
+      </div>
+      <div class="hero-content">
+        {{ partial "persons/contact-list" . }}
+      </div>
+    </div>
+  </div>
+</header>

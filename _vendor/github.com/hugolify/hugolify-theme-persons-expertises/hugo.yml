@@ -1,0 +1,19 @@
+module:
+  mounts:
+    - source: assets
+      target: assets
+    - source: content
+      target: content
+    - source: i18n
+      target: i18n
+    - source: layouts
+      target: layouts
+
+# Default
+permalinks:
+  taxonomy: 
+    persons_expertises: /team/expertises/
+  term:
+    persons_expertises: /team/expertises/:slug/
+taxonomies:
+  persons_expertise: persons_expertises

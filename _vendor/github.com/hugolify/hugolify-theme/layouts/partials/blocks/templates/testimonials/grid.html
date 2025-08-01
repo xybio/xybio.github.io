@@ -1,0 +1,10 @@
+<div class="container">
+  {{- partial "blocks/templates/selected/header.html"  (dict "heading" .heading "container" false) -}}
+  <div class="testimonials">
+    {{ range .items }}
+      <div>
+        {{ partial "commons/quote.html" . }}
+      </div>
+    {{ end }}
+  </div>
+</div>

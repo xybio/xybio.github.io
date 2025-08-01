@@ -1,0 +1,95 @@
+.person
+    --bs-card-bg: transparent
+    --bs-card-border-width: 0
+    --bs-card-border-radius: 0
+    --bs-card-cap-bg: transparent
+    --bs-card-inner-border-radius: 0
+    --bs-card-spacer-x: 0rem
+    --bs-card-spacer-y: 0rem
+    @extend .card
+    .description
+        @extend .small
+    .media
+        --bs-aspect-ratio: 100%
+        --card-media: 50%
+        @extend .ratio
+        align-self: flex-start
+        background-color: $light
+        border-radius: 50%
+        margin-bottom: calc(var(--bs-card-spacer-y) * -1 + #{$spacer})
+        max-width: var(--card-media)
+        order: -1
+    img
+        height: auto
+        width: 100%
+    a
+        @extend .stretched-link
+
+
+aside.person
+    --bs-card-bg: #{$light}
+    --bs-card-spacer-x: #{$gutter-mobile}
+    --bs-card-spacer-y: #{$gutter-mobile}
+    @include media-breakpoint-down(md)
+        margin-left: - $gutter-mobile
+        margin-right: - $gutter-mobile
+    @include media-breakpoint-up(md)
+        --bs-card-border-radius: 1rem
+        --bs-card-spacer-x: 2rem
+        --bs-card-spacer-y: 2rem
+    .media
+        --bs-aspect-ratio: 100%
+        --card-media: 50%
+        --card-media-mobile: 50%
+        border-radius: 50%
+        margin-left: var(--bs-card-spacer-x)
+        margin-top: var(--bs-card-spacer-y)
+        max-width: var(--card-media-mobile)
+        @include media-breakpoint-up(md)
+            max-width: var(--card-media)
+    .description
+        @extend .small
+        color: $text-muted
+    ul
+        @include margin-bottom($paragraph-margin-bottom)
+        @include margin-top($paragraph-margin-bottom)
+        font-size: $small-font-size
+        list-style: none
+        line-height: 1.8
+        padding-left: 0
+        @if variable-exists(icons-map)
+            b
+                display: none
+            .email
+                &::before
+                    @include icon("envelope")
+                    margin-right: .5em
+            .fax
+                &::before
+                    @include icon("printer")
+                    margin-right: .5em
+            .phone
+                &::before
+                    @include icon("phone")
+                    margin-right: .5em
+    .btn
+        @include button-variant($primary,$primary)
+        text-wrap: balance
+    .more
+        @include more
+        font-size: $small-font-size
+    ul:last-child,
+    p:last-child
+        margin-bottom: 0
+
+    a::after
+        content: none
+
+    .sidebar > & + &
+        margin-top: - $spacer
+        @include media-breakpoint-up(md)
+            margin-top: calc(#{$global-spacing} * -1 + #{$spacer})
+
+    .content > &
+        flex-direction: row
+        margin-top: $spacer

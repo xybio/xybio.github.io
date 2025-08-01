@@ -1,0 +1,8 @@
+projects:
+  all: All projects
+  discover: Discover project
+  latest: Latest projects
+  more: Discover more projects
+  title:
+    one: Project
+    other: Projects

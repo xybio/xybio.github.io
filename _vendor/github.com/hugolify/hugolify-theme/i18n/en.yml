@@ -1,0 +1,191 @@
+accessibility:
+  alternative: Alternative to {{ .Title }}
+address:
+  label:
+    one: Adress
+    other: Adresses
+  city: City
+  country: Country
+  direction: How to go?
+  street: Street
+breadcrumb: Breadcrumb
+carousel:
+  carousel: Carousel
+  first: Go to first slide
+  last: Go to last slide
+  next: Next slide
+  pagex: Go to page %s
+  pause: Pause autoplay
+  play: Start autoplay
+  previous: Previous slide
+  select: Change slide or slides to show
+  slide: Slide
+  slidelabel: Slide %s of %s
+  slidex: Go to slide %s
+close: Close
+contact:
+  address: 'Address:'
+  city: 'City:'
+  email: 'Email:'
+  email_with_value: 'Email: {{ .Value }}'
+  fax: 'Fax:'
+  fax_with_value: 'Fax: {{ .Value }}'
+  facebook: Facebook
+  instagram: Instagram
+  linkedin: Linkedin
+  mastodon: Mastodon
+  me: 'Contact me'
+  pinterest: Pinterest
+  rdv: Make an appointment
+  tel: 'Phone:'
+  tel_with_value: 'Phone: {{ .Value }}'
+  title: Contact
+  twitter: Twitter
+  us: 'Contact us'
+  website: Website
+  whatsapp: WhatsApp
+cookie_banner:
+  accept: Accept
+  label: Cookie notice
+  refuse: Refuse (except essential)
+  text: 'By continuing to browse this site, you accept the use of Cookies to offer you personalized features and to carry out audience measurements. To find out more and configure these cookies:'
+  title: Cookie banner
+cookie_consent:
+  consentModalTitle: Cookie consent management
+  consentModalDescription: This website uses necessary cookies to ensure its proper functioning and other cookies which are listed in the preference center and are only set after consent.
+  consentModalAcceptAllBtn: Allow all
+  consentModalAcceptNecessaryBtn: Decline non-technical cookies
+  consentModalShowPreferencesBtn: Configure
+  preferencesModalTitle: Consent preferences center
+  preferencesModalAcceptAllBtn: Accept all
+  preferencesModalAcceptNecessaryBtn: Accept only necessary
+  preferencesModalSavePreferencesBtn: Save settings
+  preferencesModalCloseIconLabel: Close modal
+  preferencesModalServiceCounterLabel: Service|Services
+  sectionsTitle: Cookie Usage
+  sectionsDescription: We use cookies to ensure the basic functionalities of the website and to enhance your online experience.
+  sectionsNecessaryTitle: Strictly Necessary Cookies
+  sectionsNecessaryDescription: These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly"
+  sectionsAnalyticsTitle: Analytics Cookies
+  sectionsAnalyticsDescription: These cookies allow the website to remember the choices you have made in the past
+  sectionsFunctionalityTitle: Functionality Cookies
+  sectionsFunctionalityDescription: Cookies used for functionality allow users to interact with a service or site to access features that are fundamental to that service.
+  sectionsMarketingTitle: Advertisement Cookies
+  sectionsMarketingDescription: Enables storage (such as cookies) related to advertising.
+credit:
+  hugolify: a low impact website crafted with <a href="https://www.hugolify.io" target="_blank" rel="noopener noreferrer" title="« Hugolify » - external link">Hugolify</a>
+document:
+  one: Document
+  other: Documents
+filter: Filter
+form:
+  company: Company
+  email: Email
+  error: 'Error: something wrong'
+  firstname: Firstname
+  hint:
+    email: 'e.g. email@domain.com'
+    firstname: John
+    lastname: Doe
+    tel: 'e.g. +1 718 123 4567'
+    url: 'e.g. https://www.domain.com'
+  lastname: Lastname
+  message: Message
+  name: Name
+  organization: Organization
+  subject: Subject
+  success: Form successfully submitted. Thank you!
+  tel: Telephone
+from: From
+gallery:
+  enlarge: Enlarge image
+  one: Gallery photo
+  other: Gallery photos
+header:
+  accessibility:
+    footer: Go to the bottom of the page
+    main: Main content
+    menu: Main navigation
+home: Home
+image:
+  one: Image
+  other: Images
+link:
+  blank: external link
+  blank_aria: « {{ .Title }} » - external link
+more: Read more
+navigation:
+  close: Close
+  dropdown: Open submenu
+  home: '{{ .Title }}, go to home'
+  main: Main navigation
+  menu: Menu
+newsletter:
+  button: Subscribe
+  label: Renseigner votre e-mail pour s’enregistrer à la newsletter
+  placeholder: email@domain.com
+  title: Newsletter
+next: Next
+'no': 'No'
+notes:
+  title:
+    one: Note
+    other: Notes
+  back_to_text: Go back to the text {{ . }}.
+page404:
+  title: Page not found
+  text: The page you are looking for doesn’t exist or has been moved.
+  cta: Back to home page
+pages:
+  title:
+    one: Page
+    other: Pages
+  latest: Latest pages
+pagination:
+  between: Pagination between {{ .Section }}
+  first: First page
+  label: Pagination
+  last: Last page
+  next: Next
+  next_section: Next <span>{{ .Section }}</span>
+  page: Page {{ .Number }}
+  previous: Previous
+  previous_section: Previous <span>{{ .Section }}</span>
+photo:
+  one: Photo
+  other: Photos
+previous: Previous
+reading_time:
+  one: One minute to read
+  other: '{{.}} minutes to read'
+reference:
+  label: Reference
+  label_short: Ref.
+  label_with_value: 'Reference: {{ .Value }}'
+  label_short_with_value: 'Ref.: {{ .Value }}'
+sidebar:
+  menu: Menu
+share:
+  share_on: Share on {{ .Website }}
+  title: Share
+the: The
+to: To
+toc: Table of contents
+token:
+  missing: Access token is missing
+transcription: Transcription
+units:
+  GB: GB
+  MB: MB
+  kB: kB
+  B: B
+  gigabytes: Gigabytes
+  megabytes: Megabytes
+  kilobytes: Kilobytes
+  bytes: bytes
+until: Until
+video:
+  pause: Pause
+  play: Play
+  stop: Stop
+'yes': 'Yes'

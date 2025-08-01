@@ -1,0 +1,5 @@
+{{ $atf := true }}
+{{ if partial "func/HasImageHero.html" . }}
+  {{ $atf = false }}
+{{ end }}
+{{ partial "tags/items" (dict "pages" .Pages.ByTitle "abovethefold" $atf) }}

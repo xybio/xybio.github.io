@@ -1,0 +1,6 @@
+{{ with .GetTerms "projects_types" }}
+  {{ range . }}
+    <span class="category" itemprop="articleSection">{{ .Title }}</span>
+  {{ end }}
+{{ end }}
+ 

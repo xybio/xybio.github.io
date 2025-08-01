@@ -1,0 +1,33 @@
+module:
+  mounts:
+    - source: archetypes
+      target: archetypes
+    - source: assets
+      target: assets
+    - source: content
+      target: content
+    - source: i18n
+      target: i18n
+    - source: layouts
+      target: layouts
+
+# Default
+permalinks:
+  taxonomy:
+    categories: /news/categories/
+  term:
+    categories: /news/:slug/
+taxonomies:
+  category: categories
+
+# Admin
+params:
+  admin:
+    collections:
+      posts_categories:
+        enable: true
+        filter:
+          - field: isIndex
+            value: false
+        icon:
+          sveltiacms: bookmarks

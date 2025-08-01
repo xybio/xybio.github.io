@@ -1,0 +1,11 @@
+{{ $cta := . | default false }}
+{{ $hasCTA := false }}
+{{ with $cta }}
+    {{ if and (isset . "text") (isset . "url") }}
+        {{ if and (ne .text "") (ne .url "") }}
+            {{ $hasCTA = true }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+
+{{ return $hasCTA }}

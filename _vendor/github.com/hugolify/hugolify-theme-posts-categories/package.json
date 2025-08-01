@@ -1,0 +1,24 @@
+{
+  "name": "hugolify-theme-posts-categories",
+  "version": "1.0.13",
+  "homepage": "https://www.hugolify.io",
+  "repository": "https://github.com/hugolify/hugolify-theme-posts-categories",
+  "bugs": {
+    "url": "https://github.com/hugolify/hugolify-theme-posts-categories/issues"
+  },
+  "author": {
+    "email": "sebousan@gmail.com",
+    "name": "Sébastien Moulène",
+    "url": "https://www.sebastienmoulene.com/"
+  },
+  "keywords": [
+    "hugolify",
+    "hugo",
+    "hugo-theme",
+    "bootstrap"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@hugolify/prettier-config": "^0.3.1"
+  }
+}

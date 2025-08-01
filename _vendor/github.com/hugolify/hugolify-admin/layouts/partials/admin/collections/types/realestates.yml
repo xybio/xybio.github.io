@@ -1,0 +1,24 @@
+{
+  name: realestates,
+  folder: content/realestates,
+  label: '{{ i18n "admin.collections.realestates.label" }}',
+  label_singular: '{{ i18n "admin.collections.realestates.label" 1 }}',
+  description: '{{ i18n "admin.collections.realestates._description" }}',
+  
+  create: {{ site.Params.admin.collections.realestates.create | default true }},
+  editor: { preview: {{ site.Params.admin.preview | default false }} },
+  i18n: true,
+
+  path: '{{`{{year}}/{{slug}}`}}',
+  {{ $slug := "{{year}}-{{month}}-{{day}}-{{slug}}" }}
+  {{ partial "admin/collections/config/slug.yml" $slug }}
+  
+  {{ partial "admin/collections/config/icon.yml" "realestates" }}
+  {{ partial "admin/collections/config/index_file.yml" }}
+  {{ partial "admin/collections/config/filter.yml" "realestates" }}
+  {{ partial "admin/collections/config/sortable.yml" "realestates" }}
+  {{ partial "admin/collections/config/summary.yml" "realestates" }}
+  {{ partial "admin/collections/config/view_filters.yml" "realestates" }}
+  {{ partial "admin/collections/config/view_groups.yml" "realestates" }}
+  {{ partial "admin/collections/fields.yml" (dict "collection" "realestates") }}
+}

@@ -1,0 +1,10 @@
+{{ $hasCategory := partial "func/HasTaxonomyAvailable" (dict "section" "posts" "taxonomy" "categories") }}
+{{ $hasTag := partial "func/HasTaxonomyAvailable" (dict "section" "posts" "taxonomy" "tags") }}
+{{ $hasAuthor := partial "func/HasTaxonomyAvailable" (dict "section" "posts" "taxonomy" "authors") }}
+{{ $hasExpertises := partial "func/HasTaxonomyAvailable" (dict "section" "posts" "taxonomy" "posts_expertises") }}
+{{ if or $hasCategory $hasTag $hasAuthor $hasExpertises }}
+  <div class="filters offcanvas" tabindex="-1" id="postsFilters" aria-labelledby="postsFiltersLabel">
+    {{ partial "posts/filters/header" . }}
+    {{ partial "posts/filters/content" . }}
+  </div>
+{{ end }}

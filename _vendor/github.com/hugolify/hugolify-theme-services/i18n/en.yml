@@ -1,0 +1,14 @@
+services:
+  all: All services
+  discover: Discover service
+  latest: Latest services
+  latest_person: Latest services by {{ .Person }}
+  list: List of services by this person
+  list_person: List of {{ .Person }}’s services
+  more: Discover more services
+  more_person: Discover more services by {{ .Person }}
+  related: Others services
+  title:
+    one: Service
+    other: Services
+  title_person: "{{ .Person }}’s services"

@@ -1,0 +1,18 @@
+<div class="content">
+  {{ $categories := "posts/filters/categories.html" }}
+  {{ if templates.Exists ( printf "partials/%s" $categories ) }}
+    {{ partial $categories . }}
+  {{ end }}
+  {{ $tags := "posts/filters/tags.html" }}
+  {{ if templates.Exists ( printf "partials/%s" $tags ) }}
+    {{ partial $tags . }}
+  {{ end }}
+  {{ $authors := "posts/filters/authors.html" }}
+  {{ if templates.Exists ( printf "partials/%s" $authors ) }}
+    {{ partial $authors . }}
+  {{ end }}
+  {{ $posts_expertises := "posts/filters/posts_expertises.html" }}
+  {{ if templates.Exists ( printf "partials/%s" $posts_expertises ) }}
+    {{ partial $posts_expertises . }}
+  {{ end }}
+</div>

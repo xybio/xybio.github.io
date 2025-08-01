@@ -1,0 +1,35 @@
+.doc
+    --bs-card-bg: #{$gray-100}
+    --bs-card-border-width: 1px
+    --bs-card-border-radius: 8px
+    --bs-card-inner-border-radius: 0
+    height: 100%
+    &:hover
+        --bs-card-bg: #{$gray-200}
+    .media
+        --bs-aspect-ratio: 100%
+        background-color: $gray-100
+        border: var(--bs-card-border-width) solid var(--bs-card-border-color)
+        border-radius: var(--bs-card-border-radius)
+        margin-left: var(--bs-card-spacer-x)
+        margin-top: var(--bs-card-spacer-y)
+        width: 2.5rem
+        .icon
+            align-items: center
+            display: flex
+            justify-content: center
+            text-align: center
+            &::before
+                font-size: 1.5rem
+        img
+            transform: scale(0.6)
+    .btn
+        font-size: $small-font-size
+        &:last-child
+            margin-bottom: calc(#{$btn-padding-y} * -1)
+
+    @media (hover: hover)
+        a:hover
+            & ~ .media
+                img
+                    transform: scale(0.6)

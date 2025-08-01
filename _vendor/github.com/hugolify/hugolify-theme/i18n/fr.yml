@@ -1,0 +1,192 @@
+accessibility:
+  alternative: Alternative à {{ .Title }}
+address:
+  label:
+    one: Adresse
+    other: Adresses
+  city: Ville
+  country: Pays
+  direction: Comment y aller ?
+  street: Rue
+breadcrumb: fil d’Arianne
+carousel:
+  carousel: Carrousel
+  first: Aller à la première diapositive
+  last: Aller à la dernière diapositive
+  next: Diapositive suivante
+  pagex: Aller à la page %s
+  pause: Mettre pause au défilement automatique
+  play: Lancer le défilement automatique
+  previous: Diapositive précédente
+  select: Changer la ou les diapositives à afficher
+  slide: Diapositive
+  slidelabel: Diapositive %s de %s
+  slidex: Aller à la diapositive %s
+close: Fermer
+contact:
+  address: 'Adresse :'
+  city: 'Ville :'
+  email: 'E-mail :'
+  email_with_value: 'E-mail : {{ .Value }}'
+  fax: 'Fax :'
+  fax_with_value: 'Fax : {{ .Value }}'
+  facebook: Facebook
+  instagram: Instagram
+  linkedin: Linkedin
+  mastodon: Mastodon
+  me: 'Contactez-moi'
+  pinterest: Pinterest
+  rdv: Prendre rendez-vous
+  tel: 'Téléphone :'
+  tel_with_value: 'Téléphone : {{ .Value }}'
+  title: Contact
+  twitter: Twitter
+  us: 'Contactez-nous'
+  website: Site web
+  whatsapp: WhatsApp
+cookie_banner:
+  accept: Accepter
+  label: Avis sur les cookies
+  refuse: Refuser (sauf essentiel)
+  text: 'En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de Cookies pour vous proposer notamment des fonctionnalités personnalisées et pour réaliser des mesures d’audience. Pour en savoir plus et paramétrer ces cookies :'
+  title: Bandeau cookie
+cookie_consent:
+  consentModalTitle: Gestion du consentement des cookies
+  consentModalDescription: Ce site utilise des cookies nécessaires pour garantir son bon fonctionnement et d'autres cookies répertoriés dans le centre de préférences et qui ne sont définis qu'après consentement.
+  consentModalAcceptAllBtn: Accepter tout
+  consentModalAcceptNecessaryBtn: Refuser les cookies non techniques
+  consentModalShowPreferencesBtn: Configurer
+  preferencesModalTitle: Centre de préférences de consentement
+  preferencesModalAcceptAllBtn: Accepter tout
+  preferencesModalAcceptNecessaryBtn: Accepter uniquement les cookies nécessaires
+  preferencesModalSavePreferencesBtn: Enregistrer les paramètres
+  preferencesModalCloseIconLabel: Fermer la fenêtre
+  preferencesModalServiceCounterLabel: Service|Services
+  sectionsTitle: Utilisation des cookies
+  sectionsDescription: Nous utilisons des cookies pour garantir les fonctionnalités de base du site et améliorer votre expérience en ligne.
+  sectionsNecessaryTitle: Cookies strictement nécessaires
+  sectionsNecessaryDescription: Ces cookies sont essentiels au bon fonctionnement de mon site. Sans ces cookies, le site ne fonctionnerait pas correctement.
+  sectionsAnalyticsTitle: Cookies d'analyse
+  sectionsAnalyticsDescription: Ces cookies permettent au site de se souvenir des choix que vous avez faits par le passé.
+  sectionsFunctionalityTitle: Cookies de fonctionnalité
+  sectionsFunctionalityDescription: Les cookies utilisés pour la fonctionnalité permettent aux utilisateurs d'interagir avec un service ou un site pour accéder à des fonctionnalités fondamentales pour ce service.
+  sectionsMarketingTitle: Cookies publicitaires
+  sectionsMarketingDescription: Permet le stockage (comme les cookies) lié à la publicité.
+
+credit:
+  hugolify: un site éco-conçu produit avec <a href="https://www.hugolify.io" target="_blank" rel="noopener noreferrer" title="« Hugolify » - lien externe">Hugolify</a>
+document:
+  one: Document
+  other: Documents
+filter: Filtrer
+form:
+  company: Société
+  email: Email
+  error: 'Erreur : Il y a un problème'
+  firstname: Prénom
+  hint:
+    email: 'Example : email@domaine.com'
+    firstname: Antoine
+    lastname: Dupont
+    tel: 'Example : +33 6 12 34 56 78'
+    url: 'Example : https://www.domaine.com'
+  lastname: Nom de famille
+  message: Message
+  name: Nom
+  organization: Organisation
+  subject: Sujet
+  success: Formulaire envoyé avec succès. Merci !
+  tel: Téléphone
+from: De
+gallery:
+  enlarge: Agrandir l’image
+  one: Galerie photo
+  other: Galerie photos
+header:
+  accessibility:
+    footer: Accéder au bas de la page
+    main: Contenu principal
+    menu: Navigation principale
+home: Accueil
+image:
+  one: Image
+  other: Images
+link:
+  blank: lien externe
+  blank_aria: « {{ .Title }} » - lien externe
+more: En savoir plus
+navigation:
+  close: Fermer
+  dropdown: Ouvrir le sous-menu
+  home: '{{ .Title }}, aller à l’accueil'
+  main: Navigation principale
+  menu: Menu
+newsletter:
+  button: S’abonner
+  label: Renseigner votre e-mail pour s’enregistrer à la newsletter
+  placeholder: email@domaine.com
+  title: Newsletter
+next: Suivant
+'no': Non
+notes:
+  title:
+    one: Note
+    other: Notes
+  back_to_text: Retour au texte {{ . }}.
+page404:
+  title: Page introuvable
+  text: La page que vous recherchez n'existe pas ou a été déplacée.
+  cta: Retour à la page d’accueil
+pages:
+  title:
+    one: Page
+    other: Pages
+  latest: Dernières pages
+pagination:
+  between: Pagination entre {{ .Section }}
+  first: Première page
+  label: Pagination
+  last: Dernière page
+  next: Suivant
+  next_section: '<span>{{ .Section }}</span> suivant'
+  page: Page {{ .Number }}
+  previous: Précédent
+  previous_section: '<span>{{ .Section }}</span> précédent'
+photo:
+  one: Photo
+  other: Photos
+previous: Précédent
+reading_time:
+  one: Une minute de lecture
+  other: '{{.}} minutes de lecture'
+reference:
+  label: Référence
+  label_short: Réf.
+  label_with_value: 'Référence : {{ .Value }}'
+  label_short_with_value: 'Réf. : {{ .Value }}'
+share:
+  share_on: Partager sur {{ .Website }}
+  title: Partager
+sidebar:
+  menu: Menu
+the: Le
+to: À
+toc: Table des matières
+token:
+  missing: Access token est manquant
+transcription: Transcription
+units:
+  GB: Go
+  MB: Mo
+  kB: ko
+  B: o
+  gigabytes: Gigaoctets
+  megabytes: Mégaoctets
+  kilobytes: Kilooctets
+  bytes: octets
+until: Jusqu’au
+video:
+  pause: Pause
+  play: Play
+  stop: Stop
+'yes': Oui

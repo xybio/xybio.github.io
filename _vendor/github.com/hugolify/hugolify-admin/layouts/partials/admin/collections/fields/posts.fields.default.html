@@ -1,0 +1,31 @@
+{{- $author := false -}}
+{{- $categories := false -}}
+{{- $tags := false -}}
+{{- $posts_expertises := false -}}
+{{- if and site.Params.admin.collections.persons.enable site.Params.admin.collections.posts_authors.enable -}}
+  {{- $author = dict "relation" (dict "collection" "persons" "name" "authors" "multiple" true) -}}
+{{- end -}}
+{{- if site.Params.admin.collections.posts_categories.enable -}}
+  {{- $categories = dict "relation" (dict "collection" "categories" "multiple" true) -}}
+{{- end -}}
+{{- if site.Params.admin.collections.posts_tags.enable -}}
+  {{- $tags = dict "relation" (dict "collection" "tags" "multiple" true) -}}
+{{- end -}}
+{{- if site.Params.admin.collections.expertises.enable -}}
+  {{- $posts_expertises = dict "relation" (dict "collection" "expertises" "name" "posts_expertises" "multiple" true) -}}
+{{- end -}}
+
+{{- return slice 
+  "id" 
+  "is_not_index" 
+  "draft" 
+  "date" 
+  "title_page" 
+  "description"
+  "featured_image" 
+  $author
+  $categories
+  $tags
+  $posts_expertises
+  "body"
+  "slug" -}}

@@ -1,5 +1,5 @@
 imports:
-  # Theme 3
+  # Theme 3 (放在前面)
   - path: github.com/hugolify/hugolify-theme-3
   
   # Content sections (for comprehensive site)
@@ -22,8 +22,8 @@ imports:
   # Personnel functionality  
   - path: github.com/hugolify/hugolify-theme-persons-expertises
   
-  # Core theme required (must be last)
-  - path: github.com/hugolify/hugolify-theme
-  
   # CMS (optional but recommended)
   - path: github.com/hugolify/hugolify-admin
+  
+  # Core theme required (must be last)
+  - path: github.com/hugolify/hugolify-theme

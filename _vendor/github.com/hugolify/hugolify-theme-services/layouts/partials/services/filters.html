@@ -1,0 +1,12 @@
+{{ $hasCategories := partial "func/HasTaxonomyAvailable" (dict "section" "services" "taxonomy" "services_categories") }}
+{{ if $hasCategories }}
+  <div
+    class="filters offcanvas"
+    tabindex="-1"
+    id="servicesFilters"
+    aria-labelledby="servicesFiltersLabel"
+  >
+    {{ partial "services/filters/header" . }}
+    {{ partial "services/filters/content" . }}
+  </div>
+{{ end }}

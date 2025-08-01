@@ -1,0 +1,8 @@
+{{ define "hero"}}
+  {{- partial "persons_expertises/hero-single.html" . -}}
+{{ end }}
+
+{{ define "main" }}
+  {{ partial "persons_expertises/schema-single.html" . }}
+  {{ partial "persons_expertises/container-single.html" . }}
+{{ end }}

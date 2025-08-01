@@ -1,0 +1,29 @@
+module:
+  mounts:
+    - source: archetypes
+      target: archetypes
+    - source: assets
+      target: assets
+    - source: content
+      target: content
+    - source: i18n
+      target: i18n
+    - source: layouts
+      target: layouts
+params:
+  admin:
+    collections:
+      docs:
+        enable: true
+        filter:
+          - field: isIndex
+            value: false
+        icon:
+          sveltiacms: dictionary
+  docs:
+    sidebarmenu: true
+    thumbnail:
+      desktop: '38x38'
+      desktop_large: '100x100'
+      mobile: '38x38'
+      scrollsnap: '38x38'

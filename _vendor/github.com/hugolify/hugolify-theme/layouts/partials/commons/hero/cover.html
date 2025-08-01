@@ -1,0 +1,14 @@
+{{- $cover := false -}}
+{{- with .image }}
+  {{- if or .background .background_image }}
+    {{- $cover = "image" -}}
+  {{- end }}
+{{- end }}
+{{- with .video }}
+  {{- if or .background .background_video }}
+    {{- $cover = "video" -}}
+  {{- end }}
+{{- end }}
+{{- if $cover }}
+  {{ partial (print "commons/hero/cover/" $cover ".html") . }}
+{{- end }}

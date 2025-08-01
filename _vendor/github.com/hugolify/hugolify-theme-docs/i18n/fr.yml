@@ -1,0 +1,11 @@
+docs:
+  all: Toutes les documentation
+  latest: Dernières documentations
+  discover: Découvrez la documentation
+  more: Découvrir plus de documentations
+  related:
+    one: Documentation liée
+    other: Documentations liées
+  title:
+    one: Documentation
+    other: Documentations

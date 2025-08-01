@@ -1,0 +1,8 @@
+{{ $hasTags := partial "func/HasTaxonomyAvailable" (dict "section" "projects" "taxonomy" "projects_tags") }}
+{{ $hasTypes := partial "func/HasTaxonomyAvailable" (dict "section" "projects" "taxonomy" "projects_types") }}
+{{ if or $hasTags $hasTypes }}
+  <div class="filters offcanvas" tabindex="-1" id="projectsFilters" aria-labelledby="projectsFiltersLabel">
+    {{ partial "projects/filters/header" . }}
+    {{ partial "projects/filters/content" . }}
+  </div>
+{{ end }}

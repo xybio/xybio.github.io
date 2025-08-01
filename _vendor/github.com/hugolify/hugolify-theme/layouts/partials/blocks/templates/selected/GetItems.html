@@ -1,0 +1,22 @@
+{{- $section := .section -}}
+{{- $items := slice -}}
+{{- range .items }}
+  {{- $path := . -}}
+  {{- if ne $section "pages" -}}
+    {{- $path = printf "%s/%s" $section $path -}}
+  {{- end -}}
+  {{- $item := site.GetPage $path -}}
+  {{- if not $item -}}
+    {{- $pages := site.RegularPages -}}
+    {{- if ne $section "pages" -}}
+      {{- $pages = where site.RegularPages "Section" $section -}}
+    {{- else -}}
+      {{- $pages = where site.Pages "Params.isPage" true -}}
+    {{- end -}}
+    {{- $item = or (where $pages "Params.title" "==" .) (where $pages "Params.id" "==" .) -}}
+  {{- end -}}
+  {{- with $item -}}
+    {{- $items = $items | append . -}}
+  {{- end -}}
+{{ end }}
+{{ return $items }}

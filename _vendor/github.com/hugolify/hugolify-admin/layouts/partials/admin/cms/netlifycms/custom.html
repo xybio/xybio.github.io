@@ -1,0 +1,9 @@
+<!-- Parent widget -->
+<script src="https://unpkg.com/@netlify/netlify-cms-widget-parent@^1.0.0/dist/netlify-cms-widget-parent.js"></script>
+<!-- uuid widget -->
+<script src="https://unpkg.com/netlify-cms-widget-uuid-v4@^1.0.12/dist/index.js"></script>
+<!-- Register -->
+<script>
+{{ partial "admin/cms/netlifycms/shortcodes.js" | safeJS }}
+{{ partial "admin/cms/netlifycms/widgets.js" | safeJS }}
+</script>

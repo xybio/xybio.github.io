@@ -1,0 +1,8 @@
+projects_types:
+  all: All projects types
+  discover: Discover projects type
+  latest: Latest projects types
+  more: Discover more projects types
+  title:
+    one: Type
+    other: Types

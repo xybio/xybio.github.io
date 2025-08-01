@@ -1,0 +1,6 @@
+{{ range .GetTerms "authors" }}
+  {{ partial "commons/person.html" (dict 
+    "person" . 
+    "show_btn" false 
+    ) }}
+{{ end }}

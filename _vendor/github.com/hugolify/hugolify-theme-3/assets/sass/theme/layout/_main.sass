@@ -1,0 +1,21 @@
+main
+    background-image: linear-gradient(to bottom,var(--bs-gray-100) 0,var(--bs-white) 100%)
+    position: relative
+    &:after
+        aspect-ratio: 2000/50
+        background-image: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' viewBox='0 0 2000 50'><path d='M0 2.03394V50H2000V0.870483C1999.35 1.61206 1999 2.00049 1999 2.00049C1999 2.00049 1405 22.0004 999 22.0004C602.668 22.0004 27.1825 2.94165 0 2.03394Z' fill='#{$footer-background-color}'/></svg>"))
+        background-position: center bottom
+        background-repeat: no-repeat
+        background-size: 100% auto
+        bottom: -1px
+        content: ''
+        display: block
+        left: 0
+        overflow: hidden
+        pointer-events: none
+        position: absolute
+        right: 0
+        width: 100%
+        @supports not (aspect-ratio: 1)
+            min-height: 1.25rem
+

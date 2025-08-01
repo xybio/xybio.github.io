@@ -1,0 +1,5 @@
+{{ $person := partial "func/GetRealPerson" . }}
+<a href="{{ .Permalink }}" itemprop="url" class="content">
+  {{ partial "commons/item/title" $person }}
+  {{ partial "commons/item/description" $person }}
+</a>

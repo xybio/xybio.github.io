@@ -1,0 +1,21 @@
+{{- $person := partial "func/GetRealPerson" .context -}}
+{{- $section := printf "/%s" .section -}}
+{{- $i18nAll := printf "%s.all" .section -}}
+{{- $i18nTitle := printf "%s.list_person" .section -}}
+{{- $partialFilter := printf "%s/filters/button" .section -}}
+
+<header class="heading heading-filter"{{ partial "func/SetAnim.html" (dict "element" "heading") }}>
+  {{- with site.GetPage $section }}
+    <p class="surtitle">
+      <a href="{{ .Permalink }}" class="back">{{ i18n $i18nAll }}</a>
+    </p>
+  {{ end -}}
+  {{ with $person }}
+    {{- $title := partial "func/PrepareHTML.html" .Title -}}
+    {{- if not .File -}}
+      {{- $title = $title | humanize -}}
+    {{- end -}}
+    <h1 {{- if and site.Params.search.enable site.Params.search.sort }} data-pagefind-sort="heading"{{ end }}>{{ i18n $i18nTitle (dict "Person" $title) }}</h1>
+  {{ end }}
+  {{ partial $partialFilter .context }}
+</header>

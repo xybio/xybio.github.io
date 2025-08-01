@@ -1,0 +1,7 @@
+{{- with .Params.offer }}
+  <div class="offer">
+    {{ partial "commons/offer/princing" . }}
+    {{ partial "commons/offer/cta" . }}
+    {{ partial "commons/embed" . }}
+  </div>
+{{ end -}}

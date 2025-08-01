@@ -1,0 +1,8 @@
+{{- if site.Params.cookie_banner.enable }}
+  {{- if site.Params.cookie_banner.cookieconsent.enable -}}
+    {{ partial "footer/cookie-consent/javascript.html" . }}
+  {{- else -}}
+    {{ partialCached "footer/cookie-banner/modal.html" . }}
+    {{ partialCached "footer/cookie-banner/javascript.html" . }}
+  {{ end -}}
+{{ end -}}

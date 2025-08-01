@@ -1,0 +1,5 @@
+{{- $layout := . -}}
+{{- if not (reflect.IsSlice $layout) -}}
+  {{- $layout = slice "grid" -}}
+{{- end -}}
+{{- partial "admin/fields/select.yml" (dict "field" "layout" "options" $layout) }}

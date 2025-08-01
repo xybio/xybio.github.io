@@ -1,0 +1,6 @@
+{{ $services_categories := "services/item/services_categories.html" }}
+{{ if templates.Exists ( printf "partials/%s" $services_categories ) }}
+  <div class="metas">
+    {{ partial $services_categories . }}
+  </div>
+{{ end }}

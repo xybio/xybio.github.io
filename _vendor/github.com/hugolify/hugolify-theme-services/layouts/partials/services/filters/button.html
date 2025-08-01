@@ -1,0 +1,7 @@
+{{- $hasCategories := partial "func/HasTaxonomyAvailable" (dict "section" "services" "taxonomy" "services_categories") -}}
+{{- $services_categories := "services/filters/services_categories.html" -}}
+{{- if and $hasCategories (templates.Exists ( printf "partials/%s" $services_categories )) }}
+  <button class="btn btn-filter" type="button" data-bs-toggle="offcanvas" data-bs-target="#servicesFilters" aria-controls="servicesFilters">
+    {{- i18n "filter" -}}
+  </button>
+{{ end }}

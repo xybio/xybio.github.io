@@ -1,0 +1,24 @@
+{
+  name: events,
+  folder: content/events,
+  label: '{{ i18n "admin.collections.events.label" }}',
+  label_singular: '{{ i18n "admin.collections.events.label" 1 }}',
+  description: '{{ i18n "admin.collections.events._description" }}',
+  
+  create: {{ site.Params.admin.collections.events.create | default true }},
+  editor: { preview: {{ site.Params.admin.preview | default false }} },
+  i18n: true,
+
+  path: '{{`{{year}}/{{slug}}`}}',
+  {{ $slug := "{{year}}-{{slug}}" }}
+  {{ partial "admin/collections/config/slug.yml" $slug }}
+
+  {{ partial "admin/collections/config/icon.yml" "events" }}
+  {{ partial "admin/collections/config/index_file.yml" }}
+  {{ partial "admin/collections/config/filter.yml" "events" }}
+  {{ partial "admin/collections/config/sortable.yml" "events" }}
+  {{ partial "admin/collections/config/summary.yml" "events" }}
+  {{ partial "admin/collections/config/view_filters.yml" "events" }}
+  {{ partial "admin/collections/config/view_groups.yml" "events" }}
+  {{ partial "admin/collections/fields.yml" (dict "collection" "events") }}
+}

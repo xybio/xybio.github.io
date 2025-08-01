@@ -1,0 +1,3 @@
+{{ with .Description }}
+  <p class="description">{{ partial "func/PrepareHTML.html" (partial "func/LineBreak" .) }}</p>
+{{ end }}

@@ -1,0 +1,7 @@
+{{- $hasTags := partial "func/HasTaxonomyAvailable.html" (dict "section" "projects" "taxonomy" "projects_tags") -}}
+{{- $hasTypes := partial "func/HasTaxonomyAvailable.html" (dict "section" "projects" "taxonomy" "projects_types") -}}
+{{- if or $hasTags $hasTypes }}
+  <button class="btn btn-filter" type="button" data-bs-toggle="offcanvas" data-bs-target="#projectsFilters" aria-controls="projectsFilters">
+    {{- i18n "filter" -}}
+  </button>
+{{ end -}}

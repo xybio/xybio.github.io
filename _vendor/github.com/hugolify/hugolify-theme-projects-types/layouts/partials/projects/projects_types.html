@@ -1,0 +1,5 @@
+{{ with .GetTerms "projects_types" }}
+  {{ range . }}
+    <p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
+  {{ end }}
+{{ end }}

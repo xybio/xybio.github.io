@@ -1,0 +1,10 @@
+{{ with .GetTerms "projects_tags" }}
+  <div class="list-projects_tags list-tags">
+    <p>{{ i18n "projects_tags.title" (. | len) }}</p>
+    <ul>
+      {{ range . }}
+        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+  </div>
+{{ end }}

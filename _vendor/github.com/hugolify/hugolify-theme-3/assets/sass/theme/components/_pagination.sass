@@ -1,0 +1,23 @@
+.pagination:not(.pagination-between)
+    li
+        margin: 0 0.25rem
+    a
+        align-items: center
+        border-radius: $pagination-border-radius
+        display: flex
+        height: px2rem(40)
+        justify-content: center
+        width: px2rem(40)
+
+.pagination-between
+    a
+        &:hover
+            color: $pagination-color
+            text-decoration-color: inherit
+
+    &-with-title
+        --bs-pagination-hover-bg: #{$light}
+        a
+            transition: background .3s ease
+            &:hover
+                text-decoration-line: none

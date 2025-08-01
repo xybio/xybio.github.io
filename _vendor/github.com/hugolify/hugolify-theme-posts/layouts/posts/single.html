@@ -1,0 +1,9 @@
+{{ define "hero"}}
+  {{- partial "posts/hero-single.html" . -}}
+{{ end }}
+
+{{ define "main" }}
+  {{ partial "posts/schema-single.html" . }}
+  {{ partial "posts/container-single.html" . }}
+  {{ partial "posts/related-content" . }}
+{{ end }}

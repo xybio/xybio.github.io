@@ -1,0 +1,8 @@
+categories:
+  all: All categories
+  discover: Discover categories
+  latest: Latest categories
+  more: Discover more categories
+  title:
+    one: Category
+    other: Categories

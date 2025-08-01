@@ -1,0 +1,16 @@
+{{- range $index, $block := . -}}
+  {{- $isFirst := cond (eq $index 0) true false -}}
+  {{- $block = merge $block (dict "first" $isFirst) -}}
+  {{- $block = merge $block (dict "index" $index) -}}
+  {{- $block = merge $block (dict "block" .type) -}}
+  {{- $template := printf "blocks/templates/%s.html" $block.type -}}
+  {{- if and (strings.Contains .type "selected-") (not (templates.Exists ( printf "partials/%s" $template ))) -}}
+    {{- $template = "blocks/templates/selected.html" -}}
+    {{- warnidf "blocks" "Partial block missed: %s" $block.type -}}
+  {{- end -}}
+  {{- if templates.Exists ( printf "partials/%s" $template ) -}}
+    {{ partial $template $block }}
+  {{- else -}}
+    {{- warnidf "blocks" "Partial block missed: %s" $template -}}
+  {{- end -}}
+{{- end -}}

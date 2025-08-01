@@ -1,0 +1,10 @@
+{{ define "hero"}}
+  {{- partial "persons/hero-single.html" . -}}
+{{ end }}
+
+{{ define "main" }}
+  {{ partial "persons/schema-single.html" . }}
+  {{ partial "persons/container-single.html" . }}
+  {{ partial "persons/related-content" . }}
+{{ end }}
+

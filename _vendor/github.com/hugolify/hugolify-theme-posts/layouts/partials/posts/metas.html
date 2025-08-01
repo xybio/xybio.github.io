@@ -1,0 +1,9 @@
+<div class="metas">
+  {{ partial "commons/date" . }}
+  {{ partial "commons/reading-time" . }}
+  {{ $categories := "posts/categories.html" }}
+  {{ if templates.Exists ( printf "partials/%s" $categories ) }}
+    {{ partial $categories . }}
+  {{ end }}
+  {{ partial "commons/share" . }}
+</div>

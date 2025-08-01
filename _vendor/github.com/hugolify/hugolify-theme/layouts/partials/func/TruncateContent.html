@@ -1,0 +1,14 @@
+{{ $limit := .limit | default 120 }}
+{{ $content := .content }}
+
+{{ return
+  truncate $limit "…" (
+    safeHTML (
+      chomp (
+        plainify (
+          partial "func/CorrectPunctuation.html" $content
+        )
+      )
+    ) 
+  ) 
+}}

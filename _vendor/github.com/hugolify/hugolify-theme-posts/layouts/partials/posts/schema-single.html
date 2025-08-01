@@ -1,0 +1,45 @@
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    {{- with .Title }}
+      "headline": {{ partial "func/PrepareData.html" . }},
+      "name": {{ partial "func/PrepareData.html" . }},
+    {{ end -}}
+
+    {{- with .Params.image }}
+      "thumbnailUrl": {{ .src | absURL }},
+    {{ end -}}
+
+    {{- with .Date }}
+      "datePublished": {{ . }},
+    {{ end -}}
+
+    {{- with .Description }}
+      "description": {{ partial "func/PrepareData.html" . }},
+    {{ end -}}
+
+    {{- range .GetTerms "categories" }}
+      "articleSection": {{ partial "func/PrepareData.html" .Title }},
+    {{ end -}}
+
+    {{- range .GetTerms "authors" }}
+      {{- $author :=  partial "func/GetRealPerson" . -}}
+      {{- with $author }}
+        "author": {
+          "@type": "Person",
+          "name": {{ partial "func/PrepareData.html" .Title }},
+          {{- with .Description }}
+            "description": {{ partial "func/PrepareData.html" . }},
+          {{ end }}
+          "url": {{ .Permalink }}
+        },
+      {{ end -}}
+    {{ end -}}
+
+    {{- with .Content }}
+      "articleBody": {{ partial "func/PrepareData.html" . }},
+    {{ end -}}
+
+  }
+</script>

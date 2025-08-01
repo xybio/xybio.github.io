@@ -1,0 +1,7 @@
+{{- if not .sold }}
+  {{ if .price }}
+    {{ partial "commons/price" . }}
+  {{ end }}
+{{ else }}
+  <p class="pricing">{{ i18n "products.sold" 1 }}</p>
+{{ end -}}

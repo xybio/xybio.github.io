@@ -1,0 +1,88 @@
+{{- $column := .params.column -}}
+{{- $tag := .params.tag | default "h2" -}}
+
+{{- with .push }}
+  {{- $hasOnlyLink := false -}}
+  {{- with .cta }}
+    {{- if and (or (not (isset . "text")) (eq .text "")) (and (isset . "url") (ne .url "")) -}}
+      {{- $hasOnlyLink = true -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $pushClass := "push" -}}
+  {{- with .offset }}
+    {{- $pushClass = printf "%s push-%s" $pushClass . -}}
+  {{- end -}}
+  {{- with .darken -}}
+    {{- $pushClass = printf "%s push-darken" $pushClass -}}
+  {{- end -}}
+
+  {{- $style := "" -}}
+  {{- with .background_color -}}
+    {{- $style = printf "--push-background-color: %s;" . -}}
+  {{- end -}}
+  {{- with .color -}}
+    {{- $style = printf "%s --push-color: %s;" $style . -}}
+  {{- end -}}
+  {{- $style = printf " style='%s'" $style -}}
+
+  <div class="{{ $pushClass }}" {{- if or .background_color .color }}{{ $style | safeHTMLAttr }}{{ end }}>
+
+    {{- if $hasOnlyLink }}
+      {{- $blank := .cta.blank | default false -}}
+      {{- $title := i18n "link.blank" -}}
+      <a href="{{ .cta.url | safeURL }}" {{ if $blank }} target="_blank" title="{{ $title }}"{{ end }}>
+    {{ end -}}
+
+    {{- if or .title .text .cta.text }}
+    <div class="content">
+      {{ if .card }}
+        <div>
+      {{ end }}
+      {{- with .surtitle }}
+        <p class="surtitle">{{ partial "func/PrepareHTML.html" . }}</p>
+      {{ end -}}
+      {{- with .title }}
+        {{- printf "<%s>" $tag | safeHTML -}}
+          {{ partial "func/PrepareHTML.html" . }}
+        {{- printf "</%s>" $tag | safeHTML -}}
+      {{ end -}}
+      {{- with .text }}
+        <p>{{ partial "func/PrepareHTML.html" . }}</p>
+      {{ end -}}
+      {{ with .cta }}
+        {{ partial "commons/cta.html" . }}
+      {{ end }}
+      {{ if .card }}
+        </div>
+      {{ end }}
+    </div>
+    {{ end -}}
+
+    {{- with .image }}
+      {{- $columnTotal := site.Params.column | default false -}}
+      {{- $desktop := site.Params.container.desktop | default false -}}
+      {{- $mobile := site.Params.container.mobile | default false -}}
+      {{ if $desktop }}
+        {{- $width := partial "func/GetColumnWidth.html" (dict "column" (div $columnTotal $column)) -}}
+        {{- $desktop = printf "%sx" (string $width) -}}
+      {{ end }}
+      {{ if $mobile }}
+        {{- $mobile = printf "%sx%s" (string $mobile) (string $mobile) -}}
+      {{ end }}
+      {{ partial "commons/image.html" (dict
+        "src" .src 
+        "alt" .alt 
+        "desktop" $desktop
+        "mobile" $mobile
+        ) }}
+    {{ end -}}
+
+    {{- if $hasOnlyLink }}
+      {{- $blank := .blank | default false -}}
+      {{- $title := i18n "link.blank_aria" (dict "Title" (partial "func/PrepareHTML.html" .text)) -}}
+      </a>
+    {{ end -}}
+    
+  </div>
+{{ end -}}

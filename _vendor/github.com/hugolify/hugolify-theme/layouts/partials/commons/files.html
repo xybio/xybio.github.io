@@ -1,0 +1,11 @@
+{{ if . }}
+  <ul class="files">
+    {{ range . }}
+      {{ if .file }}
+        <li>
+          {{- partial "commons/file" . -}}
+        </li>
+      {{ end }}
+    {{ end }}
+  </ul>
+{{ end }}

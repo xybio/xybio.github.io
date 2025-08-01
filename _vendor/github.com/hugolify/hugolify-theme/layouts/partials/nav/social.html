@@ -1,0 +1,13 @@
+{{- $menu := site.Data.menu.social -}}
+{{- with index $menu .Site.Language.Lang -}}
+  {{- $menu = . -}}
+{{- end -}}
+{{- with $menu }}
+  <ul class="nav nav-social">
+    {{- range .links }}
+      <li class="{{ lower (safeHTML .title) }}">
+        {{- partial "nav/link.html" (dict "link" . "span" true) -}}
+      </li>
+    {{- end }}
+  </ul>
+{{ end -}}

@@ -1,0 +1,17 @@
+{{- $section := "persons" -}}
+{{- $pages := partial "func/GetTaxonomyPageBySlug" (dict 
+  "section" $section
+  "taxonomy" "persons_expertises"
+  "slug" .File.TranslationBaseName) -}}
+{{- $pages = partial "func/GetPersonsOrderByStatutes" $pages -}}
+{{- if $pages }}
+  <aside>
+    <h2 class="h4">{{ i18n "expertises.discover_persons" (dict "Title" (.Title | lower)) }}</h2>
+    {{- range $pages }}
+      {{- $expertise := partial "func/GetRealExpertise" . -}}
+      {{- with $expertise }}
+          {{ partial "persons/item" . }}
+      {{ end -}}
+    {{ end -}}
+  </aside>
+{{ end -}}

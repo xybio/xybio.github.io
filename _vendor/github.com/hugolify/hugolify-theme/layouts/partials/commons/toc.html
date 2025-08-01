@@ -1,0 +1,12 @@
+{{ if ge (len .TableOfContents) 100 }}
+<div class="toc">
+  <div>
+    <p>{{ i18n "toc" }}</p>
+    {{ partial "commons/toc/button" . }}
+    <div class="offcanvas" tabindex="-1" id="toc" aria-labelledby="tocLabel">
+      {{ partial "commons/toc/header" . }}
+      {{ partial "commons/toc/content" . }}
+    </div>
+  </div>
+</div>
+{{ end }}

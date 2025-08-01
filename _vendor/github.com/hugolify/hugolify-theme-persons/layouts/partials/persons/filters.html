@@ -1,0 +1,9 @@
+{{ $hasStatutes := partial "func/HasTaxonomyAvailable" (dict "section" "persons" "taxonomy" "persons_statutes") }}
+{{ $hasExpertises := partial "func/HasTaxonomyAvailable" (dict "section" "persons" "taxonomy" "persons_expertises") }}
+{{ $hasPlaces := partial "func/HasTaxonomyAvailable" (dict "section" "persons" "taxonomy" "persons_places") }}
+{{ if or $hasStatutes $hasExpertises $hasPlaces }}
+  <div class="filters offcanvas" tabindex="-1" id="personsFilters" aria-labelledby="personsFiltersLabel">
+    {{ partial "persons/filters/header" . }}
+    {{ partial "persons/filters/content" . }}
+  </div>
+{{ end }}

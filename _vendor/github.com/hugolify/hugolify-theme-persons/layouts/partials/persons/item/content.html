@@ -1,0 +1,8 @@
+<a href="{{ .Permalink }}" itemprop="url" class="content">
+  {{ $statutes := "persons/item/persons_statutes.html" }}
+  {{ if templates.Exists ( printf "partials/%s" $statutes ) }}
+    {{ partial $statutes . }}
+  {{ end }}
+  {{ partial "commons/item/title" . }}
+  {{ partial "commons/item/description" . }}
+</a>

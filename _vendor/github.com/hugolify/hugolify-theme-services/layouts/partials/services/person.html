@@ -1,0 +1,4 @@
+{{ $services_persons := "services/services_persons.html" }}
+{{ if templates.Exists ( printf "partials/%s" $services_persons ) }}
+  {{ partial $services_persons . }}
+{{ end }}

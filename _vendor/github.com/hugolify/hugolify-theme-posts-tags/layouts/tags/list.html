@@ -1,0 +1,9 @@
+{{ define "hero"}}
+  {{- partial "tags/hero.html" . -}}
+{{ end }}
+
+{{ define "main" }}
+  {{ partial "tags/schema.html" . }}
+  {{ partial "tags/blocks.html" . }}
+  {{ partial "tags/container.html" . }}
+{{ end }}

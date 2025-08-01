@@ -1,0 +1,13 @@
+<!-- CSS -->
+{{- $cssOpts := (dict
+  "targetPath" "assets/css/main.css"
+  "enableSourceMap" true
+  "includePaths" (slice "node_modules")
+) -}}
+{{- $css := resources.Get "sass/main.sass" | toCSS $cssOpts -}}
+{{ if hugo.IsProduction }}
+  {{- $css = $css | css.PostCSS | minify | fingerprint | resources.PostProcess -}}
+{{ end }}
+{{ with $css }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" media="all">
+{{ end }}

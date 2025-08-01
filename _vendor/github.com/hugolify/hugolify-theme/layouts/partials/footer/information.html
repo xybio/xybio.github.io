@@ -1,0 +1,19 @@
+{{- $datas := .Site.Data.footer -}}
+{{- if hugo.IsMultilingual -}}
+  {{- with index $datas .Site.Language.Lang -}}
+    {{- $datas = . -}}
+  {{- end -}}
+{{- end -}}
+{{- with $datas -}}
+  {{- if or .title .text -}}
+    <div class="information">
+      {{- with .title -}}
+      <p class="footer-title">{{- partial "func/PrepareHTML.html" . -}}</p>
+      {{- end -}}
+      {{- with .text -}}
+      <p>{{- partial "func/LineBreak" (partial "func/PrepareHTML.html" .) -}}</p>
+      {{- end -}}
+      {{- partial "commons/cta" .cta -}}
+    </div>
+  {{- end -}}
+{{- end -}}
