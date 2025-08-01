@@ -1,3 +1,0 @@
-fields: [
-  {{ partial "admin/fields/_range-fields.yml" . }}
-]

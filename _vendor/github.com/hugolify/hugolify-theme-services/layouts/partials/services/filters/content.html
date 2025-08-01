@@ -1,6 +1,0 @@
-{{ $services_categories := "services/filters/services_categories.html" }}
-{{ if templates.Exists ( printf "partials/%s" $services_categories ) }}
-  <div class="content">
-    {{ partial $services_categories . }}
-  </div>
-{{ end }}

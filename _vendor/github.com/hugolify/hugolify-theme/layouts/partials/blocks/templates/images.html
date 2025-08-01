@@ -1,7 +1,0 @@
-{{- if .images }}
-<section class="block-images {{- with .background }} block-bg{{ end }}" {{- partial "func/SetAnim.html" (dict "element" "block") }}>
-  {{ partial "blocks/templates/images/header.html" . }}
-  {{ partial "blocks/templates/images/body.html" . }}
-  {{ partial "blocks/templates/images/footer.html" . }}
-</section>
-{{ end -}}

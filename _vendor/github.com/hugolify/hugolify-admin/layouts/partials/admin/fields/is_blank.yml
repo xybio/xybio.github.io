@@ -1,7 +1,0 @@
-{
-  label: '{{ i18n "admin.fields.is_blank.label" }}',
-  name: 'blank',
-  widget: 'boolean',
-  required: false,
-  i18n: true
-}

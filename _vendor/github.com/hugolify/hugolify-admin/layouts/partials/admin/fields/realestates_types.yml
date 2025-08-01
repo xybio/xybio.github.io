@@ -1,2 +1,0 @@
-
-{{- partial "admin/fields/select.yml" (dict "field" "realestates_types" "options" (slice "rent" "sale") "default" "sale") }}

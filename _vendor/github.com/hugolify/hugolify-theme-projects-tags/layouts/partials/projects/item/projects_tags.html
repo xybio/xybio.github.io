@@ -1,9 +1,0 @@
-{{ with .GetTerms "projects_tags" }}
-  <div class="list-projects_tags list-tags">
-    <ul>
-      {{ range . }}
-        <li>{{ .Title }}</li>
-      {{ end }}
-    </ul>
-  </div>
-{{ end }}

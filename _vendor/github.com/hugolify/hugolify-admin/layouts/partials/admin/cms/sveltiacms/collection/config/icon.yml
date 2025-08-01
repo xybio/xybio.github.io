@@ -1,3 +1,0 @@
-{{ with (index site.Params.admin.collections .).icon.sveltiacms }}
-icon: "{{ . }}",
-{{ end }}

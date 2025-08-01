@@ -1,7 +1,0 @@
-{
-  label: '{{ i18n "admin.fields.placeholder.label" }}',
-  name: 'placeholder',
-  widget: 'string',
-  required: false,
-  i18n: true 
-}

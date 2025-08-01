@@ -1,6 +1,0 @@
-{{ if isset .Params "images" }}
-  {{ with .Params.images }}
-    {{ partial "commons/images.html" (dict
-      "images" .) }}
-  {{ end }}
-{{ end }}

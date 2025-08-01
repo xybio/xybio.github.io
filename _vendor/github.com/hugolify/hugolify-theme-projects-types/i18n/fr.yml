@@ -1,8 +1,0 @@
-projects_types:
-  all: Tous les types de projets
-  discover: Découvrir le type de projets
-  latest: Derniers types de projets
-  more: Découvrir plus de types de projets
-  title:
-    one: Type
-    other: Types

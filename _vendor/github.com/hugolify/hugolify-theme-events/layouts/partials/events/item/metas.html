@@ -1,7 +1,0 @@
-{{- with .Params.event }}
-  {{- with .date_from }}
-    <span class="date">
-      {{ partial "commons/time.html" (dict "date" . "format" ":date_long") }}
-    </span>
-  {{ end -}}
-{{ end -}}

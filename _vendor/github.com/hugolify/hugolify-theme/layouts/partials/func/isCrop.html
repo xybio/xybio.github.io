@@ -1,8 +1,0 @@
-{{ $isCrop := true }}
-{{ $size := split . "x" }}
-{{ range $size }}
-  {{ if eq . "" }}
-    {{ $isCrop = false }}
-  {{ end }}
-{{ end }}
-{{ return $isCrop }}

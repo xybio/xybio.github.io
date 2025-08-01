@@ -1,9 +1,0 @@
-{{- $hasCategory := partial "func/HasTaxonomyAvailable" (dict "section" "posts" "taxonomy" "categories") -}}
-{{- $hasTag := partial "func/HasTaxonomyAvailable" (dict "section" "posts" "taxonomy" "tags") -}}
-{{- $hasAuthor := partial "func/HasTaxonomyAvailable" (dict "section" "posts" "taxonomy" "authors") -}}
-{{- $hasExpertises := partial "func/HasTaxonomyAvailable" (dict "section" "posts" "taxonomy" "posts_expertises") -}}
-{{- if or $hasCategory $hasTag $hasAuthor $hasExpertises }}
-  <button class="btn btn-filter" type="button" data-bs-toggle="offcanvas" data-bs-target="#postsFilters" aria-controls="postsFilters">
-    {{- i18n "filter" -}}
-  </button>
-{{ end -}}

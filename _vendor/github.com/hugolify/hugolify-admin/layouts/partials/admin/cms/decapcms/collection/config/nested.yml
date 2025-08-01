@@ -1,7 +1,0 @@
-{{ $nested := (index site.Params.admin.collections .).nested.depth | default site.Params.admin.nested.depth }}
-{{ if gt $nested 1 }}
-nested: {
-  depth: {{ $nested }},
-},
-{{ partialCached "admin/cms/decapcms/collection/config/parent.yml" . }}
-{{ end }}

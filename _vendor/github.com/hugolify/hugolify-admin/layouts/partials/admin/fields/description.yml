@@ -1,8 +1,0 @@
-{
-  label: '{{ i18n "admin.fields.description.label" }}',
-  hint: '{{ i18n "admin.fields.description.hint" }}',
-  name: 'description',
-  widget: 'text',
-  required: false,
-  i18n: true 
-}

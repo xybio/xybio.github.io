@@ -1,4 +1,0 @@
----
-isIndex: true
-title: Team
----

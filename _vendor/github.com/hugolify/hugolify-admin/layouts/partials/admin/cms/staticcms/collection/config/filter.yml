@@ -1,9 +1,0 @@
-{{- with (index site.Params.admin.collections .).filter -}}
-filter: {
-  {{ range . }}
-    {{ range $k, $v := . }}
-      {{ $k }}: "{{ $v }}",
-    {{ end }}
-  {{ end }}
-},
-{{- end -}}

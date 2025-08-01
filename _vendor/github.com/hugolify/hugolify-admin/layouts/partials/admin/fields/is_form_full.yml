@@ -1,7 +1,0 @@
-{
-  label: '{{ i18n "admin.fields.form.full.label" }}',
-  name: 'full',
-  widget: 'boolean',
-  required: false,
-  i18n: 'duplicate' 
-}

@@ -1,5 +1,0 @@
-{{ $atf := true }}
-{{ if partial "func/HasImageHero.html" . }}
-  {{ $atf = false }}
-{{ end }}
-{{ partial "authors/items" (dict "pages" .Pages.ByTitle "abovethefold" $atf) }}

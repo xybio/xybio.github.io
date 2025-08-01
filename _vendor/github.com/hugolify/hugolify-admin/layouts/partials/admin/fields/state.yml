@@ -1,1 +1,0 @@
-{{- partial "admin/fields/select.yml" (dict "field" "state" "options" (slice "danger" "dark" "info" "light" "primary" "secondary" "success" "warning") "default" "light" "required" true) }}

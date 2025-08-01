@@ -1,5 +1,0 @@
-<!-- Netlify CMS -->
-{{- $version := site.Params.admin.version | default "^2.0.0" -}}
-<script src="https://unpkg.com/netlify-cms@{{ $version }}/dist/netlify-cms.js"></script>
-<!-- Custom widget/shortcodes/previews… -->
-{{ partialCached "admin/cms/netlifycms/custom.html" . }}

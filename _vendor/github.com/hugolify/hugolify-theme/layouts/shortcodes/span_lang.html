@@ -1,5 +1,0 @@
-{{- $text := .Get "text" | default false -}}
-{{- $lang := .Get "lang" | default false -}}
-{{- with $lang -}}
-<span lang="{{ . }}">{{ $text }}</span>
-{{- end -}}

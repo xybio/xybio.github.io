@@ -1,7 +1,0 @@
-{{- if .items }}
-<section class="block-timeline {{- with .background }} block-bg{{ end }}" {{- partial "func/SetAnim.html" (dict "element" "block") }}>
-  {{ partial "blocks/templates/timeline/header.html" . }}
-  {{ partial "blocks/templates/timeline/body.html" . }}
-  {{ partial "blocks/templates/timeline/footer.html" . }}
-</section>
-{{ end -}}

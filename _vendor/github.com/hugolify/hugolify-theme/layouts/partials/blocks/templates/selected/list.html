@@ -1,9 +1,0 @@
-{{ with .items }}
-<ol class="items">
-  {{ range . }}
-  <li>
-    <a href="{{ .Permalink }}">{{ partial "func/PrepareHTML.html" .Title }}</a>
-  </li>
-  {{ end }}
-</ol>
-{{ end }}
