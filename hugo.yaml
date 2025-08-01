@@ -7,14 +7,15 @@ defaultContentLanguage: zh-cn
 params:
   description: 专注生物信息学技术分享与交流的个人博客
   author: xybio
+  keywords: [生物信息学, 生信, Python, R, 基因组, 转录组, 数据分析]
+  
+  # 站点设置
+  logo:
+    text: 生信义博
+    title: 生信义博 - 生物信息学技术分享
   
   # 头部和导航
   header:
-    logo:
-      title: 生信义博
-      text: 生信义博
-    nav:
-      primary: true
     sticky: true
     
   # 页脚
@@ -31,8 +32,11 @@ languages:
   zh-cn:
     languageName: 中文
     weight: 1
+    title: 生信义博
+    params:
+      description: 专注生物信息学技术分享与交流的个人博客
 
-# 菜单配置
+# 完整菜单配置
 menu:
   main:
     - identifier: home
@@ -40,13 +44,33 @@ menu:
       url: /
       weight: 1
     - identifier: posts
-      name: 文章
+      name: 技术文章
       url: /posts/
       weight: 2
-    - identifier: about
-      name: 关于
-      url: /about/
+    - identifier: projects
+      name: 项目展示
+      url: /projects/
       weight: 3
+    - identifier: services
+      name: 服务内容
+      url: /services/
+      weight: 4
+    - identifier: docs
+      name: 文档教程
+      url: /docs/
+      weight: 5
+    - identifier: persons
+      name: 团队成员
+      url: /persons/
+      weight: 6
+    - identifier: events
+      name: 学术活动
+      url: /events/
+      weight: 7
+    - identifier: about
+      name: 关于我们
+      url: /about/
+      weight: 8
 
 # Markup配置
 markup:

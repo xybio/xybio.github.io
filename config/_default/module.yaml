@@ -2,9 +2,28 @@ imports:
   # Theme 3
   - path: github.com/hugolify/hugolify-theme-3
   
-  # Core theme required
+  # Content sections (for comprehensive site)
+  - path: github.com/hugolify/hugolify-theme-projects
+  - path: github.com/hugolify/hugolify-theme-services
+  - path: github.com/hugolify/hugolify-theme-docs
+  - path: github.com/hugolify/hugolify-theme-persons
+  - path: github.com/hugolify/hugolify-theme-events
+  
+  # Blog functionality
+  - path: github.com/hugolify/hugolify-theme-posts-categories
+  - path: github.com/hugolify/hugolify-theme-posts-tags
+  - path: github.com/hugolify/hugolify-theme-posts-authors
+  - path: github.com/hugolify/hugolify-theme-posts
+  
+  # Project functionality
+  - path: github.com/hugolify/hugolify-theme-projects-types
+  - path: github.com/hugolify/hugolify-theme-projects-tags
+  
+  # Personnel functionality  
+  - path: github.com/hugolify/hugolify-theme-persons-expertises
+  
+  # Core theme required (must be last)
   - path: github.com/hugolify/hugolify-theme
   
-  # Content modules for blog functionality
-  - path: github.com/hugolify/hugolify-theme-posts-categories
-  - path: github.com/hugolify/hugolify-theme-posts
+  # CMS (optional but recommended)
+  - path: github.com/hugolify/hugolify-admin

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Types on 生信义博</title>
+    <link>http://localhost:1313/projects/types/</link>
+    <description>Recent content in Types on 生信义博</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <atom:link href="http://localhost:1313/projects/types/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
