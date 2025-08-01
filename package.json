@@ -1,0 +1,17 @@
+{
+  "name": "xybio-blog",
+  "version": "1.0.0",
+  "description": "Personal blog built with Hugo and Hugolify theme",
+  "scripts": {
+    "build": "hugo --minify",
+    "dev": "hugo server -D",
+    "clean": "rm -rf public"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.16",
+    "postcss-cli": "^9.1.0",
+    "autoprefixer": "^10.4.7"
+  },
+  "author": "xybio",
+  "license": "MIT"
+}
