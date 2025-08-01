@@ -5,22 +5,46 @@ defaultContentLanguage: zh-cn
 
 # 基本参数
 params:
-  description: 专注生物信息学技术分享与交流的个人博客
+  description: 专注生物信息学技术分享与交流的专业平台
   author: xybio
-  keywords: [生物信息学, 生信, Python, R, 基因组, 转录组, 数据分析]
+  keywords: [生物信息学, 生信, Python, R, 基因组, 转录组, 数据分析, 机器学习, 深度学习]
   
-  # 站点设置
+  # 站点设置 - 优化for theme-3
   logo:
     text: 生信义博
     title: 生信义博 - 生物信息学技术分享
+    image: /img/logo.svg
   
-  # 头部和导航
+  # 主题色彩 - 使用theme-3的配色方案
+  colors:
+    primary: "#335eea"
+    secondary: "#3d5480"
+    
+  # 头部和导航 - theme-3优化
   header:
     sticky: true
+    transparency: true
+    background: "white"
     
-  # 页脚
+  # 主页hero设置 - theme-3风格
+  hero:
+    enable: true
+    background: "gradient"
+    
+  # 页脚 - theme-3风格
   footer:
     legal: true
+    background: "#E7ECFF"
+    
+  # 字体设置 - theme-3使用Hanken Grotesk
+  typography:
+    font_family_primary: "Hanken Grotesk"
+    font_family_secondary: "Hanken Grotesk"
+    
+  # 布局设置 - theme-3特性
+  design:
+    border_radius: "0.375rem"
+    spacing: "5rem"
     
   # 社交媒体
   social:
