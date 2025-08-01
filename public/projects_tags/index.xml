@@ -1,1 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tags on 生信义博</title><link>https://xybio.github.io/projects_tags/</link><description>Recent content in Tags on 生信义博</description><generator>Hugo</generator><language>zh-cn</language><atom:link href="https://xybio.github.io/projects_tags/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on 生信义博</title>
+    <link>https://xybio.github.io/projects_tags/</link>
+    <description>Recent content in Tags on 生信义博</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <atom:link href="https://xybio.github.io/projects_tags/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

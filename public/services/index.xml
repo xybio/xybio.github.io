@@ -1,94 +1,25 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>服务内容 on 生信义博</title><link>https://xybio.github.io/services/</link><description>Recent content in 服务内容 on 生信义博</description><generator>Hugo</generator><language>zh-cn</language><atom:link href="https://xybio.github.io/services/index.xml" rel="self" type="application/rss+xml"/><item><title>基因组测序数据分析</title><link>https://xybio.github.io/services/genome-sequencing-analysis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xybio.github.io/services/genome-sequencing-analysis/</guid><description>&lt;h2 id="服务概述">服务概述&lt;/h2>
-&lt;p>我们提供从原始测序数据到生物学解释的全流程基因组数据分析服务，包括质量控制、序列比对、变异检测、注释和功能分析。&lt;/p>
-&lt;h2 id="服务内容">服务内容&lt;/h2>
-&lt;h3 id="数据质量控制">数据质量控制&lt;/h3>
-&lt;ul>
-&lt;li>原始数据质量评估&lt;/li>
-&lt;li>接头序列去除&lt;/li>
-&lt;li>低质量序列过滤&lt;/li>
-&lt;li>污染序列检测&lt;/li>
-&lt;/ul>
-&lt;h3 id="序列比对与变异检测">序列比对与变异检测&lt;/h3>
-&lt;ul>
-&lt;li>参考基因组比对&lt;/li>
-&lt;li>SNP/InDel检测&lt;/li>
-&lt;li>结构变异分析&lt;/li>
-&lt;li>拷贝数变异检测&lt;/li>
-&lt;/ul>
-&lt;h3 id="变异注释与解释">变异注释与解释&lt;/h3>
-&lt;ul>
-&lt;li>功能预测注释&lt;/li>
-&lt;li>致病性评分&lt;/li>
-&lt;li>频率数据库比对&lt;/li>
-&lt;li>临床意义解释&lt;/li>
-&lt;/ul>
-&lt;h2 id="技术优势">技术优势&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>高精度&lt;/strong>：采用最新算法确保检测精度&lt;/li>
-&lt;li>&lt;strong>快速交付&lt;/strong>：标准化流程保证时效&lt;/li>
-&lt;li>&lt;strong>定制化&lt;/strong>：根据研究需求定制分析方案&lt;/li>
-&lt;li>&lt;strong>质量保证&lt;/strong>：多重质控确保结果可靠&lt;/li>
-&lt;/ul>
-&lt;h2 id="适用领域">适用领域&lt;/h2>
-&lt;ul>
-&lt;li>医学遗传学研究&lt;/li>
-&lt;li>肿瘤基因组学&lt;/li>
-&lt;li>群体遗传学&lt;/li>
-&lt;li>育种基因组学&lt;/li>
-&lt;/ul>
-&lt;h2 id="服务流程">服务流程&lt;/h2>
-&lt;ol>
-&lt;li>&lt;strong>需求沟通&lt;/strong>：详细了解项目需求&lt;/li>
-&lt;li>&lt;strong>方案制定&lt;/strong>：制定个性化分析方案&lt;/li>
-&lt;li>&lt;strong>数据分析&lt;/strong>：专业团队执行分析&lt;/li>
-&lt;li>&lt;strong>结果交付&lt;/strong>：提供详细分析报告&lt;/li>
-&lt;li>&lt;strong>后续支持&lt;/strong>：结果解读和技术支持&lt;/li>
-&lt;/ol>
-&lt;h2 id="联系方式">联系方式&lt;/h2>
-&lt;p>邮箱：service@xybio.io&lt;br>
-电话：400-123-4567&lt;/p></description></item><item><title>转录组数据分析</title><link>https://xybio.github.io/services/transcriptome-analysis/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xybio.github.io/services/transcriptome-analysis/</guid><description>&lt;h2 id="服务概述">服务概述&lt;/h2>
-&lt;p>提供bulk RNA-seq、单细胞RNA-seq、long-read RNA-seq等多种转录组测序数据的专业分析服务。&lt;/p>
-&lt;h2 id="核心服务">核心服务&lt;/h2>
-&lt;h3 id="bulk-rna-seq分析">Bulk RNA-seq分析&lt;/h3>
-&lt;ul>
-&lt;li>差异表达基因分析&lt;/li>
-&lt;li>功能富集分析&lt;/li>
-&lt;li>通路分析&lt;/li>
-&lt;li>共表达网络构建&lt;/li>
-&lt;/ul>
-&lt;h3 id="单细胞rna-seq分析">单细胞RNA-seq分析&lt;/h3>
-&lt;ul>
-&lt;li>细胞类型鉴定&lt;/li>
-&lt;li>发育轨迹分析&lt;/li>
-&lt;li>细胞间通讯分析&lt;/li>
-&lt;li>时间序列分析&lt;/li>
-&lt;/ul>
-&lt;h3 id="高级分析">高级分析&lt;/h3>
-&lt;ul>
-&lt;li>可变剪接分析&lt;/li>
-&lt;li>融合基因检测&lt;/li>
-&lt;li>新转录本发现&lt;/li>
-&lt;li>表观遗传调控分析&lt;/li>
-&lt;/ul>
-&lt;h2 id="分析流程">分析流程&lt;/h2>
-&lt;ol>
-&lt;li>&lt;strong>数据预处理&lt;/strong>：质量控制和标准化&lt;/li>
-&lt;li>&lt;strong>表达定量&lt;/strong>：基因/转录本表达定量&lt;/li>
-&lt;li>&lt;strong>差异分析&lt;/strong>：多组比较和统计分析&lt;/li>
-&lt;li>&lt;strong>功能注释&lt;/strong>：生物学功能解读&lt;/li>
-&lt;li>&lt;strong>可视化&lt;/strong>：专业图表制作&lt;/li>
-&lt;/ol>
-&lt;h2 id="交付物">交付物&lt;/h2>
-&lt;ul>
-&lt;li>详细分析报告&lt;/li>
-&lt;li>结果数据文件&lt;/li>
-&lt;li>分析代码脚本&lt;/li>
-&lt;li>图表素材文件&lt;/li>
-&lt;/ul>
-&lt;h2 id="技术支持">技术支持&lt;/h2>
-&lt;ul>
-&lt;li>结果解读指导&lt;/li>
-&lt;li>后续分析建议&lt;/li>
-&lt;li>论文写作支持&lt;/li>
-&lt;li>技术培训服务&lt;/li>
-&lt;/ul></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>服务内容 on 生信义博</title>
+    <link>https://xybio.github.io/services/</link>
+    <description>Recent content in 服务内容 on 生信义博</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <atom:link href="https://xybio.github.io/services/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基因组测序数据分析</title>
+      <link>https://xybio.github.io/services/genome-sequencing-analysis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xybio.github.io/services/genome-sequencing-analysis/</guid>
+      <description>&lt;h2 id=&#34;-服务概述&#34;&gt;🧬 服务概述&lt;/h2&gt;&#xA;&lt;p&gt;基因组测序技术的快速发展为生命科学研究和临床诊断带来了巨大机遇。我们提供从原始测序数据到生物学解释的全流程专业分析服务，帮助研究者快速获得高质量的分析结果。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;服务成果&lt;/strong&gt;：已为500+科研团队提供服务，累计分析样本超过10,000例，发表相关论文200+篇。&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;-服务内容&#34;&gt;🔬 服务内容&lt;/h2&gt;&#xA;&lt;h3 id=&#34;数据预处理与质控&#34;&gt;数据预处理与质控&lt;/h3&gt;&#xA;&lt;h4 id=&#34;原始数据评估&#34;&gt;原始数据评估&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;测序深度和覆盖度统计&lt;/li&gt;&#xA;&lt;li&gt;碱基质量分布分析&lt;/li&gt;&#xA;&lt;li&gt;GC含量偏差检测&lt;/li&gt;&#xA;&lt;li&gt;重复序列比例评估&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;质量控制处理&#34;&gt;质量控制处理&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;低质量序列过滤（Q20/Q30）&lt;/li&gt;&#xA;&lt;li&gt;接头序列自动识别和去除&lt;/li&gt;&#xA;&lt;li&gt;污染序列检测和清除&lt;/li&gt;&#xA;&lt;li&gt;数据质量改善效果评估&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;序列比对与变异检测&#34;&gt;序列比对与变异检测&lt;/h3&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-mermaid&#34; data-lang=&#34;mermaid&#34;&gt;graph LR&#xA;    A[Clean Reads] --&amp;gt; B[参考基因组比对]&#xA;    B --&amp;gt; C[比对质量评估]&#xA;    C --&amp;gt; D[变异检测]&#xA;    D --&amp;gt; E[质量过滤]&#xA;    E --&amp;gt; F[变异注释]&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;核心检测算法&#34;&gt;核心检测算法&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;BWA-MEM&lt;/strong&gt;：高效精确的序列比对&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;GATK HaplotypeCaller&lt;/strong&gt;：SNP/InDel检测金标准&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Manta/Delly&lt;/strong&gt;：结构变异检测&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;CNVkit/LUMPY&lt;/strong&gt;：拷贝数变异分析&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;变异注释与功能分析&#34;&gt;变异注释与功能分析&lt;/h3&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;注释类型&lt;/th&gt;&#xA;          &lt;th&gt;工具/数据库&lt;/th&gt;&#xA;          &lt;th&gt;提供信息&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;基因注释&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;GENCODE/RefSeq&lt;/td&gt;&#xA;          &lt;td&gt;基因名称、转录本信息&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;功能预测&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;VEP/SnpEff&lt;/td&gt;&#xA;          &lt;td&gt;蛋白质功能影响预测&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;致病性评分&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;CADD/SIFT/PolyPhen&lt;/td&gt;&#xA;          &lt;td&gt;变异致病性概率&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;人群频率&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;gnomAD/1000G&lt;/td&gt;&#xA;          &lt;td&gt;变异在人群中的频率&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;&lt;strong&gt;临床意义&lt;/strong&gt;&lt;/td&gt;&#xA;          &lt;td&gt;ClinVar/OMIM&lt;/td&gt;&#xA;          &lt;td&gt;已知疾病关联性&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;-技术优势&#34;&gt;🎯 技术优势&lt;/h2&gt;&#xA;&lt;h3 id=&#34;先进的算法体系&#34;&gt;先进的算法体系&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;机器学习增强&lt;/strong&gt;：集成多种算法提升检测精度&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;多组学整合&lt;/strong&gt;：结合基因组、转录组、表观基因组数据&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;个性化分析&lt;/strong&gt;：根据样本特点优化分析参数&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;严格的质量控制&#34;&gt;严格的质量控制&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;多层次验证&lt;/strong&gt;：生物信息学和实验验证相结合&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;标准化流程&lt;/strong&gt;：ISO15189实验室质量标准&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;专家审核&lt;/strong&gt;：资深生信专家人工审核关键结果&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;完善的服务体系&#34;&gt;完善的服务体系&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;项目管理&lt;/strong&gt;：专属项目经理全程跟踪&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;技术支持&lt;/strong&gt;：7×24小时技术咨询服务&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;培训服务&lt;/strong&gt;：提供数据解读和工具使用培训&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;-应用案例&#34;&gt;📊 应用案例&lt;/h2&gt;&#xA;&lt;h3 id=&#34;临床诊断案例罕见病基因诊断&#34;&gt;临床诊断案例：罕见病基因诊断&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;案例背景&lt;/strong&gt;：某医院儿科收治一名出现发育迟缓的患儿，临床表现复杂，常规检查无法确诊。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>转录组数据分析</title>
+      <link>https://xybio.github.io/services/transcriptome-analysis/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://xybio.github.io/services/transcriptome-analysis/</guid>
+      <description>&lt;h2 id=&#34;服务概述&#34;&gt;服务概述&lt;/h2&gt;&#xA;&lt;p&gt;提供bulk RNA-seq、单细胞RNA-seq、long-read RNA-seq等多种转录组测序数据的专业分析服务。&lt;/p&gt;&#xA;&lt;h2 id=&#34;核心服务&#34;&gt;核心服务&lt;/h2&gt;&#xA;&lt;h3 id=&#34;bulk-rna-seq分析&#34;&gt;Bulk RNA-seq分析&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;差异表达基因分析&lt;/li&gt;&#xA;&lt;li&gt;功能富集分析&lt;/li&gt;&#xA;&lt;li&gt;通路分析&lt;/li&gt;&#xA;&lt;li&gt;共表达网络构建&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;单细胞rna-seq分析&#34;&gt;单细胞RNA-seq分析&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;细胞类型鉴定&lt;/li&gt;&#xA;&lt;li&gt;发育轨迹分析&lt;/li&gt;&#xA;&lt;li&gt;细胞间通讯分析&lt;/li&gt;&#xA;&lt;li&gt;时间序列分析&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;高级分析&#34;&gt;高级分析&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;可变剪接分析&lt;/li&gt;&#xA;&lt;li&gt;融合基因检测&lt;/li&gt;&#xA;&lt;li&gt;新转录本发现&lt;/li&gt;&#xA;&lt;li&gt;表观遗传调控分析&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;分析流程&#34;&gt;分析流程&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;数据预处理&lt;/strong&gt;：质量控制和标准化&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;表达定量&lt;/strong&gt;：基因/转录本表达定量&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;差异分析&lt;/strong&gt;：多组比较和统计分析&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;功能注释&lt;/strong&gt;：生物学功能解读&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;可视化&lt;/strong&gt;：专业图表制作&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;交付物&#34;&gt;交付物&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;详细分析报告&lt;/li&gt;&#xA;&lt;li&gt;结果数据文件&lt;/li&gt;&#xA;&lt;li&gt;分析代码脚本&lt;/li&gt;&#xA;&lt;li&gt;图表素材文件&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;技术支持&#34;&gt;技术支持&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;结果解读指导&lt;/li&gt;&#xA;&lt;li&gt;后续分析建议&lt;/li&gt;&#xA;&lt;li&gt;论文写作支持&lt;/li&gt;&#xA;&lt;li&gt;技术培训服务&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>
