@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on 生信义博</title>
+    <link>http://localhost:1313/categories/</link>
+    <description>Recent content in Categories on 生信义博</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 01 Aug 2025 10:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>网站公告</title>
+      <link>http://localhost:1313/categories/%E7%BD%91%E7%AB%99%E5%85%AC%E5%91%8A/</link>
+      <pubDate>Fri, 01 Aug 2025 10:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/categories/%E7%BD%91%E7%AB%99%E5%85%AC%E5%91%8A/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
