@@ -9,10 +9,10 @@ public_folder: /images
 
 # 内容集合定义
 collections:
-  # 中文博客文章
-  - name: 'zh-blog'
-    label: '中文博客'
-    folder: 'content/zh/blog'
+  # 博客文章
+  - name: 'posts'
+    label: '博客文章'
+    folder: 'content/post'
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     editor:
@@ -24,29 +24,14 @@ collections:
       - { label: '分类', name: 'categories', widget: 'list', required: false }
       - { label: '标签', name: 'tags', widget: 'list', required: false }
       - { label: '封面图', name: 'image', widget: 'image', required: false }
+      - { label: '草稿', name: 'draft', widget: 'boolean', default: false, required: false }
+      - { label: '权重', name: 'weight', widget: 'number', required: false }
       - { label: '正文', name: 'body', widget: 'markdown' }
-
-  # 英文博客文章
-  - name: 'en-blog'
-    label: 'English Blog'
-    folder: 'content/en/blog'
-    create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    editor:
-      preview: false
-    fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string', required: false }
-      - { label: 'Categories', name: 'categories', widget: 'list', required: false }
-      - { label: 'Tags', name: 'tags', widget: 'list', required: false }
-      - { label: 'Featured Image', name: 'image', widget: 'image', required: false }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
 
   # 页面内容
   - name: 'pages'
     label: '页面'
-    folder: 'content/zh'
+    folder: 'content/page'
     create: true
     slug: '{{slug}}'
     fields:
