@@ -2,10 +2,7 @@
   "backend": {
     "name": "github",
     "repo": "xybio/hugo-main",
-    "branch": "main",
-    "auth_type": "oauth",
-    "app_id": "REPLACE_WITH_GITHUB_CLIENT_ID",
-    "base_url": "REPLACE_WITH_OAUTH_PROXY_URL"
+    "branch": "main"
   },
   "media_folder": "static/images",
   "public_folder": "/images",
