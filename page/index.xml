@@ -1,1 +1,53 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pages on xybio</title><link>https://xybio.info/page/</link><description>Recent content in Pages on xybio</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>xybio</copyright><lastBuildDate>Wed, 07 Jan 2026 18:58:22 +0000</lastBuildDate><atom:link href="https://xybio.info/page/index.xml" rel="self" type="application/rss+xml"/><item><title>关于</title><link>https://xybio.info/about/</link><pubDate>Fri, 01 Sep 2023 00:00:00 +0000</pubDate><guid>https://xybio.info/about/</guid><description/></item><item><title>归档</title><link>https://xybio.info/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://xybio.info/archives/</guid><description/></item><item><title>链接</title><link>https://xybio.info/links/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xybio.info/links/</guid><description/></item><item><title>搜索</title><link>https://xybio.info/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xybio.info/search/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pages on xybio</title><link>https://xybio.info/page/</link><description>Recent content in Pages on xybio</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>xybio</copyright><lastBuildDate>Wed, 07 Jan 2026 19:19:17 +0000</lastBuildDate><atom:link href="https://xybio.info/page/index.xml" rel="self" type="application/rss+xml"/><item><title>关于</title><link>https://xybio.info/about/</link><pubDate>Mon, 15 Jul 2019 00:00:00 +0000</pubDate><guid>https://xybio.info/about/</guid><description>&lt;h2 id="-你好">👋 你好
+&lt;/h2>&lt;p>本站致力于 AI 医疗（AI for Medicine）：以数据与算法推动医学研究与临床应用，将可解释、可落地的智能能力带入真实医疗场景。&lt;/p>
+&lt;h2 id="-研究方向">🔬 研究方向
+&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>🧬 &lt;strong>生物医学数据分析&lt;/strong>&lt;br>
+全基因组测序（WGS）、转录组学（bulk &amp;amp; single-cell RNA-seq）、变异检测与功能注释&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>🔁 &lt;strong>基因调控网络建模&lt;/strong>&lt;br>
+多组学整合解析调控回路，推断细胞状态转换&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>🧠 &lt;strong>虚拟细胞模拟与计算系统生物学&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>虚拟细胞构建与动态模拟&lt;/li>
+&lt;li>虚拟基因敲除（in silico gene knockout）&lt;/li>
+&lt;li>AI 辅助药物筛选与疗效预测&lt;/li>
+&lt;li>细胞命运预测与路径优化&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>🧪 &lt;strong>精准医学转化应用&lt;/strong>&lt;br>
+面向罕见与复杂疾病的临床转化研究，将模型能力转化为可操作的临床策略&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="-使命">💡 使命
+&lt;/h2>&lt;p>连接前沿 AI 与真实医疗挑战——打造可解释、可落地的智能平台，为临床提供可靠的决策支持。&lt;/p>
+&lt;h2 id="-技术栈">🛠️ 技术栈
+&lt;/h2>&lt;p>&lt;strong>编程语言&lt;/strong>&lt;br>
+Python · R · Shell · C++ · SQL&lt;/p>
+&lt;p>&lt;strong>工作流与环境&lt;/strong>&lt;br>
+Snakemake · Nextflow · Docker · Conda · Git · Slurm&lt;/p>
+&lt;p>&lt;strong>专业领域&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>全基因组测序（WGS）&lt;/li>
+&lt;li>转录组学（bulk &amp;amp; single-cell RNA-seq）&lt;/li>
+&lt;li>变异检测与功能注释&lt;/li>
+&lt;li>基因调控网络推断&lt;/li>
+&lt;li>多组学数据整合&lt;/li>
+&lt;li>虚拟细胞仿真与 AI 驱动的药物发现&lt;/li>
+&lt;/ul>
+&lt;h2 id="-关注领域">🎯 关注领域
+&lt;/h2>&lt;p>聚焦机器学习、深度学习与生物医学数据的融合，探索：&lt;/p>
+&lt;ul>
+&lt;li>基于虚拟细胞的疾病机制研究&lt;/li>
+&lt;li>计算驱动的靶点识别与药物筛选&lt;/li>
+&lt;li>单细胞多组学的智能分析&lt;/li>
+&lt;li>临床决策支持系统的开发与优化&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>📧 &lt;strong>联系与合作&lt;/strong>&lt;br>
+欢迎交流合作，共同推动 AI 医疗的发展！&lt;/p></description></item><item><title>归档</title><link>https://xybio.info/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://xybio.info/archives/</guid><description/></item><item><title>链接</title><link>https://xybio.info/links/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xybio.info/links/</guid><description/></item><item><title>搜索</title><link>https://xybio.info/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xybio.info/search/</guid><description/></item></channel></rss>
