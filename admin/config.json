@@ -1,0 +1,46 @@
+{
+  "backend": {
+    "name": "github",
+    "repo": "xybio/hugo-main",
+    "branch": "main",
+    "auth_type": "oauth",
+    "app_id": "REPLACE_WITH_GITHUB_CLIENT_ID",
+    "base_url": "REPLACE_WITH_OAUTH_PROXY_URL"
+  },
+  "media_folder": "static/images",
+  "public_folder": "/images",
+  "collections": [
+    {
+      "name": "pages",
+      "label": "Pages",
+      "folder": "content/page",
+      "create": true,
+      "path": "{{slug}}/index",
+      "slug": "{{slug}}",
+      "fields": [
+        { "label": "Title", "name": "title", "widget": "string" },
+        { "label": "Date", "name": "date", "widget": "datetime" },
+        { "label": "Description", "name": "description", "widget": "string", "required": false },
+        { "label": "Body", "name": "body", "widget": "markdown" },
+        { "label": "Draft", "name": "draft", "widget": "boolean", "default": false }
+      ]
+    },
+    {
+      "name": "posts",
+      "label": "Posts",
+      "folder": "content/post",
+      "create": true,
+      "slug": "{{year}}-{{month}}-{{day}}-{{slug}}",
+      "fields": [
+        { "label": "Title", "name": "title", "widget": "string" },
+        { "label": "Date", "name": "date", "widget": "datetime" },
+        { "label": "Description", "name": "description", "widget": "string", "required": false },
+        { "label": "Categories", "name": "categories", "widget": "list", "required": false },
+        { "label": "Tags", "name": "tags", "widget": "list", "required": false },
+        { "label": "Image", "name": "image", "widget": "image", "required": false },
+        { "label": "Draft", "name": "draft", "widget": "boolean", "default": false, "required": false },
+        { "label": "Body", "name": "body", "widget": "markdown" }
+      ]
+    }
+  ]
+}
