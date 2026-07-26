@@ -1,0 +1,187 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="整理我在服务器分析中逐步形成的项目目录约定，把原始数据、代码、参数、结果和日志组织成可回查的证据链。"><title>可复现生信项目目录：从 data 到 logs 的组织方法 | XYBio.info</title><link rel="preconnect" href="https://fontsapi.zeoseven.com" crossorigin><script>
+      (() => {
+        const key = 'xybio-fonts-ready';
+        if (!sessionStorage.getItem(key)) {
+          document.documentElement.classList.add('fonts-loading');
+        }
+
+        document.fonts?.ready.then(() => {
+          sessionStorage.setItem(key, '1');
+          document.documentElement.classList.remove('fonts-loading');
+        });
+      })();
+    </script><link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png"><link rel="shortcut icon" type="image/png" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png"><link rel="canonical" href="https://xybio.info/notes/reproducible-bioinfo-project-layout/"><meta property="og:title" content="可复现生信项目目录：从 data 到 logs 的组织方法 | XYBio.info"><meta property="og:description" content="整理我在服务器分析中逐步形成的项目目录约定，把原始数据、代码、参数、结果和日志组织成可回查的证据链。"><meta property="og:type" content="website"><meta property="og:url" content="https://xybio.info/notes/reproducible-bioinfo-project-layout/"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.j56hQv-j.js"></script><link rel="stylesheet" href="/_astro/BaseLayout.6lvk2UeW.css"><style>[data-astro-transition-scope="astro-vepkwmqc-1"] { view-transition-name: page-content; }@layer astro { ::view-transition-old(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-vepkwmqc-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-vepkwmqc-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-vepkwmqc-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-vepkwmqc-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-vepkwmqc-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-vepkwmqc-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-vepkwmqc-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-vepkwmqc-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head> <body> <a class="skip-link" href="#content">跳到正文</a> <header class="site-header"> <nav class="shell nav" aria-label="主导航"> <div class="nav-main"> <a class="brand" href="/" aria-label="XYBIO.INFO 首页"> <img class="brand-mark" src="/logo-1.png" alt=""> <span>XYBIO.INFO</span> </a> </div> <div class="nav-links"> <a href="/"> 首页 </a><a href="/notes/"> 笔记 </a><a href="/research/"> 科研 </a><a href="/practice/"> 实践 </a><a href="/opensource/"> 开源 </a><a href="/about/"> 关于 </a> </div> </nav> </header> <main id="content" data-astro-transition-scope="astro-vepkwmqc-1">  <article> <header class="page-head"> <div class="shell"> <p class="eyebrow">Note</p> <div class="article-meta-row note-card-head"> <a class="kind-badge" href="/notes/?topic=%E6%A8%A1%E6%9D%BF">模板</a> <span class="status-badge">2025 / 06 / 01</span> </div> <h1>可复现生信项目目录：从 data 到 logs 的组织方法</h1> <p class="lead">整理我在服务器分析中逐步形成的项目目录约定，把原始数据、代码、参数、结果和日志组织成可回查的证据链。</p> <div class="tag-row"> <a class="tag" href="/notes/?tag=Linux">Linux</a><a class="tag" href="/notes/?tag=%E5%8F%AF%E5%A4%8D%E7%8E%B0%E5%88%86%E6%9E%90">可复现分析</a><a class="tag" href="/notes/?tag=%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF">生物信息</a><a class="tag" href="/notes/?tag=%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86">项目管理</a> </div> </div> </header> </article> <div class="article-shell with-sidebar"> <aside class="article-sidebar"> <div class="toc-panel article-side-title" aria-label="当前文章标题"> <a href="#content">可复现生信项目目录：从 data 到 logs 的组织方法</a> </div> <div class="toc-panel" aria-label="文章目录"> <strong>目录</strong> <nav> <a class="toc-depth-2" href="#推荐的最小目录"> 推荐的最小目录 </a><a class="toc-depth-2" href="#data把原始数据和派生数据分开"> data：把原始数据和派生数据分开 </a><a class="toc-depth-2" href="#ref参考数据也需要版本"> ref：参考数据也需要版本 </a><a class="toc-depth-2" href="#src-与-scripts区分逻辑和入口"> src 与 scripts：区分逻辑和入口 </a><a class="toc-depth-2" href="#config参数不应散落在命令历史中"> config：参数不应散落在命令历史中 </a><a class="toc-depth-2" href="#results结果不是所有中间文件的垃圾桶"> results：结果不是所有中间文件的垃圾桶 </a><a class="toc-depth-2" href="#logs让失败也留下证据"> logs：让失败也留下证据 </a><a class="toc-depth-2" href="#env-与-docs保存运行环境和决策"> env 与 docs：保存运行环境和决策 </a><a class="toc-depth-2" href="#我的命名习惯"> 我的命名习惯 </a><a class="toc-depth-2" href="#一次分析应形成怎样的证据链"> 一次分析应形成怎样的证据链 </a> </nav> </div> <div class="toc-panel related-panel" aria-label="建议阅读"> <strong>建议阅读</strong> <div class="related-list"> <a class="related-item" href="/notes/ai-for-medicine-platform/"> <span class="related-kind"><span>笔</span><span>记</span></span> <span class="related-title">个人博客建设路线图</span> </a><a class="related-item" href="/notes/fasterq-dump-benchmark-and-io-checklist/"> <span class="related-kind"><span>笔</span><span>记</span></span> <span class="related-title">从 10 分钟到 1 分钟：一次 fasterq-dump 转换测试</span> </a><a class="related-item" href="/notes/llm-prompt-playbook-for-bioinfo/"> <span class="related-kind"><span>笔</span><span>记</span></span> <span class="related-title">生信任务的 Prompt Playbook</span> </a> </div> </div> </aside> <div class="article-main"> <div class="prose"> <p>2025 年 6 月，我在思源笔记中记录了一套“服务器操作习惯”。最初它只是文件命名和目录树，目的是减少自己在不同服务器、不同课题之间切换时的混乱。</p>
+<p>后来我逐渐意识到，目录结构并不只是整洁问题。它决定了几个月后能否回答这些问题：</p>
+<ul>
+<li>原始数据是否被改动过？</li>
+<li>当前结果由哪段代码和哪组参数生成？</li>
+<li>失败任务的日志在哪里？</li>
+<li>图表能否从中间结果重新生成？</li>
+<li>其他人能否在不询问作者的情况下理解项目？</li>
+</ul>
+<h2 id="推荐的最小目录">推荐的最小目录</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>project_x/</span></span>
+<span class="line"><span>├── data/</span></span>
+<span class="line"><span>│   ├── raw/</span></span>
+<span class="line"><span>│   └── processed/</span></span>
+<span class="line"><span>├── ref/</span></span>
+<span class="line"><span>├── src/</span></span>
+<span class="line"><span>├── scripts/</span></span>
+<span class="line"><span>├── config/</span></span>
+<span class="line"><span>├── results/</span></span>
+<span class="line"><span>│   ├── tables/</span></span>
+<span class="line"><span>│   ├── figures/</span></span>
+<span class="line"><span>│   └── reports/</span></span>
+<span class="line"><span>├── logs/</span></span>
+<span class="line"><span>├── env/</span></span>
+<span class="line"><span>└── docs/</span></span></code></pre>
+<p>这套结构不追求覆盖所有场景，而是让每类文件只有一个主要归属。</p>
+<h2 id="data把原始数据和派生数据分开">data：把原始数据和派生数据分开</h2>
+<p><code>data/raw/</code> 保存收到时的原始文件，原则上只读。清洗、过滤、格式转换和合并后的文件进入 <code>data/processed/</code>。</p>
+<p>我会同时保存：</p>
+<ul>
+<li>原始文件清单；</li>
+<li>文件大小和校验值；</li>
+<li>样本名与分析编号的映射；</li>
+<li>数据获取日期和来源；</li>
+<li>生成 processed 数据的脚本或任务编号。</li>
+</ul>
+<p>涉及临床或个人数据时，目录和日志中只使用去标识化的分析编号，不直接放置姓名、住院号或联系方式。</p>
+<h2 id="ref参考数据也需要版本">ref：参考数据也需要版本</h2>
+<p>参考基因组、注释文件和数据库快照并不是永远不变的。<code>ref/</code> 中除了数据文件，还应记录：</p>
+<ul>
+<li>物种与版本；</li>
+<li>下载地址或来源；</li>
+<li>下载日期；</li>
+<li>文件校验值；</li>
+<li>必要的索引构建命令。</li>
+</ul>
+<p>“使用了 hg38”通常还不够，因为不同来源和注释版本可能产生不同结果。</p>
+<h2 id="src-与-scripts区分逻辑和入口">src 与 scripts：区分逻辑和入口</h2>
+<p>我把可复用的分析逻辑放在 <code>src/</code>，把面向具体任务的执行入口放在 <code>scripts/</code>。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>src/</span></span>
+<span class="line"><span>├── qc/</span></span>
+<span class="line"><span>├── alignment/</span></span>
+<span class="line"><span>├── statistics/</span></span>
+<span class="line"><span>└── visualization/</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>scripts/</span></span>
+<span class="line"><span>├── 01_qc.sh</span></span>
+<span class="line"><span>├── 02_align.sh</span></span>
+<span class="line"><span>├── 03_quantify.sh</span></span>
+<span class="line"><span>└── 04_report.R</span></span></code></pre>
+<p>数字前缀表达默认执行顺序，但真正的依赖关系仍应写进工作流、Makefile 或任务说明，而不是只依赖文件名。</p>
+<h2 id="config参数不应散落在命令历史中">config：参数不应散落在命令历史中</h2>
+<p>线程数、阈值、参考文件路径和样本分组应集中写入配置文件。这样做有三个直接收益：</p>
+<ol>
+<li>修改参数时不需要改动分析逻辑。</li>
+<li>不同批次可以保存各自配置。</li>
+<li>结果目录能够反向追溯到具体参数。</li>
+</ol>
+<p>配置文件中不要保存密码、API Key 和长期访问令牌。它们应通过环境变量或专门的凭据管理方式提供。</p>
+<h2 id="results结果不是所有中间文件的垃圾桶">results：结果不是所有中间文件的垃圾桶</h2>
+<p><code>results/</code> 只保存需要检查、汇报或交付的内容：</p>
+<ul>
+<li><code>tables/</code>：统计结果和结构化数据表；</li>
+<li><code>figures/</code>：可重新生成的图；</li>
+<li><code>reports/</code>：面向阅读者的汇总报告。</li>
+</ul>
+<p>体积大、可重新计算的中间文件应留在 processed 数据或临时工作目录，并明确清理规则。</p>
+<h2 id="logs让失败也留下证据">logs：让失败也留下证据</h2>
+<p>每次运行至少记录：</p>
+<ul>
+<li>开始和结束时间；</li>
+<li>命令或任务名称；</li>
+<li>软件版本；</li>
+<li>输入与输出路径；</li>
+<li>标准输出和错误输出；</li>
+<li>退出状态。</li>
+</ul>
+<p>日志的价值往往在任务失败后才显现。没有日志时，“为什么上次能跑、这次不能”通常只能依赖记忆。</p>
+<h2 id="env-与-docs保存运行环境和决策">env 与 docs：保存运行环境和决策</h2>
+<p><code>env/</code> 可以保存 Conda、容器或语言依赖的锁定文件；<code>docs/</code> 则保存 README、方法说明、数据字典和重要决策。</p>
+<p>一个最低限度的 README 应回答：</p>
+<ol>
+<li>项目解决什么问题。</li>
+<li>数据来自哪里。</li>
+<li>如何准备环境。</li>
+<li>从哪个命令开始运行。</li>
+<li>主要结果在哪里。</li>
+<li>哪些内容尚未完成。</li>
+</ol>
+<h2 id="我的命名习惯">我的命名习惯</h2>
+<p>项目和任务使用固定宽度编号，便于排序和引用：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>p01__project_name/</span></span>
+<span class="line"><span>├── t01__data_preparation/</span></span>
+<span class="line"><span>├── t02__primary_analysis/</span></span>
+<span class="line"><span>└── t03__validation/</span></span></code></pre>
+<p>编号只表达组织关系，不替代日期、版本控制和执行日志。文件名优先使用小写英文、数字、下划线或连字符，减少跨系统处理时的转义问题。</p>
+<h2 id="一次分析应形成怎样的证据链">一次分析应形成怎样的证据链</h2>
+<p>理想状态下，一张最终图可以沿着下面的路径回查：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>figure</span></span>
+<span class="line"><span>→ plotting script</span></span>
+<span class="line"><span>→ result table</span></span>
+<span class="line"><span>→ analysis task</span></span>
+<span class="line"><span>→ config</span></span>
+<span class="line"><span>→ processed data</span></span>
+<span class="line"><span>→ raw data + reference version</span></span></code></pre>
+<p>目录模板的真正目标不是让树形结构看起来专业，而是让这条链保持完整。只要证据链能够被重新执行、检查和解释，项目结构就完成了它最重要的任务。</p> </div> <section class="comment-section"> <div class="profile-panel comment-panel"> <h2>讨论</h2> <p>评论使用 GitHub Discussions。首次加载需要访问 GitHub。</p> <script src="https://giscus.app/client.js" data-repo="xybio/xybio.github.io" data-repo-id="R_kgDOPWUzsg" data-category="General" data-category-id="DIC_kwDOPWUzss4CtqQR" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="transparent_dark" data-lang="zh-CN" crossorigin="anonymous" async></script> <script>
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('commentPreview') === '1') {
+              document.querySelector('.giscus')?.remove();
+              document.querySelector('script[src="https://giscus.app/client.js"]')?.remove();
+              document.querySelector('.comment-preview')?.removeAttribute('hidden');
+            }
+          </script> </div> </section> </div> </div>  </main> <footer class="site-footer"> <div class="shell footer-inner"> <span>© 2026 XYBio</span> <span>科研不止一面 / More Sildes of Science.</span> </div> </footer> <script type="module">document.addEventListener("click",e=>{const t=e.target;if(!(t instanceof Element)||t.closest("a, button, input, label, select, textarea"))return;const n=t.closest("[data-card-link]");if(!(n instanceof HTMLElement))return;const r=n.dataset.cardLink;r&&(window.location.href=r)});document.addEventListener("keydown",e=>{if(e.key!=="Enter"&&e.key!==" ")return;const t=document.activeElement;if(!(t instanceof HTMLElement)||!t.matches("[data-card-link]"))return;e.preventDefault();const n=t.dataset.cardLink;n&&(window.location.href=n)});document.addEventListener("keydown",e=>{e.target instanceof HTMLInputElement||e.target instanceof HTMLTextAreaElement||(e.key==="n"||e.key==="N")&&(window.location.href="/notes/")});const a=e=>{const t=document.querySelector("[data-filter-drawer]"),n=document.querySelector("[data-filter-toggle]"),r=document.querySelector(".notes-filter-backdrop");t instanceof HTMLElement&&(t.setAttribute("data-open",e?"true":"false"),r?.setAttribute("data-open",e?"true":"false"),n?.setAttribute("aria-expanded",e?"true":"false"))};document.addEventListener("click",e=>{const t=e.target;if(t instanceof Element){if(t.closest("[data-filter-toggle]")){const r=document.querySelector("[data-filter-drawer]")?.getAttribute("data-open")==="true";a(!r);return}t.closest("[data-filter-close]")&&a(!1)}});document.addEventListener("keydown",e=>{e.key==="Escape"&&a(!1)});document.addEventListener("astro:after-swap",()=>a(!1));</script> <script type="module">document.addEventListener("astro:after-swap",()=>{const t=window.location.pathname;document.querySelectorAll(".nav-links a").forEach(e=>{e.getAttribute("href")===t?e.setAttribute("aria-current","page"):e.removeAttribute("aria-current")})});</script> <script>
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+      document.addEventListener('astro:after-swap', () => {
+        document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+      });
+    </script> </body> </html>

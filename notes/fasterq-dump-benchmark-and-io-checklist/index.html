@@ -1,0 +1,155 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="整理一次约 9 GB SRA 文件的转换记录，并把线程、临时空间、I/O 和输出校验归纳成可复用的下载检查清单。"><title>从 10 分钟到 1 分钟：一次 fasterq-dump 转换测试 | XYBio.info</title><link rel="preconnect" href="https://fontsapi.zeoseven.com" crossorigin><script>
+      (() => {
+        const key = 'xybio-fonts-ready';
+        if (!sessionStorage.getItem(key)) {
+          document.documentElement.classList.add('fonts-loading');
+        }
+
+        document.fonts?.ready.then(() => {
+          sessionStorage.setItem(key, '1');
+          document.documentElement.classList.remove('fonts-loading');
+        });
+      })();
+    </script><link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png"><link rel="shortcut icon" type="image/png" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png"><link rel="canonical" href="https://xybio.info/notes/fasterq-dump-benchmark-and-io-checklist/"><meta property="og:title" content="从 10 分钟到 1 分钟：一次 fasterq-dump 转换测试 | XYBio.info"><meta property="og:description" content="整理一次约 9 GB SRA 文件的转换记录，并把线程、临时空间、I/O 和输出校验归纳成可复用的下载检查清单。"><meta property="og:type" content="website"><meta property="og:url" content="https://xybio.info/notes/fasterq-dump-benchmark-and-io-checklist/"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.j56hQv-j.js"></script><link rel="stylesheet" href="/_astro/BaseLayout.6lvk2UeW.css"><style>[data-astro-transition-scope="astro-vepkwmqc-1"] { view-transition-name: page-content; }@layer astro { ::view-transition-old(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-vepkwmqc-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-vepkwmqc-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-vepkwmqc-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-vepkwmqc-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-vepkwmqc-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-vepkwmqc-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-vepkwmqc-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-vepkwmqc-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head> <body> <a class="skip-link" href="#content">跳到正文</a> <header class="site-header"> <nav class="shell nav" aria-label="主导航"> <div class="nav-main"> <a class="brand" href="/" aria-label="XYBIO.INFO 首页"> <img class="brand-mark" src="/logo-1.png" alt=""> <span>XYBIO.INFO</span> </a> </div> <div class="nav-links"> <a href="/"> 首页 </a><a href="/notes/"> 笔记 </a><a href="/research/"> 科研 </a><a href="/practice/"> 实践 </a><a href="/opensource/"> 开源 </a><a href="/about/"> 关于 </a> </div> </nav> </header> <main id="content" data-astro-transition-scope="astro-vepkwmqc-1">  <article> <header class="page-head"> <div class="shell"> <p class="eyebrow">Note</p> <div class="article-meta-row note-card-head"> <a class="kind-badge" href="/notes/?topic=%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0">科研笔记</a> <span class="status-badge">2026 / 02 / 06</span> </div> <h1>从 10 分钟到 1 分钟：一次 fasterq-dump 转换测试</h1> <p class="lead">整理一次约 9 GB SRA 文件的转换记录，并把线程、临时空间、I/O 和输出校验归纳成可复用的下载检查清单。</p> <div class="tag-row"> <a class="tag" href="/notes/?tag=fasterq-dump">fasterq-dump</a><a class="tag" href="/notes/?tag=SRA">SRA</a><a class="tag" href="/notes/?tag=%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF">生物信息</a><a class="tag" href="/notes/?tag=%E6%95%B0%E6%8D%AE%E5%B7%A5%E7%A8%8B">数据工程</a><a class="tag" href="/notes/?tag=%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95">性能测试</a> </div> </div> </header> </article> <div class="article-shell with-sidebar"> <aside class="article-sidebar"> <div class="toc-panel article-side-title" aria-label="当前文章标题"> <a href="#content">从 10 分钟到 1 分钟：一次 fasterq-dump 转换测试</a> </div> <div class="toc-panel" aria-label="文章目录"> <strong>目录</strong> <nav> <a class="toc-depth-2" href="#为什么转换速度不能只看线程数"> 为什么转换速度不能只看线程数 </a><a class="toc-depth-2" href="#源笔记中的一次测试"> 源笔记中的一次测试 </a><a class="toc-depth-2" href="#运行前先估算磁盘空间"> 运行前先估算磁盘空间 </a><a class="toc-depth-2" href="#线程数不是越多越好"> 线程数不是越多越好 </a><a class="toc-depth-2" href="#转换完成不等于任务完成"> 转换完成不等于任务完成 </a><a class="toc-depth-2" href="#这次记录真正留下的经验"> 这次记录真正留下的经验 </a> </nav> </div> <div class="toc-panel related-panel" aria-label="建议阅读"> <strong>建议阅读</strong> <div class="related-list"> <a class="related-item" href="/notes/pubmed-xml-data-pipeline/"> <span class="related-kind"><span>笔</span><span>记</span></span> <span class="related-title">把 PubMed XML 做成可更新的数据管道</span> </a><a class="related-item" href="/notes/llm-prompt-playbook-for-bioinfo/"> <span class="related-kind"><span>笔</span><span>记</span></span> <span class="related-title">生信任务的 Prompt Playbook</span> </a><a class="related-item" href="/notes/small-sample-auc-one-retrospective/"> <span class="related-kind"><span>笔</span><span>记</span></span> <span class="related-title">当 6 个样本跑出 AUC=1：一次小样本建模复盘</span> </a> </div> </div> </aside> <div class="article-main"> <div class="prose"> <p>这篇文章整理自 2026 年 2 月归档的一份 <code>fasterq-dump</code> 使用记录，以一次约 9 GB SRA 文件的单机测试为起点，重点复盘线程、临时空间、I/O 与输出校验之间的关系。</p>
+<h2 id="为什么转换速度不能只看线程数">为什么转换速度不能只看线程数</h2>
+<p>从 SRA 转换为 FASTQ，不只是 CPU 计算。任务还要持续读取源文件、写入 FASTQ，并使用临时空间完成中间处理。线程增加后，瓶颈可能从计算转移到磁盘吞吐。</p>
+<p>因此，评估转换任务时至少要同时观察：</p>
+<ul>
+<li>实际经过时间，也就是终端中 <code>real</code> 或 <code>total</code> 所反映的等待时间；</li>
+<li>CPU 使用情况；</li>
+<li>输出目录与临时目录的可用空间；</li>
+<li>输出目录和临时目录是否位于同一个文件系统；</li>
+<li>最终 FASTQ 的完整性与命名方式。</li>
+</ul>
+<h2 id="源笔记中的一次测试">源笔记中的一次测试</h2>
+<p>当时使用同一个约 9 GB 的 SRA 文件比较了两个命令：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#F97583">time</span><span style="color:#E1E4E8"> fastq-dump --split-3 -O test SRR5318040.sra</span></span>
+<span class="line"><span style="color:#F97583">time</span><span style="color:#E1E4E8"> fasterq-dump --split-3 SRR5318040.sra -e 20 -o SRR5318040</span></span></code></pre>
+<p>记录到的实际经过时间分别约为：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>工具</th><th align="right">实际经过时间</th></tr></thead><tbody><tr><td><code>fastq-dump</code></td><td align="right">9 分 52 秒</td></tr><tr><td><code>fasterq-dump</code></td><td align="right">1 分 02 秒</td></tr></tbody></table>
+<p>在这一次测试中，实际等待时间缩短到原来的约十分之一。与此同时，<code>fasterq-dump</code> 使用了更多 CPU 和系统调用时间。这说明加速主要来自并行处理与更积极的 I/O，而不是任务所需总计算量凭空消失。</p>
+<p>这个数字只能描述当时的文件和机器。换一个 accession、存储介质或线程设置，结果可能完全不同。</p>
+<h2 id="运行前先估算磁盘空间">运行前先估算磁盘空间</h2>
+<p>转换后 FASTQ 通常比压缩的 SRA 文件大，而且任务还需要临时空间。比起直接运行，我更倾向于先检查：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">vdb-dump</span><span style="color:#79B8FF"> --info</span><span style="color:#9ECBFF"> SRR_ACCESSION</span></span>
+<span class="line"><span style="color:#B392F0">df</span><span style="color:#79B8FF"> -h</span><span style="color:#9ECBFF"> .</span></span>
+<span class="line"><span style="color:#B392F0">df</span><span style="color:#79B8FF"> -h</span><span style="color:#9ECBFF"> /path/to/scratch</span></span></code></pre>
+<p>如果输出目录空间不足，任务可能在运行很久后才失败。临时目录可以通过 <code>-t</code> 指定：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">fasterq-dump</span><span style="color:#9ECBFF"> SRR_ACCESSION</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  --split-files</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -e</span><span style="color:#79B8FF"> 8</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -O</span><span style="color:#9ECBFF"> /path/to/output</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -t</span><span style="color:#9ECBFF"> /path/to/scratch</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -p</span></span></code></pre>
+<p>当条件允许时，可以让输出与临时目录位于不同的高速文件系统，降低读写竞争。但是否更快仍应通过实际测试判断。</p>
+<h2 id="线程数不是越多越好">线程数不是越多越好</h2>
+<p><code>-e</code> 控制线程数。线程增加后，如果磁盘已经达到吞吐上限，继续加线程只会提高资源占用，不一定缩短实际时间。</p>
+<p>我的做法是选一个规模适中的 accession，分别测试几个线程档位：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> threads </span><span style="color:#F97583">in</span><span style="color:#9ECBFF"> 4</span><span style="color:#9ECBFF"> 8</span><span style="color:#9ECBFF"> 12</span><span style="color:#E1E4E8">; </span><span style="color:#F97583">do</span></span>
+<span class="line"><span style="color:#F97583">  time</span><span style="color:#E1E4E8"> fasterq-dump SRR_ACCESSION </span><span style="color:#79B8FF">\</span></span>
+<span class="line"><span style="color:#B392F0">    --split-files</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">    -e</span><span style="color:#9ECBFF"> "${</span><span style="color:#E1E4E8">threads</span><span style="color:#9ECBFF">}"</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">    -O</span><span style="color:#9ECBFF"> "test_${</span><span style="color:#E1E4E8">threads</span><span style="color:#9ECBFF">}"</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">    -t</span><span style="color:#9ECBFF"> /path/to/scratch</span></span>
+<span class="line"><span style="color:#F97583">done</span></span></code></pre>
+<p>测试时需要保持输入文件、输出介质和其他负载尽可能一致，否则比较没有意义。</p>
+<h2 id="转换完成不等于任务完成">转换完成不等于任务完成</h2>
+<p>转换结束后还应检查：</p>
+<ol>
+<li>预期的单端或双端文件是否都已生成；</li>
+<li>文件是否为空、大小是否异常；</li>
+<li>FASTQ 行数是否能被 4 整除；</li>
+<li>压缩前后文件是否完整；</li>
+<li>日志中是否出现缺失 spot、磁盘不足或读取错误；</li>
+<li>accession、样本名和输出文件名之间是否保留了映射。</li>
+</ol>
+<p>例如，可以做一个最基础的结构检查：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#E1E4E8">lines</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">$(</span><span style="color:#B392F0">wc</span><span style="color:#79B8FF"> -l</span><span style="color:#F97583"> &#x3C;</span><span style="color:#9ECBFF"> SRR_ACCESSION_1.fastq</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#79B8FF">test</span><span style="color:#E1E4E8"> $((</span><span style="color:#B392F0">lines</span><span style="color:#9ECBFF"> %</span><span style="color:#79B8FF"> 4</span><span style="color:#E1E4E8">)) </span><span style="color:#79B8FF">-eq</span><span style="color:#79B8FF"> 0</span></span></code></pre>
+<p>更严格的流程还应保留软件版本、运行命令、开始和结束时间，以及输出文件校验值。</p>
+<h2 id="这次记录真正留下的经验">这次记录真正留下的经验</h2>
+<p>这次测试值得保留的不是“<code>fasterq-dump</code> 一定快 9 倍”，而是一个更稳妥的判断顺序：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>先估算数据规模</span></span>
+<span class="line"><span>→ 检查输出与临时空间</span></span>
+<span class="line"><span>→ 用小任务测试线程与 I/O</span></span>
+<span class="line"><span>→ 批量转换</span></span>
+<span class="line"><span>→ 校验输出</span></span>
+<span class="line"><span>→ 保存日志和版本</span></span></code></pre>
+<p>对于大规模公开数据下载，速度只是其中一个指标。能否在中断后恢复、能否解释失败原因、能否确认文件完整，往往比跑出一次最快时间更重要。</p>
+<p>不同机器、存储介质和软件版本会改变基准结果。复测时应同步记录硬件、版本、命令、输入规模与原始日志，便于解释性能差异。</p> </div> <section class="comment-section"> <div class="profile-panel comment-panel"> <h2>讨论</h2> <p>评论使用 GitHub Discussions。首次加载需要访问 GitHub。</p> <script src="https://giscus.app/client.js" data-repo="xybio/xybio.github.io" data-repo-id="R_kgDOPWUzsg" data-category="General" data-category-id="DIC_kwDOPWUzss4CtqQR" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="transparent_dark" data-lang="zh-CN" crossorigin="anonymous" async></script> <script>
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('commentPreview') === '1') {
+              document.querySelector('.giscus')?.remove();
+              document.querySelector('script[src="https://giscus.app/client.js"]')?.remove();
+              document.querySelector('.comment-preview')?.removeAttribute('hidden');
+            }
+          </script> </div> </section> </div> </div>  </main> <footer class="site-footer"> <div class="shell footer-inner"> <span>© 2026 XYBio</span> <span>科研不止一面 / More Sildes of Science.</span> </div> </footer> <script type="module">document.addEventListener("click",e=>{const t=e.target;if(!(t instanceof Element)||t.closest("a, button, input, label, select, textarea"))return;const n=t.closest("[data-card-link]");if(!(n instanceof HTMLElement))return;const r=n.dataset.cardLink;r&&(window.location.href=r)});document.addEventListener("keydown",e=>{if(e.key!=="Enter"&&e.key!==" ")return;const t=document.activeElement;if(!(t instanceof HTMLElement)||!t.matches("[data-card-link]"))return;e.preventDefault();const n=t.dataset.cardLink;n&&(window.location.href=n)});document.addEventListener("keydown",e=>{e.target instanceof HTMLInputElement||e.target instanceof HTMLTextAreaElement||(e.key==="n"||e.key==="N")&&(window.location.href="/notes/")});const a=e=>{const t=document.querySelector("[data-filter-drawer]"),n=document.querySelector("[data-filter-toggle]"),r=document.querySelector(".notes-filter-backdrop");t instanceof HTMLElement&&(t.setAttribute("data-open",e?"true":"false"),r?.setAttribute("data-open",e?"true":"false"),n?.setAttribute("aria-expanded",e?"true":"false"))};document.addEventListener("click",e=>{const t=e.target;if(t instanceof Element){if(t.closest("[data-filter-toggle]")){const r=document.querySelector("[data-filter-drawer]")?.getAttribute("data-open")==="true";a(!r);return}t.closest("[data-filter-close]")&&a(!1)}});document.addEventListener("keydown",e=>{e.key==="Escape"&&a(!1)});document.addEventListener("astro:after-swap",()=>a(!1));</script> <script type="module">document.addEventListener("astro:after-swap",()=>{const t=window.location.pathname;document.querySelectorAll(".nav-links a").forEach(e=>{e.getAttribute("href")===t?e.setAttribute("aria-current","page"):e.removeAttribute("aria-current")})});</script> <script>
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+      document.addEventListener('astro:after-swap', () => {
+        document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+      });
+    </script> </body> </html>

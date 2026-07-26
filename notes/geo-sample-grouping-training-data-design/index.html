@@ -1,0 +1,158 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="从 GSE/GSM 元数据出发，把自动分组问题拆成变量抽取、候选配对、约束校验和研究级验证，而不是让模型直接猜实验组与对照组。"><title>让模型理解 GEO 实验设计：样本分组训练数据怎么构建 | XYBio.info</title><link rel="preconnect" href="https://fontsapi.zeoseven.com" crossorigin><script>
+      (() => {
+        const key = 'xybio-fonts-ready';
+        if (!sessionStorage.getItem(key)) {
+          document.documentElement.classList.add('fonts-loading');
+        }
+
+        document.fonts?.ready.then(() => {
+          sessionStorage.setItem(key, '1');
+          document.documentElement.classList.remove('fonts-loading');
+        });
+      })();
+    </script><link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png"><link rel="shortcut icon" type="image/png" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png"><link rel="canonical" href="https://xybio.info/notes/geo-sample-grouping-training-data-design/"><meta property="og:title" content="让模型理解 GEO 实验设计：样本分组训练数据怎么构建 | XYBio.info"><meta property="og:description" content="从 GSE/GSM 元数据出发，把自动分组问题拆成变量抽取、候选配对、约束校验和研究级验证，而不是让模型直接猜实验组与对照组。"><meta property="og:type" content="website"><meta property="og:url" content="https://xybio.info/notes/geo-sample-grouping-training-data-design/"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.j56hQv-j.js"></script><link rel="stylesheet" href="/_astro/BaseLayout.6lvk2UeW.css"><style>[data-astro-transition-scope="astro-vepkwmqc-1"] { view-transition-name: page-content; }@layer astro { ::view-transition-old(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-vepkwmqc-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-vepkwmqc-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-vepkwmqc-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-vepkwmqc-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-vepkwmqc-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-vepkwmqc-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-vepkwmqc-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-vepkwmqc-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head> <body> <a class="skip-link" href="#content">跳到正文</a> <header class="site-header"> <nav class="shell nav" aria-label="主导航"> <div class="nav-main"> <a class="brand" href="/" aria-label="XYBIO.INFO 首页"> <img class="brand-mark" src="/logo-1.png" alt=""> <span>XYBIO.INFO</span> </a> </div> <div class="nav-links"> <a href="/"> 首页 </a><a href="/notes/"> 笔记 </a><a href="/research/"> 科研 </a><a href="/practice/"> 实践 </a><a href="/opensource/"> 开源 </a><a href="/about/"> 关于 </a> </div> </nav> </header> <main id="content" data-astro-transition-scope="astro-vepkwmqc-1">  <article> <header class="page-head"> <div class="shell"> <p class="eyebrow">Note</p> <div class="article-meta-row note-card-head"> <a class="kind-badge" href="/notes/?topic=%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0">科研笔记</a> <span class="status-badge">2025 / 02 / 13</span> </div> <h1>让模型理解 GEO 实验设计：样本分组训练数据怎么构建</h1> <p class="lead">从 GSE/GSM 元数据出发，把自动分组问题拆成变量抽取、候选配对、约束校验和研究级验证，而不是让模型直接猜实验组与对照组。</p> <div class="tag-row"> <a class="tag" href="/notes/?tag=AI4SCI">AI4SCI</a><a class="tag" href="/notes/?tag=GEO">GEO</a><a class="tag" href="/notes/?tag=LLM">LLM</a><a class="tag" href="/notes/?tag=%E6%95%B0%E6%8D%AE%E8%B4%A8%E9%87%8F">数据质量</a><a class="tag" href="/notes/?tag=%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE">训练数据</a><a class="tag" href="/notes/?tag=%E6%A0%B7%E6%9C%AC%E5%88%86%E7%BB%84">样本分组</a> </div> </div> </header> </article> <div class="article-shell with-sidebar"> <aside class="article-sidebar"> <div class="toc-panel article-side-title" aria-label="当前文章标题"> <a href="#content">让模型理解 GEO 实验设计：样本分组训练数据怎么构建</a> </div> <div class="toc-panel" aria-label="文章目录"> <strong>目录</strong> <nav> <a class="toc-depth-2" href="#先定义模型到底要输出什么"> 先定义模型到底要输出什么 </a><a class="toc-depth-2" href="#输入层保留原始信息也保留规范化结果"> 输入层：保留原始信息，也保留规范化结果 </a><a class="toc-depth-2" href="#分组理由应该保留但不要写成长篇作文"> 分组理由应该保留，但不要写成长篇作文 </a><a class="toc-depth-2" href="#数据划分必须以-gse-为单位"> 数据划分必须以 GSE 为单位 </a><a class="toc-depth-2" href="#比直接端到端生成更稳妥的流程"> 比直接端到端生成更稳妥的流程 </a><a class="toc-depth-2" href="#需要专门收集的失败样本"> 需要专门收集的失败样本 </a><a class="toc-depth-2" href="#评估不应只看样本分类准确率"> 评估不应只看样本分类准确率 </a><a class="toc-depth-2" href="#当前状态"> 当前状态 </a> </nav> </div> <div class="toc-panel related-panel" aria-label="建议阅读"> <strong>建议阅读</strong> <div class="related-list"> <a class="related-item" href="/notes/multi-agent-life-science-workflow-design/"> <span class="related-kind"><span>笔</span><span>记</span></span> <span class="related-title">从通用代码 Agent 到生命科学工作流：一次多 Agent 架构草案</span> </a><a class="related-item" href="/notes/ai-literature-reading-workflow/"> <span class="related-kind"><span>笔</span><span>记</span></span> <span class="related-title">AI 辅助文献阅读工作流</span> </a><a class="related-item" href="/notes/siyuan-api-skill-design/"> <span class="related-kind"><span>笔</span><span>记</span></span> <span class="related-title">如何设计一个安全的 SiYuan API Agent Skill</span> </a> </div> </div> </aside> <div class="article-main"> <div class="prose"> <p>2025 年 2 月，我开始记录一个生物信息自动化问题：能否根据 GEO 的 GSE 与 GSM 题录信息，自动识别合理的实验组和对照组？</p>
+<p>表面上看，这是一个文本分类任务。真正困难的地方却是实验设计：两个比较组之间应尽量只保留一个主要变量，同时控制组织、细胞类型、处理时间、剂量、批次和技术平台等混杂因素。</p>
+<h2 id="先定义模型到底要输出什么">先定义模型到底要输出什么</h2>
+<p>如果标签只有“实验组”和“对照组”，模型很容易记住疾病名称或常见处理词，却没有真正学会比较关系。</p>
+<p>更合适的训练单元应当是一组可检查的比较：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "gse"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"GSEXXXX"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "comparison_id"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"C01"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "factor"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"treatment"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "control_level"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"vehicle"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "case_level"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"drug"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "control_gsms"</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"GSM001"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"GSM002"</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#79B8FF">  "case_gsms"</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"GSM003"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"GSM004"</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#79B8FF">  "matched_fields"</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"organism"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"tissue"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"cell_type"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"time"</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#79B8FF">  "confounded_fields"</span><span style="color:#E1E4E8">: [],</span></span>
+<span class="line"><span style="color:#79B8FF">  "evidence_fields"</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"characteristics_ch1"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"treatment_protocol"</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#79B8FF">  "review_status"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"human_verified"</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>这里最重要的不是字段名称，而是把“为什么可以比较”转换成结构化证据。</p>
+<h2 id="输入层保留原始信息也保留规范化结果">输入层：保留原始信息，也保留规范化结果</h2>
+<p>GEO 的样本描述经常是不一致的自然语言。同一种处理可能写成缩写、商品名、剂量或实验步骤。如果直接把所有文本拼接给模型，后续很难判断错误来自哪里。</p>
+<p>我更倾向于保留两层输入：</p>
+<ol>
+<li><strong>原始层</strong>：Series 标题、总体设计、Sample 特征、来源、处理说明和平台信息。</li>
+<li><strong>规范化层</strong>：物种、组织、细胞类型、疾病、药物、剂量、时间、基因型、批次和重复类型。</li>
+</ol>
+<p>规范化字段必须能够回指原文。模型抽取了“24 h”，就应同时记录它来自哪个字段、对应哪段文本。</p>
+<h2 id="分组理由应该保留但不要写成长篇作文">分组理由应该保留，但不要写成长篇作文</h2>
+<p>最初的问题之一是：最终只需要分组结果，还有必要生成理由吗？</p>
+<p>我的结论是理由仍然有价值，但不应把一段自由文本当作唯一监督信号。更可靠的做法是拆成：</p>
+<ul>
+<li>本次比较改变了哪个变量；</li>
+<li>哪些关键变量保持一致；</li>
+<li>哪些字段支持这一判断；</li>
+<li>是否仍存在无法消除的混杂；</li>
+<li>模型对该比较的置信度；</li>
+<li>人工是否复核。</li>
+</ul>
+<p>这样既保留可解释性，也能让校验程序直接检查逻辑。</p>
+<h2 id="数据划分必须以-gse-为单位">数据划分必须以 GSE 为单位</h2>
+<p>如果把同一个 GSE 中的 GSM 随机分到训练集和测试集，模型可能通过共享标题、平台描述或实验文本识别数据集，而不是学会实验设计。</p>
+<p>因此，训练、验证和测试应尽量按研究划分：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>一个 GSE 的全部样本</span></span>
+<span class="line"><span>→ 只能进入训练、验证或测试中的一个集合</span></span></code></pre>
+<p>如果同一论文包含多个高度相关的 GSE，还需要考虑按论文、课题或研究系列进一步分组，避免近重复信息泄漏。</p>
+<h2 id="比直接端到端生成更稳妥的流程">比直接端到端生成更稳妥的流程</h2>
+<p>我会把系统拆成四步：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>元数据规范化</span></span>
+<span class="line"><span>→ 候选比较生成</span></span>
+<span class="line"><span>→ 约束校验</span></span>
+<span class="line"><span>→ 人工复核</span></span></code></pre>
+<p>候选生成可以使用规则、语言模型或两者组合；约束校验则应尽量确定化，例如：</p>
+<ul>
+<li>两组物种是否一致；</li>
+<li>组织和细胞类型是否一致；</li>
+<li>时间是否既是比较因素又被错误地当作匹配因素；</li>
+<li>技术重复是否被当成独立生物重复；</li>
+<li>每组样本量是否达到预设下限；</li>
+<li>是否存在多个变量同时变化。</li>
+</ul>
+<p>模型负责理解不规则文本，规则负责守住明确边界。</p>
+<h2 id="需要专门收集的失败样本">需要专门收集的失败样本</h2>
+<p>高质量训练集不能只有“明显正确”的比较，还要包含容易误判的负例：</p>
+<ul>
+<li>药物和时间同时变化；</li>
+<li>对照来自不同批次或不同细胞系；</li>
+<li>disease 与 normal 的组织来源不一致；</li>
+<li>技术重复被误当作生物重复；</li>
+<li>同一 GSM 被错误放入比较两侧；</li>
+<li>样本描述缺失，只能做低置信度判断；</li>
+<li>只有一个样本，却被强行组成比较。</li>
+</ul>
+<p>这些失败样本可以用来训练候选排序或校验器，也能更真实地评估系统。</p>
+<h2 id="评估不应只看样本分类准确率">评估不应只看样本分类准确率</h2>
+<p>这个任务的核心对象是“比较关系”，因此至少需要报告：</p>
+<ul>
+<li>GSM 集合是否与人工标注一致；</li>
+<li>比较变量是否识别正确；</li>
+<li>是否引入额外混杂；</li>
+<li>完整比较的精确率与召回率；</li>
+<li>不确定样本能否正确拒答；</li>
+<li>不同疾病、平台和实验类型之间的泛化差异。</li>
+</ul>
+<p>最终还需要领域人员检查一批完整比较。自动指标再高，也不能替代对实验设计合理性的复核。</p>
+<h2 id="当前状态">当前状态</h2>
+<p>当前成果是一套训练数据与验证方案，重点是变量抽取、候选配对、约束校验与研究级验证。</p>
+<p>下一步最有价值的工作不是立即选择更复杂的模型，而是先建立一批边界清晰、能追溯原始元数据、包含困难负例的人工核验数据。</p> </div> <section class="comment-section"> <div class="profile-panel comment-panel"> <h2>讨论</h2> <p>评论使用 GitHub Discussions。首次加载需要访问 GitHub。</p> <script src="https://giscus.app/client.js" data-repo="xybio/xybio.github.io" data-repo-id="R_kgDOPWUzsg" data-category="General" data-category-id="DIC_kwDOPWUzss4CtqQR" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="transparent_dark" data-lang="zh-CN" crossorigin="anonymous" async></script> <script>
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('commentPreview') === '1') {
+              document.querySelector('.giscus')?.remove();
+              document.querySelector('script[src="https://giscus.app/client.js"]')?.remove();
+              document.querySelector('.comment-preview')?.removeAttribute('hidden');
+            }
+          </script> </div> </section> </div> </div>  </main> <footer class="site-footer"> <div class="shell footer-inner"> <span>© 2026 XYBio</span> <span>科研不止一面 / More Sildes of Science.</span> </div> </footer> <script type="module">document.addEventListener("click",e=>{const t=e.target;if(!(t instanceof Element)||t.closest("a, button, input, label, select, textarea"))return;const n=t.closest("[data-card-link]");if(!(n instanceof HTMLElement))return;const r=n.dataset.cardLink;r&&(window.location.href=r)});document.addEventListener("keydown",e=>{if(e.key!=="Enter"&&e.key!==" ")return;const t=document.activeElement;if(!(t instanceof HTMLElement)||!t.matches("[data-card-link]"))return;e.preventDefault();const n=t.dataset.cardLink;n&&(window.location.href=n)});document.addEventListener("keydown",e=>{e.target instanceof HTMLInputElement||e.target instanceof HTMLTextAreaElement||(e.key==="n"||e.key==="N")&&(window.location.href="/notes/")});const a=e=>{const t=document.querySelector("[data-filter-drawer]"),n=document.querySelector("[data-filter-toggle]"),r=document.querySelector(".notes-filter-backdrop");t instanceof HTMLElement&&(t.setAttribute("data-open",e?"true":"false"),r?.setAttribute("data-open",e?"true":"false"),n?.setAttribute("aria-expanded",e?"true":"false"))};document.addEventListener("click",e=>{const t=e.target;if(t instanceof Element){if(t.closest("[data-filter-toggle]")){const r=document.querySelector("[data-filter-drawer]")?.getAttribute("data-open")==="true";a(!r);return}t.closest("[data-filter-close]")&&a(!1)}});document.addEventListener("keydown",e=>{e.key==="Escape"&&a(!1)});document.addEventListener("astro:after-swap",()=>a(!1));</script> <script type="module">document.addEventListener("astro:after-swap",()=>{const t=window.location.pathname;document.querySelectorAll(".nav-links a").forEach(e=>{e.getAttribute("href")===t?e.setAttribute("aria-current","page"):e.removeAttribute("aria-current")})});</script> <script>
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+      document.addEventListener('astro:after-swap', () => {
+        document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+      });
+    </script> </body> </html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="从 2024 年挑选 Hugo、MkDocs 和导航站方案，到后来用 Astro 重建内容系统：网站建设真正困难的是内容结构，而不是主题选择。"><title>从 Hugo 到 Astro：我的科研个人网站迭代史 | XYBio.info</title><link rel="preconnect" href="https://fontsapi.zeoseven.com" crossorigin><script>
+      (() => {
+        const key = 'xybio-fonts-ready';
+        if (!sessionStorage.getItem(key)) {
+          document.documentElement.classList.add('fonts-loading');
+        }
+
+        document.fonts?.ready.then(() => {
+          sessionStorage.setItem(key, '1');
+          document.documentElement.classList.remove('fonts-loading');
+        });
+      })();
+    </script><link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png"><link rel="shortcut icon" type="image/png" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png"><link rel="canonical" href="https://xybio.info/notes/hugo-to-astro-site-evolution/"><meta property="og:title" content="从 Hugo 到 Astro：我的科研个人网站迭代史 | XYBio.info"><meta property="og:description" content="从 2024 年挑选 Hugo、MkDocs 和导航站方案，到后来用 Astro 重建内容系统：网站建设真正困难的是内容结构，而不是主题选择。"><meta property="og:type" content="website"><meta property="og:url" content="https://xybio.info/notes/hugo-to-astro-site-evolution/"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.j56hQv-j.js"></script><link rel="stylesheet" href="/_astro/BaseLayout.6lvk2UeW.css"><style>[data-astro-transition-scope="astro-vepkwmqc-1"] { view-transition-name: page-content; }@layer astro { ::view-transition-old(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-vepkwmqc-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-vepkwmqc-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-vepkwmqc-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-vepkwmqc-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-vepkwmqc-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-vepkwmqc-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-vepkwmqc-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-vepkwmqc-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head> <body> <a class="skip-link" href="#content">跳到正文</a> <header class="site-header"> <nav class="shell nav" aria-label="主导航"> <div class="nav-main"> <a class="brand" href="/" aria-label="XYBIO.INFO 首页"> <img class="brand-mark" src="/logo-1.png" alt=""> <span>XYBIO.INFO</span> </a> </div> <div class="nav-links"> <a href="/"> 首页 </a><a href="/notes/"> 笔记 </a><a href="/research/"> 科研 </a><a href="/practice/"> 实践 </a><a href="/opensource/"> 开源 </a><a href="/about/"> 关于 </a> </div> </nav> </header> <main id="content" data-astro-transition-scope="astro-vepkwmqc-1">  <article> <header class="page-head"> <div class="shell"> <p class="eyebrow">Note</p> <div class="article-meta-row note-card-head"> <a class="kind-badge" href="/notes/?topic=%E7%AB%99%E7%82%B9%E5%BB%BA%E8%AE%BE">站点建设</a> <span class="status-badge">2024 / 10 / 25</span> </div> <h1>从 Hugo 到 Astro：我的科研个人网站迭代史</h1> <p class="lead">从 2024 年挑选 Hugo、MkDocs 和导航站方案，到后来用 Astro 重建内容系统：网站建设真正困难的是内容结构，而不是主题选择。</p> <div class="tag-row"> <a class="tag" href="/notes/?tag=Astro">Astro</a><a class="tag" href="/notes/?tag=Hugo">Hugo</a><a class="tag" href="/notes/?tag=%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2">个人博客</a><a class="tag" href="/notes/?tag=%E5%86%85%E5%AE%B9%E7%AE%A1%E7%90%86">内容管理</a> </div> </div> </header> </article> <div class="article-shell with-sidebar"> <aside class="article-sidebar"> <div class="toc-panel article-side-title" aria-label="当前文章标题"> <a href="#content">从 Hugo 到 Astro：我的科研个人网站迭代史</a> </div> <div class="toc-panel" aria-label="文章目录"> <strong>目录</strong> <nav> <a class="toc-depth-2" href="#2024先从工具和主题开始"> 2024：先从工具和主题开始 </a><a class="toc-depth-2" href="#从工具清单转向内容主线"> 从工具清单转向内容主线 </a><a class="toc-depth-2" href="#为什么后来选择-astro"> 为什么后来选择 Astro </a><a class="toc-depth-2" href="#我现在使用的迁移标准"> 我现在使用的迁移标准 </a><a class="toc-depth-2" href="#从旧笔记得到的三个教训"> 从旧笔记得到的三个教训 </a><a class="toc-depth-3" href="#1-先设计内容再选择工具"> 1. 先设计内容，再选择工具 </a><a class="toc-depth-3" href="#2-历史记录不等于过时教程"> 2. 历史记录不等于过时教程 </a><a class="toc-depth-3" href="#3-个人网站应该呈现思考过程"> 3. 个人网站应该呈现思考过程 </a> </nav> </div> <div class="toc-panel related-panel" aria-label="建议阅读"> <strong>建议阅读</strong> <div class="related-list"> <a class="related-item" href="/notes/ai-for-medicine-platform/"> <span class="related-kind"><span>笔</span><span>记</span></span> <span class="related-title">个人博客建设路线图</span> </a><a class="related-item" href="/notes/ai-literature-reading-workflow/"> <span class="related-kind"><span>笔</span><span>记</span></span> <span class="related-title">AI 辅助文献阅读工作流</span> </a><a class="related-item" href="/notes/siyuan-api-skill-design/"> <span class="related-kind"><span>笔</span><span>记</span></span> <span class="related-title">如何设计一个安全的 SiYuan API Agent Skill</span> </a> </div> </div> </aside> <div class="article-main"> <div class="prose"> <p>2024 年 10 月，我在思源笔记里建立了一个名为“网站管理”的项目。当时记录的主要内容是 Hugo 安装、WebStack 导航主题、Material for MkDocs，以及一批生物信息学在线平台。</p>
+<p>那份笔记反映了我最初对个人网站的理解：先找到合适的框架和主题，再把资料搬进去。两年后回看，我对顺序的认识正好反了过来。</p>
+<h2 id="2024先从工具和主题开始">2024：先从工具和主题开始</h2>
+<p>当时我比较过三类方案：</p>
+<ul>
+<li>Hugo：适合静态博客，生成速度快，主题生态成熟。</li>
+<li>MkDocs：适合结构明确的技术文档和知识手册。</li>
+<li>WebStack：适合把常用数据库、云平台和分析工具整理成导航页。</li>
+</ul>
+<p>这些工具分别解决了“写文章”“写文档”和“管理链接”的问题，却没有回答一个更基础的问题：这个网站究竟要长期记录什么。</p>
+<p>如果没有稳定的内容模型，更换主题只是在重新摆放同一批零散材料。</p>
+<h2 id="从工具清单转向内容主线">从工具清单转向内容主线</h2>
+<p>后来我逐渐把个人内容拆成几条不同的证据链：</p>
+<ol>
+<li><strong>笔记</strong>：记录方法、判断过程、失败经验和阶段复盘。</li>
+<li><strong>科研</strong>：展示课题、论文、软件著作和实际承担的角色。</li>
+<li><strong>实践</strong>：记录竞赛、协作和真实场景中的落地过程。</li>
+<li><strong>开源</strong>：展示可以复用、安装或继续维护的代码与工具。</li>
+<li><strong>关于</strong>：把教育、工作和研究方向组织成个人时间线。</li>
+</ol>
+<p>同一个主题可能横跨多个栏目。例如，一个生信分析工具可以同时拥有：</p>
+<ul>
+<li>一篇解释设计过程的笔记；</li>
+<li>一个展示成果的科研项目页；</li>
+<li>一个指向 GitHub 的开源条目。</li>
+</ul>
+<p>栏目之间通过标签和关联阅读连接，而不是把所有材料塞进一篇长文。</p>
+<h2 id="为什么后来选择-astro">为什么后来选择 Astro</h2>
+<p>当前网站使用 Astro 和 Markdown 内容集合。对我来说，关键并不是框架本身“更先进”，而是它与内容组织方式更匹配：</p>
+<ul>
+<li>文章和项目仍然是可迁移的 Markdown 文件。</li>
+<li>不同栏目可以拥有不同字段和页面结构。</li>
+<li>构建结果是静态页面，适合个人网站长期维护。</li>
+<li>页面组件与内容分离，改版不需要重写全部文章。</li>
+</ul>
+<p>这次从思源迁移历史笔记，也因此不采用简单复制。思源中的创建时间保留为文章的 <code>pubDate</code>，重新整理的时间记录为 <code>updatedDate</code>。这样，网站展示的是内容真正发生的时间，而不是文件被搬入仓库的时间。</p>
+<h2 id="我现在使用的迁移标准">我现在使用的迁移标准</h2>
+<p>一份本地笔记只有同时满足以下条件，才适合转成公开文章：</p>
+<ul>
+<li>有清楚的问题，而不只是链接或摘录。</li>
+<li>包含自己的选择、操作、判断或结果。</li>
+<li>去除上下文后，读者仍能理解。</li>
+<li>不包含未公开数据、第三方隐私和访问凭据。</li>
+<li>事实可以核查，过时内容能够明确标注。</li>
+<li>能够说清结论的适用范围和局限性。</li>
+</ul>
+<p>剪藏、临时命令、账户配置和进行中的课题草稿仍然留在本地。公开网站不是本地知识库的镜像，而是经过编辑的个人工作档案。</p>
+<h2 id="从旧笔记得到的三个教训">从旧笔记得到的三个教训</h2>
+<h3 id="1-先设计内容再选择工具">1. 先设计内容，再选择工具</h3>
+<p>网站最难替换的是内容结构，不是框架。只要文章、项目和资源之间的关系清楚，Hugo、Astro 或其他静态工具都只是实现方式。</p>
+<h3 id="2-历史记录不等于过时教程">2. 历史记录不等于过时教程</h3>
+<p>旧笔记可以保留当时的判断，但需要增加今天的修订。例如，安装方式、安全设置和软件版本都会变化。文章应明确区分“当时怎么做”和“现在怎么建议”。</p>
+<h3 id="3-个人网站应该呈现思考过程">3. 个人网站应该呈现思考过程</h3>
+<p>一个结果页能够证明“做过什么”，但复盘文章才能说明“为什么这样做、哪里判断错了、后来如何改进”。后者更接近我希望长期积累的个人价值。</p>
+<p>从 Hugo 到 Astro，真正发生的变化不是技术栈升级，而是我开始把网站当成一套持续编辑的内容系统，而不只是一个好看的博客主题。</p> </div> <section class="comment-section"> <div class="profile-panel comment-panel"> <h2>讨论</h2> <p>评论使用 GitHub Discussions。首次加载需要访问 GitHub。</p> <script src="https://giscus.app/client.js" data-repo="xybio/xybio.github.io" data-repo-id="R_kgDOPWUzsg" data-category="General" data-category-id="DIC_kwDOPWUzss4CtqQR" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="transparent_dark" data-lang="zh-CN" crossorigin="anonymous" async></script> <script>
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('commentPreview') === '1') {
+              document.querySelector('.giscus')?.remove();
+              document.querySelector('script[src="https://giscus.app/client.js"]')?.remove();
+              document.querySelector('.comment-preview')?.removeAttribute('hidden');
+            }
+          </script> </div> </section> </div> </div>  </main> <footer class="site-footer"> <div class="shell footer-inner"> <span>© 2026 XYBio</span> <span>科研不止一面 / More Sildes of Science.</span> </div> </footer> <script type="module">document.addEventListener("click",e=>{const t=e.target;if(!(t instanceof Element)||t.closest("a, button, input, label, select, textarea"))return;const n=t.closest("[data-card-link]");if(!(n instanceof HTMLElement))return;const r=n.dataset.cardLink;r&&(window.location.href=r)});document.addEventListener("keydown",e=>{if(e.key!=="Enter"&&e.key!==" ")return;const t=document.activeElement;if(!(t instanceof HTMLElement)||!t.matches("[data-card-link]"))return;e.preventDefault();const n=t.dataset.cardLink;n&&(window.location.href=n)});document.addEventListener("keydown",e=>{e.target instanceof HTMLInputElement||e.target instanceof HTMLTextAreaElement||(e.key==="n"||e.key==="N")&&(window.location.href="/notes/")});const a=e=>{const t=document.querySelector("[data-filter-drawer]"),n=document.querySelector("[data-filter-toggle]"),r=document.querySelector(".notes-filter-backdrop");t instanceof HTMLElement&&(t.setAttribute("data-open",e?"true":"false"),r?.setAttribute("data-open",e?"true":"false"),n?.setAttribute("aria-expanded",e?"true":"false"))};document.addEventListener("click",e=>{const t=e.target;if(t instanceof Element){if(t.closest("[data-filter-toggle]")){const r=document.querySelector("[data-filter-drawer]")?.getAttribute("data-open")==="true";a(!r);return}t.closest("[data-filter-close]")&&a(!1)}});document.addEventListener("keydown",e=>{e.key==="Escape"&&a(!1)});document.addEventListener("astro:after-swap",()=>a(!1));</script> <script type="module">document.addEventListener("astro:after-swap",()=>{const t=window.location.pathname;document.querySelectorAll(".nav-links a").forEach(e=>{e.getAttribute("href")===t?e.setAttribute("aria-current","page"):e.removeAttribute("aria-current")})});</script> <script>
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+      document.addEventListener('astro:after-swap', () => {
+        document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+      });
+    </script> </body> </html>

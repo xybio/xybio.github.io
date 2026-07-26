@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="回看一次 6 个样本、约 90 个候选特征的弹性网络分析：为什么完美 AUC 更像警报，而不是可以直接汇报的成果。"><title>当 6 个样本跑出 AUC=1：一次小样本建模复盘 | XYBio.info</title><link rel="preconnect" href="https://fontsapi.zeoseven.com" crossorigin><script>
+      (() => {
+        const key = 'xybio-fonts-ready';
+        if (!sessionStorage.getItem(key)) {
+          document.documentElement.classList.add('fonts-loading');
+        }
+
+        document.fonts?.ready.then(() => {
+          sessionStorage.setItem(key, '1');
+          document.documentElement.classList.remove('fonts-loading');
+        });
+      })();
+    </script><link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png"><link rel="shortcut icon" type="image/png" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png"><link rel="canonical" href="https://xybio.info/notes/small-sample-auc-one-retrospective/"><meta property="og:title" content="当 6 个样本跑出 AUC=1：一次小样本建模复盘 | XYBio.info"><meta property="og:description" content="回看一次 6 个样本、约 90 个候选特征的弹性网络分析：为什么完美 AUC 更像警报，而不是可以直接汇报的成果。"><meta property="og:type" content="website"><meta property="og:url" content="https://xybio.info/notes/small-sample-auc-one-retrospective/"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.j56hQv-j.js"></script><link rel="stylesheet" href="/_astro/BaseLayout.6lvk2UeW.css"><style>[data-astro-transition-scope="astro-vepkwmqc-1"] { view-transition-name: page-content; }@layer astro { ::view-transition-old(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-vepkwmqc-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-vepkwmqc-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-vepkwmqc-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-vepkwmqc-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-vepkwmqc-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-vepkwmqc-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-vepkwmqc-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-vepkwmqc-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head> <body> <a class="skip-link" href="#content">跳到正文</a> <header class="site-header"> <nav class="shell nav" aria-label="主导航"> <div class="nav-main"> <a class="brand" href="/" aria-label="XYBIO.INFO 首页"> <img class="brand-mark" src="/logo-1.png" alt=""> <span>XYBIO.INFO</span> </a> </div> <div class="nav-links"> <a href="/"> 首页 </a><a href="/notes/"> 笔记 </a><a href="/research/"> 科研 </a><a href="/practice/"> 实践 </a><a href="/opensource/"> 开源 </a><a href="/about/"> 关于 </a> </div> </nav> </header> <main id="content" data-astro-transition-scope="astro-vepkwmqc-1">  <article> <header class="page-head"> <div class="shell"> <p class="eyebrow">Note</p> <div class="article-meta-row note-card-head"> <a class="kind-badge" href="/notes/?topic=%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0">科研笔记</a> <span class="status-badge">2024 / 07 / 01</span> </div> <h1>当 6 个样本跑出 AUC=1：一次小样本建模复盘</h1> <p class="lead">回看一次 6 个样本、约 90 个候选特征的弹性网络分析：为什么完美 AUC 更像警报，而不是可以直接汇报的成果。</p> <div class="tag-row"> <a class="tag" href="/notes/?tag=%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a><a class="tag" href="/notes/?tag=%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0">模型评估</a><a class="tag" href="/notes/?tag=%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF">生物信息</a><a class="tag" href="/notes/?tag=%E5%B0%8F%E6%A0%B7%E6%9C%AC">小样本</a> </div> </div> </header> </article> <div class="article-shell with-sidebar"> <aside class="article-sidebar"> <div class="toc-panel article-side-title" aria-label="当前文章标题"> <a href="#content">当 6 个样本跑出 AUC=1：一次小样本建模复盘</a> </div> <div class="toc-panel" aria-label="文章目录"> <strong>目录</strong> <nav> <a class="toc-depth-2" href="#auc1-为什么需要先怀疑"> AUC=1 为什么需要先怀疑 </a><a class="toc-depth-2" href="#最容易忽视的是特征选择泄漏"> 最容易忽视的是特征选择泄漏 </a><a class="toc-depth-2" href="#在-6-个样本上交叉验证也不是万能药"> 在 6 个样本上，交叉验证也不是万能药 </a><a class="toc-depth-2" href="#这次分析可以支持什么结论"> 这次分析可以支持什么结论 </a><a class="toc-depth-2" href="#留给以后分析的检查清单"> 留给以后分析的检查清单 </a> </nav> </div> <div class="toc-panel related-panel" aria-label="建议阅读"> <strong>建议阅读</strong> <div class="related-list"> <a class="related-item" href="/notes/fasterq-dump-benchmark-and-io-checklist/"> <span class="related-kind"><span>笔</span><span>记</span></span> <span class="related-title">从 10 分钟到 1 分钟：一次 fasterq-dump 转换测试</span> </a><a class="related-item" href="/notes/llm-prompt-playbook-for-bioinfo/"> <span class="related-kind"><span>笔</span><span>记</span></span> <span class="related-title">生信任务的 Prompt Playbook</span> </a><a class="related-item" href="/notes/ai-literature-reading-workflow/"> <span class="related-kind"><span>笔</span><span>记</span></span> <span class="related-title">AI 辅助文献阅读工作流</span> </a> </div> </div> </aside> <div class="article-main"> <div class="prose"> <p>这篇文章整理自我在 2024 年 7 月留下的一份分析记录。当时的数据只有 6 个样本，却有约 90 个候选基因特征。逻辑回归和弹性网络给出了看起来极其漂亮的结果：AUC 为 1。</p>
+<p>现在回头看，这个结果最值得记录的不是“模型效果完美”，而是它迫使我重新检查整个建模过程。</p>
+<h2 id="auc1-为什么需要先怀疑">AUC=1 为什么需要先怀疑</h2>
+<p>AUC=1 只表示在当前用于评估的样本中，模型把正负样本完全排开。它并不自动证明模型能够推广到新的患者或新的实验批次。</p>
+<p>在只有 6 个样本的场景中，任意一次样本划分都会显著改变训练集。与此同时，候选特征数远大于样本数，模型有足够空间记住当前数据中的偶然差异。即使加入 L1 或 L2 正则化，也无法凭空补足样本所缺少的信息。</p>
+<p>这类结果至少需要检查以下问题：</p>
+<ol>
+<li>样本是否真正独立，还是包含技术重复或来自同一对象的重复测量。</li>
+<li>标准化、缺失值处理和特征筛选是否在拆分训练集与测试集之前完成。</li>
+<li>测试样本的信息是否以任何形式参与了参数选择。</li>
+<li>两类样本是否严重失衡，以至于指标由极少数样本决定。</li>
+<li>更换随机种子或留出某一个样本后，结果是否发生剧烈变化。</li>
+</ol>
+<h2 id="最容易忽视的是特征选择泄漏">最容易忽视的是特征选择泄漏</h2>
+<p>在组学分析中，常见做法是先用全部样本筛出差异基因，再把这些基因送入交叉验证。这个流程看似合理，实际已经让测试样本参与了特征选择。</p>
+<p>正确的验证单元应当包含整个建模流水线：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>外层训练集</span></span>
+<span class="line"><span>  → 仅在训练集内做预处理</span></span>
+<span class="line"><span>  → 仅在训练集内筛选特征</span></span>
+<span class="line"><span>  → 在训练集内选择超参数</span></span>
+<span class="line"><span>  → 用外层测试集做一次最终评估</span></span></code></pre>
+<p>换句话说，特征选择也必须发生在每个训练折内部。关于小样本基因组数据中的模型选择偏差，较早的研究已经指出：测试集不能用于模型选择或特征选择，普通的准确率也不足以稳定比较小样本分类器（<a href="https://doi.org/10.1093/bioinformatics/btl066">Bioinformatics, 2006</a>）。</p>
+<h2 id="在-6-个样本上交叉验证也不是万能药">在 6 个样本上，交叉验证也不是万能药</h2>
+<p>交叉验证能够减少一次随机拆分带来的偶然性，但它不会让 6 个样本自动变成一个可靠的验证队列。</p>
+<p>在这个规模下：</p>
+<ul>
+<li>每个测试折只有一两个样本，指标呈现明显的离散跳变。</li>
+<li>单个异常样本就可能改变全部结论。</li>
+<li>超参数和特征集合可能在不同折之间完全不同。</li>
+<li>很难获得有解释力的置信区间。</li>
+</ul>
+<p>因此，重复交叉验证、嵌套交叉验证、置换检验和 bootstrap 可以帮助描述不确定性，却不能替代外部验证。面向医疗预测模型的综述也将“小样本与大量候选特征的组合”列为过拟合的重要来源，并强调应明确报告防止过拟合的措施（<a href="https://www.nature.com/articles/s41746-021-00549-7">npj Digital Medicine, 2022</a>）。</p>
+<h2 id="这次分析可以支持什么结论">这次分析可以支持什么结论</h2>
+<p>更诚实的说法是：</p>
+<blockquote>
+<p>当前数据证明分析流程能够运行，并产生了值得后续验证的候选信号；它不能证明模型已经具备稳定的预测性能。</p>
+</blockquote>
+<p>如果继续推进，我会把工作拆成三层：</p>
+<ol>
+<li><strong>探索层</strong>：描述当前样本的差异和候选特征，不把训练集表现当作泛化能力。</li>
+<li><strong>稳定性层</strong>：记录不同重采样下入选特征、系数方向和性能指标的变化。</li>
+<li><strong>验证层</strong>：在独立队列、独立实验批次或后续新增样本中检验候选结果。</li>
+</ol>
+<h2 id="留给以后分析的检查清单">留给以后分析的检查清单</h2>
+<ul>
+<li>在拆分数据之后再做所有有监督预处理。</li>
+<li>把特征选择纳入交叉验证流水线。</li>
+<li>同时报告样本数、特征数和类别分布。</li>
+<li>报告性能波动，而不是只保留最好的一次结果。</li>
+<li>区分探索性发现、内部验证和外部验证。</li>
+<li>当数据不足时，宁可降低结论强度，也不使用复杂模型掩盖不确定性。</li>
+</ul>
+<p>这次 AUC=1 最终没有成为一个值得庆祝的数字，却成为了一个很好的方法学提醒：小样本研究中，最重要的结果往往不是模型分数，而是我们能否准确说明这个分数的边界。</p> </div> <section class="comment-section"> <div class="profile-panel comment-panel"> <h2>讨论</h2> <p>评论使用 GitHub Discussions。首次加载需要访问 GitHub。</p> <script src="https://giscus.app/client.js" data-repo="xybio/xybio.github.io" data-repo-id="R_kgDOPWUzsg" data-category="General" data-category-id="DIC_kwDOPWUzss4CtqQR" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="transparent_dark" data-lang="zh-CN" crossorigin="anonymous" async></script> <script>
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('commentPreview') === '1') {
+              document.querySelector('.giscus')?.remove();
+              document.querySelector('script[src="https://giscus.app/client.js"]')?.remove();
+              document.querySelector('.comment-preview')?.removeAttribute('hidden');
+            }
+          </script> </div> </section> </div> </div>  </main> <footer class="site-footer"> <div class="shell footer-inner"> <span>© 2026 XYBio</span> <span>科研不止一面 / More Sildes of Science.</span> </div> </footer> <script type="module">document.addEventListener("click",e=>{const t=e.target;if(!(t instanceof Element)||t.closest("a, button, input, label, select, textarea"))return;const n=t.closest("[data-card-link]");if(!(n instanceof HTMLElement))return;const r=n.dataset.cardLink;r&&(window.location.href=r)});document.addEventListener("keydown",e=>{if(e.key!=="Enter"&&e.key!==" ")return;const t=document.activeElement;if(!(t instanceof HTMLElement)||!t.matches("[data-card-link]"))return;e.preventDefault();const n=t.dataset.cardLink;n&&(window.location.href=n)});document.addEventListener("keydown",e=>{e.target instanceof HTMLInputElement||e.target instanceof HTMLTextAreaElement||(e.key==="n"||e.key==="N")&&(window.location.href="/notes/")});const a=e=>{const t=document.querySelector("[data-filter-drawer]"),n=document.querySelector("[data-filter-toggle]"),r=document.querySelector(".notes-filter-backdrop");t instanceof HTMLElement&&(t.setAttribute("data-open",e?"true":"false"),r?.setAttribute("data-open",e?"true":"false"),n?.setAttribute("aria-expanded",e?"true":"false"))};document.addEventListener("click",e=>{const t=e.target;if(t instanceof Element){if(t.closest("[data-filter-toggle]")){const r=document.querySelector("[data-filter-drawer]")?.getAttribute("data-open")==="true";a(!r);return}t.closest("[data-filter-close]")&&a(!1)}});document.addEventListener("keydown",e=>{e.key==="Escape"&&a(!1)});document.addEventListener("astro:after-swap",()=>a(!1));</script> <script type="module">document.addEventListener("astro:after-swap",()=>{const t=window.location.pathname;document.querySelectorAll(".nav-links a").forEach(e=>{e.getAttribute("href")===t?e.setAttribute("aria-current","page"):e.removeAttribute("aria-current")})});</script> <script>
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+      document.addEventListener('astro:after-swap', () => {
+        document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+      });
+    </script> </body> </html>
